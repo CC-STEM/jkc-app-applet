@@ -1,0 +1,31 @@
+{
+  "name": "share",
+  "version": "1.0.0",
+  "description": "share",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "share"
+  ],
+  "author": "yiwei",
+  "license": "ISC",
+  "dependencies": {
+    "@miniprogram-component-plus/select-text": "^1.0.1",
+    "dayjs": "^1.10.4",
+    "miniprogram-recycle-view": "^0.1.5",
+    "qrcode-generator": "^1.4.4"
+  },
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1"
+  }
+}

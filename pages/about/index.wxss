@@ -1,0 +1,16 @@
+page {
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
+}
+
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin-bottom: var(--base-space);
+}
+
+.content {
+  padding: 36rpx 24rpx;
+  line-height: 36rpx;
+}
+

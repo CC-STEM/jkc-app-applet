@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "empty": "/components/empty",
+    "navigation-bar": "/components/custom-navigation-bar-msg",
+    "calendar": "/components/calendar",
+    "dialog-cancel": "/components/dialog-cancel",
+    "custom-tab-bar": "/custom-tab-bar",
+    "dialog-qrcode": "/components/dialog-qrcode"
+  }
+}

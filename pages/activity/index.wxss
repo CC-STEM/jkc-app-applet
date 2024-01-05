@@ -1,0 +1,41 @@
+page {
+  padding: 20rpx 25rpx calc(50px + env(safe-area-inset-bottom));
+  color: val(--text-color-black);
+}
+
+.list-wrap {
+  font-size: 24rpx;
+}
+.list-wrap .item {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin-bottom: 25rpx;
+  position: relative;
+}
+
+.list-wrap .item .banner {
+  width: 700rpx;
+  height: 345rpx;
+}
+.list-wrap .item .bottom {
+  padding: 23rpx;
+}
+.list-wrap .item .title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 15rpx;
+}
+.list-wrap .item .time {
+  font-size: 24rpx;
+  color: #999999;
+}
+.status {
+  width: 100rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 0;
+  top: 20rpx;
+}

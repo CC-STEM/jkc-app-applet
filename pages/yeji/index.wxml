@@ -1,0 +1,141 @@
+<navigation-bar default-data="{{ defaultData }}"></navigation-bar>
+
+<view class="page-title">
+  <view class="top">
+    <view class="left">
+      <text>本月当前业绩</text>
+       <image
+        class="eye"
+        src="https://image.jkcspace.com/wxmini_static/images/{{ showTotal ? 'yeji-eye' : 'yeji-eye-close' }}.png"
+        bind:tap="onShowTotal"
+        alt=""
+      />
+    </view>
+
+    <picker value="{{ dateIndex }}" range="{{ date }}" bindchange="bindPickerChange">
+      <view class="change-btn">
+        <text>{{ date[dateIndex] }}</text>
+        <image
+          class="arrow"
+          src="https://image.jkcspace.com/wxmini_static/images/arrow.png"
+          alt=""
+        />
+      </view>
+    </picker>
+  </view>
+ 
+  <view class="coin" wx:if="{{ showTotal }}">
+    <view class="strong">{{ salaryTotal.salary }}</view>元
+  </view>
+  <view class="coin" wx:else>
+    <view class="strong">******</view>
+  </view>
+</view>
+
+<view class="total-wrap">
+  <view
+    class="item {{ item.type == type ? 'active' : '' }}"
+    wx:for="{{ typeMap }}"
+    wx:key="index"
+    data-index="{{index}}"
+    bind:tap="onChangeType"
+  >
+    <view class="value">{{ showTotal ? item.value : '***' }}</view>
+    <view class="label">{{ item.name }}</view>
+    <image wx:if="{{ item.type == type }}" class="img" src="https://image.jkcspace.com/wxmini_static/images/yeji-line.png" />
+  </view>
+</view>
+
+<empty wx:if="{{ !dataSource.length }}" />
+
+<view class="list-wrap" wx:else>
+  <view class="item item1" wx:if="{{ type <= 3 }}" wx:for="{{ dataSource }}" wx:key="index">
+    <view class="top">
+      <view class="title">{{ item.member_name }}</view>
+      <view class="text">完成时间：{{ item.created_at }}</view>
+    </view>
+    <view class="line">
+      <view class="title">会员卡单价 </view>
+      <view class="right">
+        <view class="red">{{ item.amount }}元</view>
+        <view wx:if="{{ item.source == 2 }}" class="tips">({{ item.commission }})</view>
+        <view wx:else class="tips">(提成百分比{{ item.commission_rate }}%，提成金额{{ item.commission }}元) </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="item item6" wx:if="{{ type == 4 }}" wx:for="{{ dataSource }}">
+    <view class="top">
+      <view class="title">{{ item.member_name }}</view>
+      <view class="text">付款时间：{{ item.created_at }}</view>
+    </view>
+    <view class="line">
+      <view class="label">实付金额</view>
+      <view class="right">
+        <view class="red">{{ item.amount }}元</view>
+        <view class="tips">(提成百分比{{ item.commission_rate }}%，提成金额{{ item.commission }}元) </view>
+      </view>
+    </view>
+    <view class="line">
+      <view class="label">是否退款</view>
+      <view class="right">
+        <view class="tips">{{ item.status == 1 ? '否' : '已退款' }}</view>
+      </view>
+    </view>
+    <view class="line">
+      <view class="label">订单编号</view>
+      <view class="right right2">
+        <view class="tips">{{ item.order_no }}</view>
+        <view class="copy-btn" bind:tap="onCopy" data-number="{{ item.order_no }}">
+          复制
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="item item5" wx:if="{{ type == 5 }}" wx:for="{{ dataSource }}">
+     <view class="top">
+      <view class="title">
+        {{ item.member_name }}
+      </view>
+      <view class="text">付款时间：{{ item.created_at }}</view>
+    </view>
+    <view class="line">
+      <view class="label">会员卡名称 </view>
+      <view class="tag">{{ item.order_title }}</view>
+    </view>
+    <view class="line">
+      <view class="label">实付金额 </view>
+      <view class="right">
+        <view class="red">{{ item.amount }}元</view>
+        <view class="tips">(提成百分比{{ item.commission_rate }}%，提成金额{{ item.commission }}元) </view>
+      </view>
+    </view>
+     <view class="line">
+      <view class="label">是否退款</view>
+      <view class="right">
+        <view class="tips">{{ item.status == 1 ? '否' : '已退款' }}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="item item6" wx:if="{{ type == 6 }}" wx:for="{{ dataSource }}">
+    <view class="top">
+      <view class="line">
+        <view class="label">奖励金额</view>
+        <view class="right">
+          <view class="red" wx:if="{{ item.commission > 0 }}">{{ item.commission }}元</view>
+          <view class="" wx:else>{{ item.commission }}元</view>
+        </view>
+      </view>
+      <view class="text">奖励时间：{{ item.created_at }}</view>
+    </view>
+    
+    <view class="line">
+      <view class="label">奖励理由</view>
+      <view class="right">
+        <view class="tips">{{ item.notes ? item.notes : '无' }}</view>
+      </view>
+    </view>
+  </view>
+</view>

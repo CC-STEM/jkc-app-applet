@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "tabs": "/components/tabs",
+    "navigation-bar": "/components/custom-navigation-bar-return"
+  }
+}

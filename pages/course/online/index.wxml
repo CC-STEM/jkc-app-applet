@@ -1,0 +1,63 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="opration">
+  <picker-age
+    class="text selected"
+    bind:ok="onOk"
+    bind:cancel="onCancel"
+  >
+    <view>
+      适用年龄
+      <image class="icon" src="https://image.jkcspace.com/wxmini_static/images/{{suitAge ? 'arrow' : 'arrow-down' }}.png" />
+    </view>
+  </picker-age>
+  <view class="text" bind:tap="onShowModal">
+    分类
+    <image class="icon" src="https://image.jkcspace.com/wxmini_static/images/{{suitAge ? 'arrow' : 'arrow-down' }}.png" />
+  </view>
+</view>
+
+<empty wx:if="{{ !dataSource.length }}" />
+
+<view class="list-wrap">
+
+  <view
+    class="item"
+    wx:for="{{ dataSource }}"
+    wx:key="id"
+  >
+    <image
+      class="banner"
+      src="{{ uploadUrlHost }}/{{ item.img_url }}"
+      alt=""
+    />
+    <view class="bottom">
+      <view class="left">
+        <view class="top">
+          <view class="title">{{ item.name }}</view>
+          <view class="tag-wrap">
+            <view class="tag blue">适龄{{ item.suit_age_min }}-{{ item.suit_age_max }}岁</view>
+            <view class="tag orange">{{ item.total_section }}节课</view>
+          </view>
+        </view>
+        <view class="desc">支持全部解锁或逐步解锁课程</view>
+      </view>
+      <navigator class="right" url="/pages/course/sub/index?id={{ item.id }}">
+        <view data-id="{{ item.id }}">
+          <image src="https://image.jkcspace.com/wxmini_static/images/course-plus.png" alt="" />
+          <view class="time">添加</view>
+          <view class="time">课程</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>
+
+<dialog-cate
+  wx:if="{{ showCate }}"
+  show="{{ showCate }}"
+  curVal="{{ category }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+></dialog-cate>
+

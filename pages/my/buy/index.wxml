@@ -1,0 +1,396 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="top-ctn">
+  <!--<view class="user-info">
+    <view class="avator-wrap">
+      <image
+        wx:if="{{ userInfo.avatar }}"
+        class="avator"
+        data-type="img"
+        src="{{ uploadUrlHost }}/{{ userInfo.avatar }}"
+        bindtap="getUserProfile"
+        alt=""
+      />
+      <image
+        wx:else
+        class="avator"
+        data-type="img"
+        src="https://image.jkcspace.com/wxmini_static/images/my-avatar.png"
+        bindtap="getUserProfile"
+        alt=""
+      />
+      <button
+        class="user-btn"
+        wx:if="{{ !userInfo.name }}"
+        bindtap="getUserProfile"
+      >点击获取头像
+      </button>
+      <view class="ctn">
+        <view class="text">{{ userInfo.name }}</view>
+        <view class="desc" wx:if="{{ userInfo.vip_status != 1 }}">
+          <text>开通</text>
+          <image
+            class="vipImg"
+            src="https://image.jkcspace.com/wxmini_static/images/vip.png"
+            alt=""
+          />
+          <text>即可尊享会员专属特权</text>
+        </view>
+      </view>
+    </view>
+  </view>-->
+
+<view class="addressCtn">
+  <view class="topOpra">
+    <view class="left">开通门店</view>
+    <view class="right" bind:tap="onShowModal">切换门店</view>
+  </view>
+  <view class="title">
+    <view class="text">{{ physicalStore.name }}</view>
+    <view class="tag">距我{{ physicalStore.distance }}km</view>
+  </view>
+  <view class="desc">{{ physicalStore.city_name }}{{ physicalStore.district_name }}{{ physicalStore.address }}</view>
+  <view class="bottom">
+   <!-- <view class="btn-wrap">
+      <view class='btn' bind:tap="onShowModal2">
+        <image
+          class="img"
+          src="https://image.jkcspace.com/wxmini_static/images/offcourse-icon1.png"
+          alt=""
+        />
+        微信
+      </view>
+      <view class="btn" bind:tap="onCall">
+        <image
+          class="img"
+          src="https://image.jkcspace.com/wxmini_static/images/offcourse-icon2.png"
+          alt=""
+        />
+        电话
+      </view>
+    </view>-->
+  </view>
+</view>
+</view>
+
+<view class="list-ctn" wx:if="{{ isOpen > 0 }}">
+  <!-- 常规课程 课程类型tab -->
+  <view class="out-tabs-wrap">
+    <view
+      wx:for="{{ outTabs }}"
+      wx:key="id"
+      data-key="{{ item.key }}"
+      bind:tap="handleChangeType"
+      class="out-tab {{ outActiveTab == item.key ? 'active' : '' }}"
+    >
+      <image
+        class="image"
+        wx:if="{{ outActiveTab == item.key }}"
+        src="https://image.jkcspace.com/wxmini_static/images/buy-{{ item.key }}-active.png"
+        alt=""
+      />
+      <image
+        class="image"
+        wx:else
+        src="https://image.jkcspace.com/wxmini_static/images/buy-{{ item.key }}.png"
+        alt=""
+      />
+      <image
+        class="order-line"
+        wx:if="{{ outActiveTab == item.key }}"
+        src="https://image.jkcspace.com/wxmini_static/images/my-vip-line0.png"
+        alt=""
+      />
+    </view>
+    
+  </view>
+  <view class="tips-wrap">
+    <text>购买会员卡前请先确认不同班再购置会员!</text>
+  </view>
+  <view class="tabs-wrap">
+    <view
+      wx:for="{{ outActiveTab == 'theme3' ? tabs1 : tabs }}"
+      wx:key="id"
+      data-key="{{ item.key }}"
+      bind:tap="handleChangeData"
+      class="tab {{ activeTab == item.key ? 'active' : '' }}"
+    >
+      <view>{{ item.value }}</view>
+      <view class="desc" wx:if="{{ item.desc }}">{{ item.desc }}</view>
+      <image
+        class="order-line"
+        wx:if="{{ activeTab == index }}"
+        src="https://image.jkcspace.com/wxmini_static/images/my-vip-line0.png"
+        alt=""
+      />
+    </view>
+  </view>
+
+  <empty wx:if="{{ !list[outActiveTab][activeTab].length }}" />
+  <scroll-view
+    wx:else
+    scroll-x="true"
+    style=" white-space: nowrap; display: flex"
+    scroll-into-view="{{rightId}}"
+    class="date-wrap"
+  >
+    <view class="list-wrap">
+      <view
+        wx:for="{{ list[outActiveTab][activeTab] }}"
+        wx:key="index"
+        data-index="{{ index }}"
+        class="item {{ active == index ? 'active' : '' }}"
+        bind:tap="onChangeTab"
+      >
+        <view class="bage-tag">{{ item.expire }}天</view>
+        <view class="title">{{ item.name }}</view>
+        <view class="money-wrap">
+          <view class="text-wrap">
+            <view class="text">¥</view>
+            <view class="text strong">{{ item.price }}</view>
+          </view>
+          <view class="money">
+            <view class="text">¥</view>
+            {{ item.original_price }}
+          </view>
+        </view>
+        <view class="line" wx:if="{{ item.rule.course1 }}">
+          <view class="left">幼儿课</view>
+          <view class="right">
+            <view class="text strong">{{ item.rule.course1 }}</view>
+            <view class="text">次</view>
+          </view>
+        </view>
+        <view class="line" wx:if="{{ item.rule.course3 }}">
+          <view class="left">少儿课</view>
+          <view class="right">
+            <view class="text strong">{{ item.rule.course3 }}</view>
+            <view class="text">套</view>
+          </view>
+        </view>
+        <view class="line" wx:if="{{ item.rule.course2 }}">
+          <view class="left">主题活动</view>
+          <view class="right">
+            <view class="text strong">{{ item.rule.course2 }}</view>
+            <view class="text">次</view>
+          </view>
+        </view>
+        <view class="bottom">平均{{ item.average_price }}元/节课</view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="huadobg-tips-wrap" wx:if="{{ list[outActiveTab][activeTab].length }}">
+    <view class="tips-text">
+      <image
+        class="img1"
+        src="https://image.jkcspace.com/wxmini_static/images/buy-arrow.png"
+        alt=""
+      />
+      <text>左右滑动可查看更多会员卡</text>
+      <image
+        class="img2"
+        src="https://image.jkcspace.com/wxmini_static/images/buy-arrow2.png"
+        alt=""
+      />
+    </view>
+  
+    <view class="line">
+    </view>
+  </view>
+
+  <!-- 推荐码 -->
+  <!--<view class="recommand-wrap">
+    <mp-cells title="">
+      <mp-cell
+        show-error
+        prop="number"
+        title="推荐码"
+        ext-class=""
+      >
+        <input
+          bind:input="formInputChange"
+          data-field="number"
+          value="{{ number }}"
+          class="weui-input"
+          placeholder="请输入推荐码（选填）"
+        />
+      </mp-cell>
+    </mp-cells>
+  </view>
+  -->
+
+  <view class="discount" wx:if="{{ list[outActiveTab][activeTab][active].privilege.length }}">
+    <view class="title">
+      <view class="text">开通即享</view>
+      <view class="red">会员特权</view>
+    </view>
+    <view class="privilegeList">
+      <view
+        class="item"
+        wx:for="{{ list[outActiveTab][activeTab][active].privilege }}"
+        wx:key="index"
+      >
+        <image
+          class="img"
+          src="{{ uploadUrlHost }}/{{ item.img_url }}"
+          alt=""
+        />
+        <view class="name">{{ item.title }}</view>
+        <view class="desc">{{ item.describe }}</view>
+      </view>
+    </view>
+    <!-- <image
+      class="img"
+      src="https://image.jkcspace.com/wxmini_static/images/my-vip-discount.png"
+      alt=""
+    /> -->
+  </view>
+  <!--
+  <view class="desc-text" wx:if="{{ list[outActiveTab][activeTab][active].explain }}">
+    <text>{{ list[outActiveTab][activeTab][active].explain  }}</text>
+  </view>-->
+
+  <!-- 推荐码 -->
+  <view class="pay-wrap">
+    <view class="title">支付方式</view>
+    <view class="item-wrap">
+      <view class="item" data-type="1" bind:tap="onChangePay">
+        <image wx:if="{{ pay == 1 }}" src="https://image.jkcspace.com/wxmini_static/images/redio-selected.png" />
+        <image wx:else src="https://image.jkcspace.com/wxmini_static/images/redio.png" />
+        <text>微信支付</text>
+      </view>
+      <view class="item" data-type="2" bind:tap="onChangePay">
+        <image wx:if="{{ pay == 2 }}" src="https://image.jkcspace.com/wxmini_static/images/redio-selected.png" />
+        <image wx:else src="https://image.jkcspace.com/wxmini_static/images/redio.png" />
+        <text>支付宝支付</text>
+      </view>
+      <view class="item" data-type="3" bind:tap="onChangePay">
+        <image wx:if="{{ pay == 3 }}" src="https://image.jkcspace.com/wxmini_static/images/redio-selected.png" />
+        <image wx:else src="https://image.jkcspace.com/wxmini_static/images/redio.png" />
+        <text>支付宝代付</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="quan">
+    <!-- 减免券 -->
+    <view class="select-coupon" wx:if="{{ allData.discount_ticket_is_usable != 1 }}">
+      <view>
+        <text>该会员卡暂不支持使用会员卡减免券抵扣</text>
+      </view>
+      <navigator class="btn" url="/pages/poster/index">减免券获取 ></navigator>
+    </view>
+
+    <!-- 减免券-->
+    <view class="select-coupon" wx:else>
+      <view>
+        <text>课程减免券抵扣 </text>
+        <text class="red red2">
+          <text>{{allData.discount_ticket_amount}}元 (最多{{allData.discount_ticket_max_deduction}}元)</text>
+        </text>
+      </view>
+      <view class="btn" bind:tap="onShowJian">查看详情 ></view>
+    </view>
+
+    <!-- 优惠券-->
+    <view class="select-coupon coupon" wx:if="{{ couponData.length }}">
+      <view>
+        <text>已选择</text>
+        <text class="red" wx:if="{{ curCoupon.id }}">
+          <text wx:if="{{ curCoupon.threshold_amount > 0 }}">满{{ curCoupon.threshold_amount }}</text>
+          <text wx:else>无门槛</text> 减<text>{{ curCoupon.amount }}</text>元  
+        </text>
+        <text class="red" wx:else>不使用优惠券{{curCoupon.id}}</text>
+      </view>
+      <view class="btn" bind:tap="onShowCoupon">重新选择 ></view>
+    </view>
+  </view>
+
+  <view class="footer" wx:if="list[outActiveTab][activeTab].length">
+    <view
+      class="btn"
+      bind:tap="onBuy"
+      style="background-image:url('https://image.jkcspace.com/wxmini_static/images/my-vip-btn-bg.png')"
+    >
+      <view class="text">
+        <view>
+          <view style="display: flex;align-items: flex-start;justify-content:center;color:#fff;">
+            <view style="font-size: 24rpx;line-height: 34rpx;">合计</view>
+            <view class="num"> {{ amount }}</view>
+            <view style="font-size: 24rpx;line-height: 34rpx;"> 币</view>
+          </view>
+        </view>
+        <view wx:if="{{ curCoupon.id }}" class="tips" style="color: #FF7505;margin-top: 0;">已优惠金额 {{ curCoupon.amount }}元</view>
+      </view>
+      <view class="text">立即购买</view>
+    </view>
+    <view class="tips">
+      <view class="text">购买即视为同意</view>
+      <navigator url="/pages/agreement/index">
+        <view class="black">《会员协议》</view>
+      </navigator>
+    </view>
+  </view>
+</view>
+
+<view class="no-open" wx:else>
+  <image
+    class="icon"
+    src="https://image.jkcspace.com/wxmini_static/images/buy-open-icon.png"
+    alt=""
+  />
+  <image
+    class="img"
+    src="https://image.jkcspace.com/wxmini_static/images/buy-open-text.png"
+    alt=""
+  />
+  <view class="text">即将开业</view>
+  <view class="text">敬请期待</view>
+  <view class="btn" bind:tap="onShowModal">切换门店</view>
+</view>
+
+<dialog-store
+  wx:if="{{ show }}"
+  show="{{ show }}"
+  default-list="{{ storeList }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+/>
+
+<dialog-confirm
+  wx:if="{{ showConfirm }}"
+  show="{{ showConfirm }}"
+  default-data="{{ confirmData }}"
+  bind:ok="onCheck"
+  bind:cancel="onCancel"
+/>
+
+<dialog-coupon
+  wx:if="{{ showCoupon }}"
+  show="{{ showCoupon }}"
+  default-data="{{ couponData }}"
+  coupon="{{ curCoupon }}"
+  bind:ok="onSelectCoupon"
+  bind:cancel="onCancel"
+/>
+
+<dialog-jian
+  wx:if="{{ showJian }}"
+  show="{{ showJian }}"
+  default-data="{{ jianData }}"
+  coupon="{{ curJian }}"
+  all-data="{{ allData }}"
+  bind:ok="onSelectJian"
+  bind:cancel="onCancel"
+/>
+
+<dialog-pay
+  wx:if="{{ showPay }}"
+  show="{{ showPay }}"
+  url="{{ payUrl }}"
+  money="{{ amount }}"
+  type="{{ pay }}"
+  bind:ok="onCancel"
+  bind:cancel="onCancel"
+/>

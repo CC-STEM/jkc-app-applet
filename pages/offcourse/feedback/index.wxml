@@ -1,0 +1,63 @@
+<navigation-bar default-data="{{defaultData}}" bind:change="onChangeTab"></navigation-bar>
+
+<navigator url="/pages/poster/index">
+  <image
+    class="top-banner"
+    src="https://image.jkcspace.com/wxmini_static/images/feedback-bg.png"
+    alt=""
+  />
+</navigator>
+
+<view
+  class="list-item"
+  wx:for="{{ dataSource }}"
+  wx:key="id"
+>
+  <view class="time-wrap">
+    <view class="date">{{ item.date }}</view>
+    <view class="time">{{ item.time }}</view>
+  </view>
+
+  <view class="info">
+    <view class="info-title">
+      <view class="addr">{{ item.physical_store_name || '--' }}</view>
+      <view class="tag">{{ item.classroom_name }}</view>
+    </view>
+
+    <view class="desc" style="background-image:url('https://image.jkcspace.com/wxmini_static/images/feedback-user.png')">{{ item.teacher_name }}</view>
+
+    <view class="desc" style="background-image:url('https://image.jkcspace.com/wxmini_static/images/catalogue-time.png')">{{ item.class_time }}</view>
+
+    <view class="info-title course mt40">
+      <view class="addr2">{{ item.course_name }}</view>
+      <view class="tag tag2">{{ typeObj[item.course_type] }}</view>
+    </view>
+
+    <view class="weui-flex total-wrap">
+      <view
+        class="weui-flex__item item"
+        data-url="{{ item.outline }}"
+        bind:tap="onViewImage"
+        style="background-image:url('{{ uploadUrlHost }}/{{ item.outline[0] }}')"
+      >
+        <view class="title">课程知识</view>
+        <view class="desc">共{{ item.outline.length }}张</view>
+      </view>
+      <view
+        class="weui-flex__item item"
+        data-url="{{ item.classroom_situation }}"
+        bind:tap="onViewImage"
+        style="background-image:url('{{ uploadUrlHost }}/{{ item.classroom_situation[0] }}')"
+      >
+        <view class="title">上课照片</view>
+        <view class="desc">共{{ item.classroom_situation.length }}张</view>
+      </view>
+    </view>
+    <view class="action" wx:if="{{item.evaluation_status != 0}}">
+      <navigator class="btn {{item.evaluation_status == 2 ? 'gray' : ''}}" url="/pages/offcourse/judge/index?id={{item.id}}&teacherName={{item.teacher_name}}&status={{item.evaluation_status}}">
+        {{ item.evaluation_status == 2 ? '查看评价' : '评价老师'}}
+      </navigator>
+    </view>
+  </view>
+</view>
+

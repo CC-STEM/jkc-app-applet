@@ -1,0 +1,42 @@
+<navigation-bar default-data="{{ defaultData }}" isManager="{{true}}" bind:change="onChangeTab"></navigation-bar>
+
+<view class="page-title">
+  <view class="top">
+    <picker bindchange="bindPickerChange" fields="day" mode="date">
+      <view class="change-btn">
+        <text>{{ fdate }}</text>
+        <image
+          class="arrow"
+          src="https://image.jkcspace.com/wxmini_static/images/manage-down-arrow.png"
+          alt=""
+        />
+      </view>
+    </picker>
+  </view>
+</view>
+
+<empty wx:if="{{ !dataSource.length }}" />
+
+<view class="list-wrap" wx:else>
+  <navigator url="/pages/manager/cdetails/index?id={{item.course_offline_plan_id}}" class="item" wx:for="{{dataSource}}" wx:key="index">
+    <view class="title">{{item.course_name}}</view>
+    <view class="line">
+      <view class="label">上课时间</view>
+      <view class="num">{{ item.class_start_time }}</view>
+    </view>
+    <view class="line bottom">
+      <view class="left">
+        <view class="label">上课老师</view>
+        <view class="num">{{ item.teacher_name }}</view>
+      </view>
+      <view class="right">
+        <view class="text" wx:if="{{item.status == 1}}">约课</view>
+        <view class="money" wx:if="{{item.status == 1}}">{{item.course_class_attendance_num}}</view>
+        <view class="text" wx:if="{{item.status == 1}}"> / </view>
+        <view class="text"> 报名</view>
+       
+        <view class="money">{{item.sign_up_num}}</view>
+      </view>
+    </view>
+  </navigator>
+</view>

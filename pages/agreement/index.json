@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "甲壳虫平台服务协议",
+  "usingComponents": {
+    "navigation-bar": "/components/custom-navigation-bar-return"
+  }
+}

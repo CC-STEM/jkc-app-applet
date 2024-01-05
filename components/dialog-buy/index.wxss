@@ -1,0 +1,313 @@
+
+/*模态框*/
+.modal {
+  position:fixed; 
+  top:0; 
+  right:0;
+  bottom:0; 
+  left:0; 
+  z-index: 99999;
+}
+.modal-cancel {
+  position: absolute; 
+  z-index: 2000; 
+  top:0; 
+  right:0; 
+  bottom: 0; 
+  left:0; 
+  background:rgba(0,0,0,0.3);
+}
+.bottom-dialog-body {
+  width: 100%; 
+  position: absolute;
+  z-index: 3000; 
+  bottom: 0; 
+  left: 0;
+  background:#dfdede;
+}
+/*动画前初始位置*/
+.bottom-positon{-webkit-transform:translateY(100%);transform:translateY(100%);}
+
+
+/* 底部弹出框 */
+.bottom-positon{
+  text-align: center;
+}
+.modal-head {
+  text-align: center;
+  padding: 42rpx 0;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1A1A1A;
+  position: relative;
+}
+.modal-head .close {
+  width: 42rpx;
+  height: 42rpx;
+  position: absolute;
+  right: 32rpx;
+  top: 40rpx;
+}
+.Mselect {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  background: #fff;
+  border-radius: 20rpx 20rpx 0rpx 0rpx;
+}
+.Mselect .ctn-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  color: #1A1A1A;
+  padding-bottom: 60rpx;
+}
+
+.express {
+  padding: 0 38rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+}
+.express .item {
+  display: flex;
+  align-items: center;
+}
+.express .item .avator {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 40rpx;
+}
+.express .item .ctn {
+  flex: 1;
+  font-weight: bold;
+  padding: 42rpx 0;
+  border-bottom: 1rpx solid #E9E9E9;
+}
+.express .item:last-child .ctn {
+  border-bottom: 0;
+}
+.express .item .ctn .title {
+  display: flex;
+  justify-content: space-between;
+  line-height: 36rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1A1A1A;
+}
+.express .item .ctn .desc {
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 16rpx;
+  display: flex;
+  align-items: center;
+  line-height: 32rpx;
+}
+.express .arrow {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.info {
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  width: 100%;
+}
+.info .avator-wrap {
+  display: flex;
+  flex: 1;
+  padding: 24rpx;
+  padding-bottom: 0;
+}
+.info .avator-wrap .avator {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 20rpx;
+  margin-right: 18rpx;
+  border: 2px solid #ffffff;
+}
+.info .ctn {
+  flex: 1;
+  font-weight: bold;
+}
+.info .ctn .title {
+  display: flex;
+  justify-content: space-between;
+  line-height: 30rpx;
+}
+.info .ctn .title .text {
+  font-size: 30rpx;
+  color: #000;
+  margin-right: 30rpx;
+  line-height: 36rpx;
+  flex: 1;
+}
+.info .ctn .title .status {
+  font-size: 28rpx;
+  color: #333333;
+}
+.info .ctn .desc {
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 16rpx;
+  text-align: left;
+}
+.info .ctn .money {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #333;
+  margin-top: 20rpx;
+}
+.info .ctn .money .strong {
+  font-weight: bold;
+}
+.info .ctn .money .left, .info .ctn .money .right {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}
+.info .ctn .money .left .strong {
+  font-size: 36rpx;
+  color: #1A1A1A;
+}
+.info .ctn .money .left .num {
+  margin-left: 30rpx;
+}
+.info .ctn .money .right .strong {
+  font-size: 48rpx;
+  color: #FF6326;
+  margin-left: 20rpx;
+}
+.info .ctn .money .right .text:last-child {
+  color: #FF6326;
+}
+.info .ctn .money .num {
+  color: #999;
+}
+.info .action {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 36rpx 20rpx;
+}
+.info text {
+  padding: 0 10rpx;
+}
+.info .action .btn {
+  width: 53rpx;
+  height: 53rpx;
+  line-height: 53rpx;
+  text-align: center;
+  background: #F0F0F0;
+  color: #3B3B3B;
+  border-radius: 50%;
+  font-size: 28rpx;
+  font-weight: bold;
+  font-weight: 800;
+  color: var(--text-color-black);
+}
+.Mselect .item {
+  width: 672rpx;
+  height: 120rpx;
+  /* background: #F2F3F7; */
+  /* border-radius: 20rpx; */
+  margin-bottom: 30rpx;
+  font-size: 28rpx;
+  padding: 0 24rpx;
+  text-align: left;
+}
+.Mselect .item .title {
+  font-size: 32rpx;
+  font-weight: 800;
+  color: #1A1A1A;
+  margin-bottom: 40rpx;
+}
+.tag-wrap {
+  display: flex;
+  align-items: center;
+}
+.tag {
+  width: 131rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  margin: 0 15rpx 15rpx 0;
+  text-align: center;
+  background: #F1F1F1;
+  border-radius: 10rpx;
+}
+.tag.active {
+  background: #FFD925;
+}
+
+
+.number {
+  display: flex;
+  align-items: center;
+}
+
+.select-coupon {
+  padding: 25rpx 27rpx 24rpx 70rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 26rpx;
+  color: #222222;
+  background-image: url('https://image.jkcspace.com/wxmini_static/images/jian-icon.png');
+  background-repeat: no-repeat;
+  background-size: 38rpx 32rpx;
+  background-position: 22rpx center;
+}
+.select-coupon.coupon {
+  background-color: #FFECC8;
+  background-size: 40rpx;
+  background-position: 22rpx 22rpx;
+  background-image: url('https://image.jkcspace.com/wxmini_static/images/coupon-icon.png');
+
+}
+.select-coupon .red {
+  font-size: 26rpx;
+  color: #FF7505;
+  margin-left: 14rpx;
+}
+.select-coupon .red2 {
+  margin-left: 8rpx;
+}
+.select-coupon .btn {
+  width: 146rpx;
+  text-align: right;
+  /* background: rgba(255,117,5,0);
+  border: 2rpx solid #FF7505; */
+  /* border-radius: 22rpx; */
+  font-size: 24rpx;
+  color: #FF7605;
+  margin-right: 11rpx;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx
+}
+.footer .left {
+  flex: 1;
+  text-align: left;
+}
+.footer .btn {
+  width: 326rpx;
+  height: 88rpx;
+  line-height: 87rpx;
+  background: #FFD925;
+  border-radius: 43rpx;
+  margin: 20rpx auto;
+  background: #FFD925;
+  font-size: 30rpx;
+  font-weight: 800;
+}

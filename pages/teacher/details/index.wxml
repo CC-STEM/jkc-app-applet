@@ -1,0 +1,128 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="swiper-wrap">
+  <view class="item">
+    <!-- <video
+      
+      src="{{ uploadUrlHost }}/{{ details.video_url }}"
+      alt=""
+    >
+    </video> -->
+    <!-- <video
+      class="bg"
+      src="{{ uploadUrlHost }}/{{ details.video_url }}"
+      style="width:100%;"
+      object-fit="contain"
+    /> -->
+    <!-- <image
+      class="play"
+      bind:tap="onPlay"
+      src="https://image.jkcspace.com/wxmini_static/images/catalogue-play.png"
+      alt=""
+    /> -->
+  </view>
+</view>
+
+<view class="info">
+  <view class="title">{{ datails.name }}</view>
+  <view class="text">上课时间：{{ details.class_time }}</view>
+  <view class="text">上课教室：{{ details.classroom_name }}</view>
+</view>
+
+<view class="list-wrap">
+  <view class="page-title">
+    <view class="text">学习人数</view>
+    <view class="text" style="font-weight: 500;margin-left: 15rpx;">{{ details.sign_up_num }}人</view>
+  </view>
+  <empty wx:if="{{ !details.students.length }}" />
+
+  <view
+    class="item"
+    wx:for="{{ details.students }}"
+    wx:key="id"
+  >
+    <view class="avator-wrap" data-item="{{ item }}" bind:tap="onShowModal">
+      <image
+        class="avator"
+        src="{{ uploadUrlHost }}/{{ item.avatar }}"
+        alt=""
+      />
+      <view class="ctn">
+        <view class="top">
+          <view class="name">{{ item.name }}</view>
+          <view class="desc">{{ item.mobile }}</view>
+        </view>
+        <view class="bottom">
+          <view class="left">
+            <image
+              class="ke"
+              src="{{ item.is_sample == 1 ? 'https://image.jkcspace.com/wxmini_static/images/teacher2.png' : 'https://image.jkcspace.com/wxmini_static/images/teacher1.png'}}"
+              alt=""
+            />
+            <view class="tag">{{ item.used_course_count }}/{{item.class_attendance_count}}/{{item.surplus_course_count}}</view>
+          </view>
+          <view wx:if="{{ item.vip_card_status_text }}" class="guoqi">{{ item.vip_card_status_text }}</view>
+        </view>
+      </view>
+    </view>
+    <view class="btn-wrap">
+      <image
+        class="btn"
+        data-id="{{ item.id }}"
+        data-status="{{ item.class_status }}"
+        src="https://image.jkcspace.com/wxmini_static/images/{{ item.class_status == 1 ? 'daochang' : 'nodao' }}.png"
+        bind:tap="onRollCall"
+        alt=""
+      />
+    </view>
+  </view>
+</view>
+
+<view class="images-wrap">
+  <view
+    class="item"
+    wx:for="{{ imgs }}"
+    wx:key="index"
+  >
+    <image
+      class="img"
+      src="{{ uploadUrlHost }}/{{ item.img_url }}"
+      alt=""
+    />
+    <image
+      class="close"
+      data-index="{{ index }}"
+      bind:tap="onDeleteImg"
+      src="https://image.jkcspace.com/wxmini_static/images/teacher-close.png"
+      alt=""
+    />
+  </view>
+  <view class="item upload-wrap" bind:tap="ChooseImage">
+    <image src="https://image.jkcspace.com/wxmini_static/images/refund-creame.png" alt="" />
+    <view class="text">
+      上传图片
+    </view>
+  </view>
+</view>
+
+<view class="footer">
+  <view class="btn" bind:tap="onShowConfirm">
+    保存
+  </view>
+</view>
+
+<dialog-student-details
+  wx:if="{{ show }}"
+  show="{{ show }}"
+  default-data="{{ curDetails }}"
+  bind:ok="onCancel"
+  bind:cancel="onCancel"
+/>
+
+<dialog-confirm
+  wx:if="{{ showConfirm }}"
+  show="{{ showConfirm }}"
+  default-data="{{ confirmData }}"
+  bind:ok="onAddImg"
+  bind:cancel="onCancel"
+/>

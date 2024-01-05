@@ -1,0 +1,216 @@
+<navigation-bar
+  default-data="{{defaultData}}"
+  physical-store="{{physicalStore}}"
+  bind:ok="onOkStore"
+  bind:ok2="onOkDate"
+   isManager="{{true}}"
+></navigation-bar>
+
+<view class="login-wrap">
+  <view bind:tap="onGetXiaoXi" class="left">门店负责人</view>
+  <navigator url="/pages/set/index" class="right">设置</navigator>
+</view>
+
+<view class="top">
+  <view class="total-info">
+    <view class="data">
+      <view class="title">营业数据</view>
+      <view class="number">{{ data.revenue_amount }}</view>
+      <view class="title">课耗数据</view>
+      <view class="number">{{ data.course_amount }}</view>
+    </view>
+    <view class="bottom">
+      <view class="item">
+        <view class="label">营收目标</view>
+        <view class="num">¥ {{ data.revenue_target_amount }}</view>
+      </view>
+      <view class="item">
+        <view class="label">课耗目标</view>
+        <view class="num">¥ {{ data.course_target_amount }}</view>
+      </view>
+    </view>
+    <navigator url="/pages/manager/monthly/index" class="link">
+      <image src="https://image.jkcspace.com/wxmini_static/images/manage-btn.png" alt="vip" />
+    </navigator>
+  </view>
+
+  <view class="weui-flex menu">
+    <navigator url="/pages/manager/courseList/index" class="weui-flex__item item">
+      <image src="https://image.jkcspace.com/wxmini_static/images/manage-menu1.png" alt="vip" />
+      <view class="text">课表</view>
+    </navigator>
+    <navigator url="/pages/manager/analysis/index" class="weui-flex__item item">
+      <image src="https://image.jkcspace.com/wxmini_static/images/manage-menu2.png" alt="vip" />
+      <view class="text">经营分析</view>
+    </navigator>
+    <navigator url="/pages/manager/mmanage/index" class="weui-flex__item item">
+      <image src="https://image.jkcspace.com/wxmini_static/images/manage-menu3.png" alt="vip" />
+      <view class="text">会员管理</view>
+    </navigator>
+  </view>
+</view>
+
+<view class="mtitle">
+  <view class="left">
+    <text>今日数据</text>
+    <view class="date">{{today}}</view>
+  </view>
+  <view class="right">
+    <navigator url="/pages/manager/details/index" class="tag">体验课数据</navigator>
+    <navigator url="/pages/manager/daily/index?type=2" class="tag">退款信息</navigator>
+  </view>
+</view>
+
+<view class="card">
+  <view class="title">
+    <image src="https://image.jkcspace.com/wxmini_static/images/manage-icon1.png" alt="vip" />
+    <view class="text">上课</view>
+  </view>
+  <view class="card-total">
+    <view class="sub-title">
+      常规课
+    </view>
+    <view class="weui-flex total-wrap">
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ todayData.course_offline_plan1 }}</view>
+        </view>
+        <view class="text">开课数</view>
+      </view>
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ todayData.course_offline_order1 }}</view>
+        </view>
+        <view class="text">上课人数</view>
+      </view>
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ todayData.course_offline_order_cancel1 }}</view>
+        </view>
+        <view class="text">取消人数</view>
+      </view>
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ todayData.course_offline_order_amount1 }}</view>
+        </view>
+        <view class="text">消费金额</view>
+      </view>
+    </view>
+    <view class="sub-title">
+      精品课
+    </view>
+    <view class="weui-flex total-wrap">
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ todayData.course_offline_plan2 }}</view>
+        </view>
+        <view class="text">开课数</view>
+      </view>
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ todayData.course_offline_order2 }}</view>
+        </view>
+        <view class="text">上课人数</view>
+      </view>
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ todayData.course_offline_order_cancel2 }}</view>
+        </view>
+        <view class="text">取消人数</view>
+      </view>
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ todayData.course_offline_order_amount2 }}</view>
+        </view>
+        <view class="text">消费金额</view>
+      </view>
+    </view>
+    <view class="sub-title">
+      代码编程
+    </view>
+    <view class="weui-flex total-wrap">
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ todayData.course_offline_plan3 }}</view>
+        </view>
+        <view class="text">开课数</view>
+      </view>
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ todayData.course_offline_order3 }}</view>
+        </view>
+        <view class="text">上课人数</view>
+      </view>
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ todayData.course_offline_order_cancel3 }}</view>
+        </view>
+        <view class="text">取消人数</view>
+      </view>
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ todayData.course_offline_order_amount3	 }}</view>
+        </view>
+        <view class="text">消费金额</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="card card1">
+  <view class="title">
+    <image src="https://image.jkcspace.com/wxmini_static/images/manage-icon2.png" alt="vip" />
+    <view class="text">会员卡</view>
+  </view>
+  <view class="card-total" >
+    <view class="weui-flex total-wrap">
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ todayData.vip_card_order }}</view>
+        </view>
+        <view class="text">订单数</view>
+      </view>
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ todayData.vip_card_order_amount }}</view>
+        </view>
+        <view class="text">订单金额</view>
+      </view>
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ todayData.vip_card_order_refund_amount }}</view>
+        </view>
+        <view class="text">退款金额</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="card card2">
+  <view class="title">
+    <image src="https://image.jkcspace.com/wxmini_static/images/manage-icon3.png" alt="vip" />
+    <view class="text">商城</view>
+  </view>
+ <view class="card-total" >
+    <view class="weui-flex total-wrap">
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ todayData.order_goods }}</view>
+        </view>
+        <view class="text">订单数</view>
+      </view>
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ todayData.order_goods_amount }}</view>
+        </view>
+        <view class="text">订单金额</view>
+      </view>
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ todayData.order_goods_refund_amount }}</view>
+        </view>
+        <view class="text">退款金额</view>
+      </view>
+    </view>
+  </view>
+</view>

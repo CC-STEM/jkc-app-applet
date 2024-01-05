@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "navigation-bar": "/components/custom-navigation-bar-msg"
+  }
+}

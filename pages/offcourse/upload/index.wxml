@@ -1,0 +1,28 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="title">[编程的起源]你不知道的那些事</view>
+
+<cell border="{{false}}">
+  <view class="upload-wrap" bindtap="ChooseImage">
+    <image src="https://image.jkcspace.com/wxmini_static/images/course-upload.png" alt="" />
+    <view class="btn">
+      添加视频
+    </view>
+  </view>
+</cell>
+
+<cell border="{{false}}">
+  <textarea
+    slot="field"
+    style="width:688rpx;padding: 30rpx 20rpx;background: #ffffff;border-radius: 20rpx;min-height: 283rpx;color: #333;font-size: 26rpx;"
+    data-field="desc"
+    value="{{desc}}"
+    placeholder="请填写作品说明"
+    maxlength="{{1000}}"
+    auto-height
+    show-confirm-bar="{{false}}"
+    disable-default-padding
+    bind:input="handleChangeData"
+  />
+  </cell>
+

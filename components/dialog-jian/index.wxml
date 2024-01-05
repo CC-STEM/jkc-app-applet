@@ -1,0 +1,55 @@
+<view class="modal modal-bottom-dialog">
+  <view class="modal-cancel" bindtap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{animationData}}">
+    <view class='Mselect'>
+      <view class="modal-head">
+        <text>推荐好友减免券</text>
+        <image
+          class="close"
+          src="https://image.jkcspace.com/wxmini_static/images/picker-close.png"
+          alt=""
+          bind:tap="hideModal"
+        />
+        <view class="top-wrap">
+          <view class="left">
+            减免情况 <text class="text">{{allData.discount_ticket_amount}}/{{allData.discount_ticket_max_deduction}}</text>
+          </view>
+          <navigator class="btn" url="/pages/poster/index" class="right">去获得 ></navigator>
+        </view>
+      </view>
+      <view class="ctn-wrap">
+        <empty style="width:182rpx;height:160rpx;" url="https://image.jkcspace.com/wxmini_static/images/jian.png" desc="您暂时还没有获得推荐好友减免券!" wx:if="{{ !defaultData.length }}" />
+
+        <view wx:else class="list-wrap">
+          <view
+            class="item {{ item.selected ? 'active' : '' }}"
+            wx:for="{{ defaultData }}"
+            wx:key="index"
+            data-item="{{ item }}"
+            data-index="{{ index }}" 
+            bind:tap="onSelect"
+          >
+            <view class="top">
+              <view class="left">
+                <view class="title">{{ item.name }}</view>
+                <view class="coupon">
+                  <text class="red">{{ item.amount }}</text>元
+                </view>
+                <view class="time">{{ item.end_at }}过期</view>
+              </view>
+              <view class="right">
+                <image wx:if="{{ item.selected }}" src="https://image.jkcspace.com/wxmini_static/images/redio-selected.png" />
+                <image wx:else src="https://image.jkcspace.com/wxmini_static/images/redio.png" />
+              </view>
+            </view>
+            <view class="tips">
+              仅限于购买{{item.vip_card}}，仅限于{{item.physical_store}}门店使用
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+

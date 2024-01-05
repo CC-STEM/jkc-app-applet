@@ -1,0 +1,82 @@
+<navigation-bar default-data="{{defaultData}}" bind:change="onChangeTab"></navigation-bar>
+
+<view class="weui-flex total-wrap" wx:if="{{ dataSource.pay_code != 'WXPAY' }}">
+  <view class="weui-flex__item item">
+    <view class="text-wrap">
+      <view class="text strong">{{ dataSource.course1 }}</view>
+      <view class="text">次</view>
+    </view>
+    <view class="text">幼儿课</view>
+  </view>
+  <view class="weui-flex__item item">
+    <view class="text-wrap">
+      <view class="text strong">{{ dataSource.course3 }}</view>
+      <view class="text">套</view>
+    </view>
+    <view class="text">少儿课</view>
+  </view>
+  <view class="weui-flex__item item">
+    <view class="text-wrap">
+      <view class="text strong">{{ dataSource.course2 }}</view>
+      <view class="text">次</view>
+    </view>
+    <view class="text">主题活动</view>
+  </view>
+</view>
+<view class="info">
+  <image
+    class="banner"
+    src="{{ uploadUrlHost }}/{{ dataSource.img_url }}"
+    alt=""
+  />
+  <view class="ctn">
+    <view class="title">{{ dataSource.category_name }}
+    </view>
+    <view class="desc">{{ dataSource.city_name }}{{ dataSource.district_name }}{{ dataSource.address }}</view>
+    <view class="tag orange">{{ dataSource.total_section }}节课</view>
+  </view>
+</view>
+
+<view class="card">
+  <view class="page-title">课程安排</view>
+  <view class="list-wrap">
+    <view
+      class="line"
+      wx:for="{{ dataSource.course }}"
+      wx:key="title"
+    >
+      <view class="label">
+        <view class="time">{{ item.time }}</view>
+        <view class="text">{{ item.date }}</view>
+      </view>
+      <view class="right">{{ item.name }}</view>
+    </view>
+  </view>
+</view>
+
+<view class="footer">
+  <view class="left">
+    <view class="line">
+      {{ dataSource.pay_code == 'WXPAY' ? '支付' : '消耗' }}
+    </view>
+    <view class="line">
+      <view class="text">
+        <view class="strong">{{ dataSource.pay_amount}}</view>
+        {{ dataSource.pay_company }}
+      </view>
+
+      <!-- <view wx:if="{{ dataSource.pay_code == 'WXPAY' }}" class="tag">1元=10币</view> -->
+    </view>
+
+  </view>
+  <view class="btn" bind:tap="onSubmit">确认</view>
+</view>
+
+<dialog-confirm
+  wx:if="{{ showConfirm }}"
+  show="{{ showConfirm }}"
+  default-data="{{ confirmData }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+/>
+

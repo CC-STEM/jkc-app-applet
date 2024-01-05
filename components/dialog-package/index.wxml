@@ -1,0 +1,36 @@
+<view class="modal modal-bottom-dialog">
+  <view class="modal-cancel" bindtap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{ animationData }}">
+    <view class='Mselect'>
+      <view class="modal-head">
+        <text>寄件信息</text>
+        <image
+          class="close"
+          src="https://image.jkcspace.com/wxmini_static/images/picker-close.png"
+          alt=""
+          bind:tap="hideModal"
+        />
+      </view>
+      <view class="ctn-wrap">
+        <view class="info-item">
+          <view class="line">
+            <text>快递公司</text>
+            <text>{{ defaultData.logis_name }}</text>
+          </view>
+          <view class="line">
+            <text>快递单号</text>
+            <view class="number">
+              <text>{{ defaultData.express_number }}</text>
+              <view class="copy-btn" bind:tap="onCopy">
+                复制
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="btn" bind:tap="onSubmit">确定</view>
+    </view>
+  </view>
+</view>
+

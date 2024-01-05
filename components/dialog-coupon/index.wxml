@@ -1,0 +1,47 @@
+<view class="modal modal-bottom-dialog">
+  <view class="modal-cancel" bindtap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{animationData}}">
+    <view class='Mselect'>
+      <view class="modal-head">
+        <text>选择优惠券</text>
+        <image
+          class="close"
+          src="https://image.jkcspace.com/wxmini_static/images/picker-close.png"
+          alt=""
+          bind:tap="hideModal"
+        />
+      </view>
+      <view class="ctn-wrap">
+        <view class="tab-wrap">
+          <view class="item active">可用优惠券({{ defaultData.length }})</view>
+        </view>
+        <view class="list-wrap">
+          <view
+            class="item {{ coupon.id == item.id ? 'active' : '' }}"
+            wx:for="{{ defaultData }}"
+            wx:key="id"
+            data-item="{{ item }}"
+            bind:tap="onSelect"
+          >
+            <view class="left">
+              <view class="title">{{ item.name }}</view>
+              <view class="coupon">
+                <text wx:if="{{ item.threshold_amount > 0 }}">满{{ item.threshold_amount }}</text>
+                <text wx:else>无门槛</text>
+                减<text class="red">{{ item.amount }}</text>元
+              </view>
+              <view class="time">{{ item.end_at }}前使用</view>
+            </view>
+            <!--<image
+              class="img"
+              src="https://image.jkcspace.com/wxmini_static/images/arrow-right-circle.png"
+              alt=""
+            />-->
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+

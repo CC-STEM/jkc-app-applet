@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "我创建的",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "navigation-bar": "/components/custom-navigation-bar-return"
+  }
+}

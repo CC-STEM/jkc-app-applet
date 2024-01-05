@@ -1,0 +1,26 @@
+<view class="modal modal-bottom-dialog">
+  <view class="modal-cancel" bind:tap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{ animationData }}">
+    <view class='Mselect'>
+      <view class="modal-head">
+        <text>{{ defaultData.name }}</text>
+        <image
+          class="close"
+          src="https://image.jkcspace.com/wxmini_static/images/picker-close.png"
+          alt=""
+          bind:tap="hideModal"
+        />
+      </view>
+      <view class="ctn-wrap">
+        <video src="{{ uploadUrlHost }}/{{ defaultData.study_video_url }}" />
+      </view>
+      <view class="footer">
+        <navigator url="/pages/poster/index?id={{ defaultData.id }}">
+          <view class="btn">分享作品</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>
+

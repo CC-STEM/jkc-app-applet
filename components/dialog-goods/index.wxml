@@ -1,0 +1,34 @@
+<view
+  class="modal modal-bottom-dialog"
+  hidden="{{hideFlag}}"
+  wx:if="{{!hideFlag}}"
+>
+  <view class="modal-cancel" bindtap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{animationData}}">
+    <view class='Mselect'>
+      <view class="modal-head">
+        <text>请选择学员年龄</text>
+        <image
+          class="close"
+          src="https://image.jkcspace.com/wxmini_static/images/picker-close.png"
+          alt=""
+          bind:tap="hideModal"
+        />
+      </view>
+      <view class="ctn-wrap">
+        <view
+          class="tag {{ curVal == item.value ? 'active' : '' }}"
+          wx:for="{{ optionList }}"
+          wx:key="value"
+          data-value='{{ item.value }}'
+          bindtap='getOption'
+        >
+          {{ item.name }}
+        </view>
+      </view>
+      <view class="btn" bind:tap="onSubmit">我选好了</view>
+    </view>
+  </view>
+</view>
+

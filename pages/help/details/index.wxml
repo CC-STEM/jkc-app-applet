@@ -1,0 +1,28 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="details-wrap">
+  <image
+    class="bg"
+    src="https://image.jkcspace.com/wxmini_static/images/help-bg.png"
+    alt=""
+  />
+  <image
+    class="icon"
+    src="{{ img }}"
+    alt=""
+  />
+  <view class="name">
+    <text>{{ dataSource.title }}</text>
+  </view>
+  <view class="content">
+    <text>{{ dataSource.content }}</text>
+  </view>
+
+  <!-- <view class="bottom">
+    <view class="title">【温馨提示】:</view>
+    <view class="text">实付金额指:不包含优惠券抵扣、运费的单个订单实际支付的商品金额~</view>
+    <view class="text">实付金额指:不包含优惠券抵扣、运费的单个订单实际支付的商品金额~</view>
+  </view> -->
+
+</view>
+

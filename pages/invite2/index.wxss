@@ -1,0 +1,123 @@
+page {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding-top: 50rpx;
+  background-image: url(https://image.jkcspace.com/wxmini_static/images/invite-bg-img.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.firstCanvas {
+  margin: auto;
+}
+/* 海报 */
+.share {
+  text-align: center;
+  overflow: hidden;
+}
+.share canvas {
+  /* position: absolute;
+  left: -1000px;
+  top: -1000px; */
+  position: absolute;
+  bottom: 380rpx;
+  left: 0;
+  right: 0;
+  border-radius: 20rpx;
+}
+.poster-img {
+  width: 618rpx;
+  height: 878rpx;
+  margin: auto;
+  position: absolute;
+  bottom: 380rpx;
+  left: 0;
+  right: 0;
+  border-radius: 20rpx 102rpx 20rpx 20rpx;
+}
+
+page {
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
+  /* position: relative; */
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.wrap {
+  position: relative;
+  text-align: center;
+  height: 100%;
+}
+.bg {
+  width: 750rpx;
+  height: 1212rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.ctn {
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 16rpx;
+  text-align: center;
+}
+.ctn image {
+  width: 296rpx;
+  height: 296rpx;
+  display: block;
+  margin: auto;
+}
+.ctn .btn-img {
+  width: 389rpx;
+  height: 94rpx;
+  margin: 22rpx auto 0;
+}
+
+.footer {
+  width: 705rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  position: absolute;
+  bottom: 20rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 0 20rpx;
+}
+button, button::after {
+  border: 0;
+}
+.btn-wrap {
+  padding: 32rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.button {
+  flex: 1;
+  text-align: center;
+  padding: 0 !important;
+  font-size: 26rpx;
+  font-weight: 500;
+}
+.button image {
+  width: 80rpx;
+  height: 80rpx;
+}
+.cancel {
+  border-top: 1px solid #EDEDED;
+  padding: 32rpx 0;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: 800;
+  color: #1A1A1A;
+}

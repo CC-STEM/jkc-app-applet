@@ -1,0 +1,4 @@
+
+<navigator class='share-btn' url="/pages/poster/index?showShare=1">
+  <image src="https://image.jkcspace.com/wxmini_static/images/share-icon.png" class="image" />
+</navigator>

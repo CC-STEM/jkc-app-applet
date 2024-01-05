@@ -1,0 +1,43 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<image src="https://image.jkcspace.com/wxmini_static/images/logo.png" class="image" />
+<view class="title">登录带您享受更好的体验</view>
+<view class="desc">
+  <view class="item item1">实时掌握上课情况及反馈</view>
+  <view class="item item2">掌握平台排课信息</view>
+  <view class="item item3">平台活动信息一目了然</view>
+</view>
+<view class="tc">
+  <view
+    class="auth-btn cancel"
+    bind:tap="onBack"
+  >
+    暂不登录
+  </view>
+  <button
+    wx:if="{{ isChecked }}"
+    class="auth-btn"
+    open-type="getPhoneNumber"
+    bindgetphonenumber="getPhoneNumber"
+  >
+    立即登录
+  </button>
+  <view
+    wx:else
+    class="auth-btn"
+    bind:tap="getPhoneNumber"
+  >
+    立即登录
+  </view>
+</view>
+<view class="footer">
+  <view bind:tap="onSelect">
+    <image wx:if="{{!isChecked}}" src="https://image.jkcspace.com/wxmini_static/images/radio.png" class="radio" />
+    <image wx:else src="https://image.jkcspace.com/wxmini_static/images/radio-selected.png" class="radio" />
+    我已阅读并同意
+  </view>
+  <navigator url="/pages/agreement/index">
+    <view class="text">《甲壳虫平台服务协议》</view>
+  </navigator>
+</view>
+

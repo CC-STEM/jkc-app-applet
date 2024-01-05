@@ -1,0 +1,103 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<image
+  class="cover"
+  data-type="img"
+  src="{{uploadUrlHost}}/{{ mInfo.img_url }}"
+  bindtap="getUserProfile"
+  alt=""
+/>
+
+<view class="user-info">
+  <view class="total">已邀请的好友({{ mInfo.invitee.length || 0 }})</view>
+  <scroll-view
+    scroll-x="true"
+    style=" white-space: nowrap; display: flex"
+    scroll-into-view="{{rightId}}"
+    class="date-wrap"
+    wx:if="{{mInfo.invitee.length}}"
+  >
+    <view class="avatar-list">
+      <view class="avatar-item" wx:key="index" wx:for="{{ mInfo.invitee }}">
+        <image
+          class="avator"
+          data-type="img"
+          src="{{item.avatar}}"
+          alt=""
+        />
+        <view class="name">{{item.name}}</view>
+      </view>
+    </view>
+  </scroll-view>
+  <button
+    open-type="share"
+    id="share-btn"
+    class="button"
+    wx:if="{{mInfo.status == 1}}"
+  >
+    <view class="btn">邀请好友</view>
+  </button>
+  <view wx:else class="btn gray">活动已结束</view>
+</view>
+
+<view class="tabs-wrap">
+    <view
+      wx:for="{{ tabs }}"
+      wx:key="id"
+      data-key="{{ item.key }}"
+      bind:tap="handleChangeData"
+      class="tab {{ activeTab == item.key ? 'active' : '' }}"
+    >
+      <view>{{ item.value }}</view>
+      <image
+        class="order-line"
+        wx:if="{{ activeTab == item.key }}"
+        src="https://image.jkcspace.com/wxmini_static/images/my-vip-line0.png"
+        alt=""
+      />
+    </view>
+</view>
+
+<empty style="width:182rpx;height:160rpx;" url="https://image.jkcspace.com/wxmini_static/images/jian.png" desc="您暂时还没有获得推荐好友减免券!" wx:if="{{ !dataSource.length }}" />
+
+<view class="list-wrap" wx:else>
+  <view
+    class="list-item {{ activeTab == 2 ? 'gray' : '' }}"
+    wx:for="{{ dataSource }}"
+    wx:key="index"
+  >
+    <view class="baise">
+        <view class="top-wrap">
+            <view class="left">
+                <view class="name">
+                <view>{{ item.name }}</view>
+                </view>
+                <view class="text">{{ item.lose_efficacy_tag }}</view>
+            </view>
+            <view class="right">
+                <view class="coin">
+                    <view class="strong">{{ item.amount }}</view>
+                    <view class="text">币</view>
+                </view>
+            </view>
+        </view>
+        <view class="info-wrap">
+            <view class="user-wrap" wx:if="{{ item.invitee_avatar || item.invitee_name }}">
+                <image
+                    class="avator"
+                    data-type="img"
+                    src="{{item.invitee_avatar}}"
+                    alt=""
+                />
+                <view class="ctn">{{ item.invitee_name }}</view>
+            </view>
+            <view wx:else></view>
+            <navigator url="/pages/my/buy/index" wx:if="{{activeTab==1}}" class="use-btn">去使用</navigator>
+        </view>
+    </view>
+
+    <view class="tongyong-info">
+      仅限于购买{{item.vip_card}}，仅限于{{item.physical_store}}门店使用
+    </view>
+  </view>
+</view>

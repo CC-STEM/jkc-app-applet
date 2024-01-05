@@ -1,0 +1,30 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<empty wx:if="{{ !dataSource.length }}" />
+
+<view class="list-wrap">
+  <navigator
+    url="/pages/activity/details/index?id={{ item.id }}"
+    wx:for="{{ dataSource }}"
+    wx:key="id"
+  >
+    <view class="item">
+      <image
+        wx:if="{{ item.status >= 1 }}"
+        class="status"
+        src="{{ item.status == 1 ? 'https://image.jkcspace.com/wxmini_static/images/activity-ing.png' : 'https://image.jkcspace.com/wxmini_static/images/activity-end.png' }} "
+        alt=""
+      />
+      <image
+        class="banner"
+        src="{{ uploadUrlHost }}/{{ item.img_url }}"
+        alt=""
+      />
+      <view class="bottom">
+        <view class="title">{{ item.name }}</view>
+        <view class="time">{{ item.start_at }}</view>
+      </view>
+    </view>
+  </navigator>
+</view>
+

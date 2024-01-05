@@ -1,0 +1,278 @@
+page {
+  background-color: rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.page {
+  position: relative;
+}
+.rule {
+  position: absolute;
+  right: 0;
+  top: 240rpx;
+  width: 80rpx;
+  height: 42rpx;
+  line-height: 40rpx;
+  background: #FF6622;
+  border-radius: 22rpx 0 0 22rpx;
+  font-size: 26rpx;
+  color: #FFFFFF;
+  z-index: 1;
+  text-align: center;
+  font-weight: 400;
+}
+.bg {
+  width: 750rpx;
+  height: 2280rpx;
+  display: block;
+  overflow: auto;
+}
+
+.page .item {
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% !important;
+  position: absolute;
+  padding: 84rpx 32rpx 0;
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: 400;
+}
+.page .item1 {
+  width: 694rpx;
+  height: 490rpx;
+  top: 718rpx;
+  left: 30rpx;
+  background-image: url('https://image.jkcspace.com/wxmini_static/images/poster-1.png') !important;
+}
+.page .item2 {
+  width: 697rpx;
+  height: 414rpx;
+  top: 1240rpx;
+  left: 30rpx;
+  background-image: url('https://image.jkcspace.com/wxmini_static/images/poster-2.png') !important;
+}
+.page .item3 {
+  width: 697rpx;
+  height: 532rpx;
+  top: 1684rpx;
+  left: 30rpx;
+  background-image: url('https://image.jkcspace.com/wxmini_static/images/poster-jian.png') !important;
+}
+.page .jian {
+  width: 80rpx;
+  height: 38rpx;
+  position: absolute;
+  top: 264rpx;
+  left: 422rpx;
+}
+.page .jian image {
+  width: 80rpx;
+  height: 38rpx;
+}
+.page .item .title {
+  font-size: 36rpx;
+  margin-bottom: 12rpx;
+  font-weight: bold;
+}
+.page .item .desc {
+  color: #DCDDFF;
+  padding-right: 150rpx;
+}
+.page .item .tips {
+  color: #8EB6FF;
+  opacity: 0.74;
+  padding: 0 36rpx;
+  position: absolute;
+  bottom: 14rpx;
+  left: 0;
+}
+.page .item .subtitle {
+  display: flex;
+  align-items: center;
+  margin: -4rpx 0 10rpx;
+}
+.page .item .money {
+  font-size: 36rpx;
+  margin-right: 13rpx;
+}
+.page .f24 {
+  font-size: 24rpx;
+}
+.page .time {
+  background: #0609B8;
+  border-radius: 10rpx;
+  padding: 10rpx 12rpx;
+  display: inline-block;
+  margin-top: 12rpx;
+}
+.page .button {
+  flex: 1;
+  text-align: center;
+  padding: 0 !important;
+  position: absolute;
+  bottom: 14rpx;
+  left: 20rpx;
+  right: 0;
+  margin: auto;
+  width: 660rpx !important;
+  height: 152rpx !important;
+  background: initial !important;
+  background-image: url('https://image.jkcspace.com/wxmini_static/images/poster-btn.png') !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% !important;
+}
+.page .button image {
+  width: 553rpx;
+  height: 155rpx;
+}
+button, button::after {
+  border: 0;
+}
+
+.invite-wrap {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding-top: 50rpx;
+  background-image: url(https://image.jkcspace.com/wxmini_static/images/invite-bg-img.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.invite-wrap .firstCanvas {
+  margin: auto;
+}
+/* 海报 */
+.invite-wrap .share {
+  text-align: center;
+  overflow: hidden;
+}
+.invite-wrap .share canvas {
+  position: absolute;
+  bottom: 400rpx;
+  left: 0;
+  right: 0;
+  border-radius: 30rpx;
+  width: 575rpx;
+  height: 768rpx;
+}
+.invite-wrap .poster-img {
+  width: 575rpx;
+  height: 768rpx;
+  margin: auto;
+  border-radius: 30rpx;
+  position: absolute;
+  bottom: 400rpx;
+  left: 0;
+  right: 0;
+}
+
+/* page {
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+} */
+
+.invite-wrap .wrap {
+  position: relative;
+  text-align: center;
+  height: 100%;
+}
+.invite-wrap .bg {
+  width: 750rpx;
+  height: 1212rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.invite-wrap .ctn {
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 16rpx;
+  text-align: center;
+}
+.invite-wrap .ctn image {
+  width: 296rpx;
+  height: 296rpx;
+  display: block;
+  margin: auto;
+}
+.invite-wrap .ctn .btn-img {
+  width: 389rpx;
+  height: 94rpx;
+  margin: 22rpx auto 0;
+}
+
+.invite-wrap .footer {
+  width: 705rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  position: absolute;
+  bottom: 20rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 0 20rpx;
+}
+
+.invite-wrap .btn-wrap {
+  padding: 32rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.invite-wrap .button {
+  flex: 1;
+  text-align: center;
+  padding: 0 !important;
+  font-size: 26rpx;
+  font-weight: 500;
+}
+.invite-wrap .button image {
+  width: 80rpx;
+  height: 80rpx;
+}
+.invite-wrap .cancel {
+  border-top: 1px solid #EDEDED;
+  padding: 32rpx 0;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: 800;
+  color: #1A1A1A;
+}
+
+.invite-wrap .guide-wrap {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+.invite-wrap .guide-wrap image {
+  width: 262rpx;
+  height: 191rpx;
+  position: absolute;
+  right: 12rpx;
+  top: 140rpx;
+}

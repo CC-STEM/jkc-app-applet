@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "empty": "/components/empty",
+    "navigation-bar": "/components/custom-navigation-bar-return",
+    "dialog-total": "/components/dialog-total",
+    "ec-canvas": "../../../ec-canvas/ec-canvas"
+  }
+}

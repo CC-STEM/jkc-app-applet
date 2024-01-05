@@ -1,0 +1,57 @@
+<view class="modal modal-bottom-dialog">
+  <view class="modal-cancel" bindtap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{animationData}}">
+    <view class='Mselect'>
+      <view class="modal-head">
+        <text>筛选条件</text>
+        <image
+          class="close"
+          src="https://image.jkcspace.com/wxmini_static/images/picker-close.png"
+          alt=""
+          bind:tap="hideModal"
+        />
+      </view>
+      <view class="ctn-wrap">
+        <view class="title">{{ title1 || '最后老师' }}</view>
+        <view
+          class="tag {{ type1 == '' ? 'active' : '' }}"
+          data-value="{{ '' }}"
+          bindtap='getOption1'
+        >
+          全部
+        </view>
+        <view
+          class="tag {{ type1 == item.id ? 'active' : '' }}"
+          wx:for="{{ teacherList }}"
+          wx:key="id"
+          data-value='{{ item.id }}'
+          bindtap='getOption1'
+        >
+          {{ item.name }}
+        </view>
+        <view wx:if="{{!hide2}}">
+          <view class="title" >会员属性</view>
+          <view
+            class="tag {{ type2 == '' ? 'active' : '' }}"
+            data-value="{{ '' }}"
+            bindtap='getOption2'
+          >
+            全部
+          </view>
+          <view
+            class="tag {{ type2 == item.value ? 'active' : '' }}"
+            wx:for="{{ memberTypeMap }}"
+            wx:key="index"
+            data-value='{{ item.value }}'
+            bindtap='getOption2'
+          >
+            {{ item.name }}
+          </view>
+        </view>
+      </view>
+      <view class="btn" bind:tap="onSelect">确定</view>
+    </view>
+  </view>
+</view>
+

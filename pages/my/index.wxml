@@ -1,0 +1,170 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="top" style="background-image:url('https://image.jkcspace.com/wxmini_static/images/my-bg.png')">
+  <!--<view url="/pages/set/index" bind:tap="goSet" class="set-icon">设置</view>-->
+  <view class="user-info">
+    <view class="avator-wrap">
+      <image
+        wx:if="{{ userInfo.avatar }}"
+        class="avator"
+        data-type="img"
+        src="{{ uploadUrlHost }}/{{ userInfo.avatar }}"
+        alt=""
+      />
+      <image
+        wx:else
+        class="avator"
+        data-type="img"
+        src="https://image.jkcspace.com/wxmini_static/images/my-avatar.png"
+        alt=""
+      />
+      <!--<button
+        class="user-btn"
+        wx:if="{{ !userInfo.name }}"
+        bind:tap="getUserProfile"
+      >点击获取头像
+      </button>-->
+
+      <view class="ctn">
+        <view class="tag green">{{ userInfo.name }}</view>
+        <view
+          wx:if="{{ info.vip_name }}"
+          class="xufei"
+          bind:tap="onGoPage"
+        >
+          <text>{{ info.vip_name }}</text>
+          <image
+            class="img"
+            src="https://image.jkcspace.com/wxmini_static/images/my-xufei.png"
+            alt=""
+          />
+        </view>
+
+      </view>
+    </view>
+    <view class="edit-btn" bind:tap="onShowModal">点击编辑资料</view>
+    <view
+      wx:if="{{ userInfo.identity == 2 }}"
+      class="change-btn"
+      bind:tap="onChange"
+    >切换身份
+    </view>
+  </view>
+
+  <view class="weui-flex total-wrap">
+    <view class="weui-flex__item item">
+      <view class="text-wrap">
+        <view class="text strong">{{ info.course1 }}</view>
+        <view class="text">次</view>
+      </view>
+      <view class="text">幼儿课</view>
+    </view>
+    <view class="weui-flex__item item">
+      <view class="text-wrap">
+        <view class="text strong">{{ info.course3 }}</view>
+        <view class="text">套</view>
+      </view>
+      <view class="text">少儿课</view>
+    </view>
+    <view class="weui-flex__item item">
+      <view class="text-wrap">
+        <view class="text strong">{{ info.course2 }}</view>
+        <view class="text">次</view>
+      </view>
+      <view class="text">主题活动</view>
+    </view>
+  </view>
+
+  <view bind:tap="goPage" data-url="/pages/poster/index">
+    <view class="link">
+      <image src="https://image.jkcspace.com/wxmini_static/images/my-link.png" alt="vip" />
+    </view>
+  </view>
+
+</view>
+
+<view class="menu-wrap">
+  <view class="item"  bind:tap="goPage" data-url="/pages/offcourse/list/index">
+    <view>
+      <image src="https://image.jkcspace.com/wxmini_static/images/my-icon1.png" alt="" />
+      <view class="text">我的约课</view>
+    </view>
+  </view>
+  <view class="item"  bind:tap="goPage" data-url="/pages/offcourse/feedback/index">
+    <view>
+      <image src="https://image.jkcspace.com/wxmini_static/images/my-icon-kehou.png" alt="" />
+      <view class="text">课后反馈</view>
+    </view>
+  </view>
+  <view class="item"  bind:tap="goPage" data-url="/pages/my/member/index">
+    <view>
+      <image src="https://image.jkcspace.com/wxmini_static/images/my-icon3.png" alt="" />
+      <view class="text">消费记录</view>
+    </view>
+  </view>
+  <view class="item" bind:tap="goPage" data-url="/pages/order/index">
+    <view>
+      <image src="https://image.jkcspace.com/wxmini_static/images/my-icon2.png" alt="" />
+      <view class="text">商城订单</view>
+    </view>
+  </view>
+  <view class="item" bind:tap="goPage" data-url="/pages/about/index">
+    <view>
+      <image src="https://image.jkcspace.com/wxmini_static/images/my-icon6.png" alt="" />
+      <view class="text">了解我们</view>
+    </view>
+  </view>
+  <view class="item" bind:tap="goPage" data-url="/pages/activity/index">
+    <view>
+      <image src="https://image.jkcspace.com/wxmini_static/images/my-icon4.png" alt="" />
+      <view class="text">我的活动</view>
+    </view>
+  </view>
+  <button
+    class="item contact-btn"
+    open-type="contact"
+    bindcontact="handleContact"
+    wx:if="{{  token }}"
+  >
+    <image src="https://image.jkcspace.com/wxmini_static/images/my-icon5.png" alt="" />
+    <view class="text">客服咨询</view>
+  </button>
+  <view
+    wx:else
+    class="item contact-btn"
+    bind:tap="goPage"
+  >
+    <image src="https://image.jkcspace.com/wxmini_static/images/my-icon5.png" alt="" />
+    <view class="text">客服咨询</view>
+  </view>
+  <!-- <view class="item">
+    <image src="https://image.jkcspace.com/wxmini_static/images/my-icon5.png" alt="" />
+    <view class="text">客服咨询</view>
+  </view> -->
+  <!-- <navigator class="item" url="/pages/about/index">
+    <view>
+      <image src="https://image.jkcspace.com/wxmini_static/images/my-icon6.png" alt="" />
+      <view class="text">了解我们</view>
+    </view>
+  </navigator> -->
+  <view class="item" bind:tap="goPage" data-url="/pages/help/index">
+    <view>
+      <image src="https://image.jkcspace.com/wxmini_static/images/my-icon7.png" alt="帮助中心" />
+      <view class="text">帮助中心</view>
+    </view>
+  </view>
+
+</view>
+<!-- 
+<view class="link">
+  <image src="https://image.jkcspace.com/wxmini_static/images/index-vip-banner.png" alt="vip" />
+</view> -->
+
+<dialog-name
+  wx:if="{{ show }}"
+  show="{{ show }}"
+  default-data="{{ userInfo }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+/>
+

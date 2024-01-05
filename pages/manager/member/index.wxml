@@ -1,0 +1,86 @@
+<navigation-bar default-data="{{defaultData}}" isManager="{{true}}"></navigation-bar>
+
+<view class="top">
+  <view class="input-wrap">
+    <input
+      bind:input="formInputChange"
+      data-field="number"
+      value="{{ number }}"
+      class="weui-input"
+      placeholder="请输入学员名称/手机号"
+    />
+  </view>
+  <view class="btn" bindtap="onShowModal">筛选</view>
+</view>
+
+<empty wx:if="{{ !dataSource.length }}" />
+
+<view class="list-wrap" wx:else>
+  <navigator
+    url="/pages/manager/mdetails/index?id={{item.id}}"
+    class="list-item item{{ item.member_status_type }}"
+    wx:for="{{ dataSource }}"
+    wx:key="index"
+    data-id="{{item.id}}"
+  >
+    <view class="top-wrap">
+      <view class="user-info">
+        <image
+          class="avator"
+          data-type="img"
+          src="{{ item.avatar || defaultAvatar }}"
+          alt=""
+        />
+        <view class="name">
+          <text class="text">{{ item.name }}</text>
+          <text class="number">{{item.mobile}}</text>
+        </view>
+      </view>
+      <image
+        class="tag"
+        src="https://image.jkcspace.com/wxmini_static/images/member-bage-{{item.member_status_type}}.png"
+        alt=""
+      />
+    </view>
+
+    <view class="weui-flex total-wrap">
+      <navigator class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ item.member_course_offline1 }}</view>
+        </view>
+        <view class="text">待上课</view>
+      </navigator>
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ item.member_course_offline2 }}</view>
+        </view>
+        <view class="text">已上课</view>
+      </view>
+      <view class="weui-flex__item item">
+        <view class="text-wrap">
+          <view class="text strong">{{ item.vip_card_surplus }}</view>
+        </view>
+        <view class="text">可约课</view>
+      </view>
+    </view>
+
+    <view class="bottom">
+      <view class="left">
+        <text class="label">最近时间</text>
+        <text>{{item.recently_event}}</text>
+      </view>
+      <view class="right">
+        <text class="label">最后老师</text>
+        <text>{{item.recently_event_teacher}}</text>
+      </view>
+    </view>
+  </navigator>
+</view>
+
+<dialog-member
+  wx:if="{{ show }}"
+  show="{{ show }}"
+  default-data="{{ filter }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+/>

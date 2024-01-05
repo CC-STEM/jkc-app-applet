@@ -1,0 +1,122 @@
+/* .nav-bar-msg {
+  position: fixed; 
+  width: 100%; 
+  top: 0; 
+  left: 0;
+  z-index: 1;
+  color: #fff; 
+  display: flex;
+  align-items: center;
+  padding: 42rpx 0 0 20rpx;
+  background: linear-gradient(0deg, #FFEFCB 0%, #E1DBCE 100%);
+}
+.nav-bar-msg .left {
+  position: relative;
+  justify-self: start; 
+}
+.nav-bar-msg image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  border: 2rpx solid #fff;
+  margin-right: 10rpx;
+}
+.nav-bar-msg .text {
+  color: #333;
+  font-size: 28rpx;
+}
+.tab-wrap {
+  width: 310rpx;
+  height: 74rpx;
+  background: #F2F2F2;
+  border-radius: 37rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 6rpx;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.tab {
+  width: 154rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #999;
+  text-align: center;
+}
+.tab-wrap .tab.active {
+  background: #FFFFFF;
+  color: #1A1A1A;
+} */
+
+.navigation-container {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+}
+.navigation-bar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.navigation-buttons {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  color: var(--text-color-black);
+  font-size: 30rpx;
+}
+.navigation-buttons .text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 130rpx;
+}
+.nav-img {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 24rpx;
+  border: 2rpx solid #fff;
+  margin-right: 8rpx;
+}
+.navigation-title {
+  position: absolute;
+  left: 104px;
+  right: 104px;
+  text-align: center;
+  color: #000000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tab-wrap {
+  width: 310rpx;
+  height: 74rpx;
+  background: #F2F2F2;
+  border-radius: 37rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 6rpx;
+}
+.tab {
+  width: 154rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #999;
+  text-align: center;
+}
+.tab-wrap .tab.active {
+  background: #FFFFFF;
+  color: #1A1A1A;
+} 

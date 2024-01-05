@@ -1,0 +1,122 @@
+page {
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
+}
+
+.no-choose-wrap {
+  padding: 20rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  position: relative;
+  font-weight: bold;
+  display: inline-block;
+}
+.title::before {
+  content: '';
+  width: 100%;
+  height: 14rpx;
+  display: block;
+  position: absolute;
+  bottom: -2rpx;
+  left: 0;
+  background: #FFD925;
+  z-index: -1;
+}
+
+.opration {
+  padding: 32rpx 0;
+  font-size: 28rpx;
+  font-weight: 800;
+  color: #333333;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+}
+.opration .text {
+  flex: 1;
+  text-align: center;
+}
+.opration image {
+  width: 12rpx;
+  height: 12rpx;
+  margin-left: 8rpx;
+}
+
+.list-wrap {
+  font-size: 24rpx;
+  padding: 24rpx;
+}
+.list-wrap .item {
+  width: 100%;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin-bottom: 25rpx;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-wrap .item .banner {
+  width: 100%;
+  height: 345rpx;
+}
+.list-wrap .item .bottom {
+  width: 100%;
+  background: #FFD925;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.list-wrap .left {
+  background-color: #ffffff;
+  padding: 26rpx;
+  width: 589rpx;
+  border-radius: 0 20rpx 20rpx 20rpx;
+  flex: 1;
+}
+.list-wrap .top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40rpx;
+}
+.list-wrap .title {
+  font-size: 34rpx;
+  font-weight: 800;
+  color: #1A1A1A;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.list-wrap .tag-wrap {
+  display: flex;
+}
+.list-wrap .tag-wrap .tag {
+  padding: 7rpx 16rpx;
+  border-radius: 5rpx;
+  margin-left: 10rpx;
+}
+.list-wrap .tag-wrap .tag.blue {
+  color: #3E7EFF;
+  background: #E0F0FF;
+}
+.list-wrap .tag-wrap .tag.orange {
+  color: #FF6326;
+  background: #FFF5E4;
+}
+.list-wrap .item .desc {
+  font-size: 26rpx;
+  color: #999999;
+}
+.list-wrap .right {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #1A1A1A;
+  width: 80rpx;
+  margin-left: 20rpx;
+  text-align: center;
+}
+.list-wrap .right image {
+  width: 30rpx;
+  height: 30rpx;
+}

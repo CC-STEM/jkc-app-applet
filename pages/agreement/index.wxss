@@ -1,0 +1,43 @@
+page {
+  padding: 0 20rpx calc(50px + env(safe-area-inset-bottom)) 20rpx;
+  text-align: center;
+}
+
+.image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+}
+
+.wrap {
+  padding: 30rpx 20rpx;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  padding: 20rpx 57rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.btn {
+  width: 232rpx;
+  height: 87rpx;
+  line-height: 87rpx;
+  display: inline-block;
+  border-radius: 43rpx;
+  margin-left: 60rpx;
+  background: #F0F1F5;
+  border-radius: 43rpx;
+  font-size: 30rpx;
+  font-weight: 800;
+  color: #1A1A1A;
+}
+.btn.orange {
+  background: #FFD925;
+}

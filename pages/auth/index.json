@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "授权",
+  "usingComponents": {
+    "navigation-bar": "/components/custom-navigation-bar-return"
+  }
+}

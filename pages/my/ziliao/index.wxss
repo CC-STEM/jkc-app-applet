@@ -1,0 +1,154 @@
+page {
+  padding: 0 0 150rpx;
+  background-color: #fff;
+}
+
+.ziliao {
+  padding: 32rpx 66rpx;
+}
+
+.head {
+  text-align: center;
+  padding: 0 0 30rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1A1A1A;
+  position: relative;
+  text-align: left;
+  background-image: url('https://image.jkcspace.com/wxmini_static/images/ziliao-book.png');
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: 175rpx 88rpx;
+}
+
+.tips {
+  width: 620rpx;
+  height: 50rpx;
+  background: #FFE8DD;
+  border-radius: 10rpx;
+  padding: 8rpx 20rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #FF5401;
+  margin-bottom: 22rpx;
+}
+
+.ctn-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-size: 28rpx;
+  color: #1A1A1A;
+}
+.input {
+  flex: 1;
+  line-height: 24rpx;
+  /* width: 480rpx; */
+  /* padding: 26rpx 25rpx;
+  border: 1rpx solid rgba(194,194,194,0.48);
+  border-radius: 14rpx;
+  font-size: 28rpx;
+  text-align: left;
+  margin-bottom: 20rpx; */
+  color: #000000;
+  text-align: left;
+}
+input::input-placeholder{
+  font-size: 26rpx;
+  font-weight: 500;
+  color: #B3B3B3;
+}
+.wrap {
+  position: relative;
+}
+.input .text {
+  color: #000000;
+  margin-left: 0;
+}
+.placeholder {
+  margin-left: 0;
+	color:#cccccc;
+}
+.arrow {
+  position: absolute;
+  width: 18rpx;
+  height: 18rpx;
+  right: 36rpx;
+  top: 40rpx;
+}
+
+.btn-wrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  padding: 30rpx 0;
+
+}
+.btn {
+  width: 656rpx;
+  height: 87rpx;
+  line-height: 87rpx;
+  background: #FFD925;
+  border-radius: 43rpx;
+  font-size: 30rpx;
+  font-weight: 800;
+  color: #1A1A1A;
+  text-align: center;
+  margin: auto;
+}
+.form-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100rpx;
+  background: #F5F5F5;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #000000;  
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+  width: 620rpx;
+  padding: 36rpx 30rpx;
+  position: relative;
+  font-weight: 800;
+}
+.form-item .label {
+  width: 196rpx;
+  font-weight: 500;
+  text-align: left;
+}
+
+.lujing {
+  width: 620rpx;
+}
+.lujing .title {
+  text-align: left;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #000000;
+  margin: 10rpx 0 32rpx;
+  padding-left: 30rpx;
+} 
+.tag-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.tag-wrap .tag {
+  width: 291rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #F5F5F5;
+  border-radius: 20rpx;
+  margin: 0 26rpx 23rpx 0;
+  text-align: center;
+}
+.tag-wrap .tag:nth-child(2n) {
+  margin-right: 0;
+}
+.tag-wrap .tag.active {
+  background: #FF6C25;
+  color: #FFFFFF;
+}

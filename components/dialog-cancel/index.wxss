@@ -1,0 +1,154 @@
+/*模态框*/
+.modal {
+  position:fixed; 
+  top:0; 
+  right:0;
+  bottom:0; 
+  left:0; 
+  z-index: 99999;
+}
+.modal-cancel {
+  position: absolute; 
+  z-index: 2000; 
+  top:0; 
+  right:0; 
+  bottom: 0; 
+  left:0; 
+  background:rgba(0,0,0,0.3);
+}
+.bottom-dialog-body {
+  width: 100%; 
+  position: absolute;
+  z-index: 3000; 
+  top: 0; 
+  left: 0;
+  background:#dfdede;
+}
+/*动画前初始位置*/
+.bottom-positon{-webkit-transform:translateY(100%);transform:translateY(100%);}
+
+
+/* 底部弹出框 */
+.bottom-positon{
+  text-align: center;
+}
+.modal-head {
+  text-align: center;
+  padding: 42rpx 0 32rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1A1A1A;
+  position: relative;
+}
+.modal-head .close {
+  width: 42rpx;
+  height: 42rpx;
+  position: absolute;
+  right: 32rpx;
+  top: 40rpx;
+}
+.Mselect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 300rpx;
+  margin: auto;
+  width: 626rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  background: linear-gradient(-140deg, #fff9dd, #ffffff);
+}
+
+.Mselect .ctn-wrap {
+  padding: 0 44rpx;
+  color: #1A1A1A;
+  text-align: left;
+}
+.tips {
+  padding: 12rpx 34rpx;
+  background: #FFF1EC;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #FF6326;
+}
+.title {
+  font-size: 40rpx;
+  font-weight: 800;
+  color: #1A1A1A;
+  margin: 40rpx auto 18rpx;
+}
+.list { 
+
+}
+.line {
+  display: flex;
+  align-items: center;
+  margin-top: 36rpx;
+  color: #000;
+  font-size: 28rpx;
+  background-repeat: no-repeat;
+  background-size: 42rpx;
+  background-position: 0 center;
+  padding-left: 52rpx;
+}
+.line .label {
+  width: 138rpx;
+  font-size: 26rpx;
+}
+.line .text {
+  color: #1A1A1A;
+  flex: 1;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 35rpx;
+}
+.footer .btn {
+  width: 267rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #FFD925;
+  border-radius: 44px;
+  margin: 50rpx auto;
+  font-size: 32rpx;
+  font-weight: 800;
+}
+.footer .btn.ghost {
+  background: #F0F1F5;
+}
+/* 
+.info-item {
+  width: 672rpx;
+  background: #F2F3F7;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  padding: 40rpx 24rpx;
+  text-align: left;
+}
+.info-item .line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.copy-btn {
+  width: 60rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  background: rgba(11,8,96,0);
+  border: 1rpx solid #A5A5A5;
+  border-radius: 5rpx;
+  font-size: 22rpx;
+  color: #333333;
+  margin-left: 28rpx;
+  margin-left: 12rpx;
+}
+.number {
+  display: flex;
+  align-items: center;
+} */

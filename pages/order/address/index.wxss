@@ -1,0 +1,44 @@
+page {
+  padding: 20rpx 0 calc(206rpx + env(safe-area-inset-bottom));
+}
+view {
+  line-height: 1;
+}
+
+.top {
+  padding: 136rpx 24rpx 0;
+  background-repeat: no-repeat;
+  background-size: 750rpx 536rpx;
+}
+mp-form {
+  border-radius: 20rpx;
+}
+.weui-cell {
+  align-items: flex-start;
+}
+textarea {
+  width: 100%;
+  min-height: 120rpx;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 22rpx 28rpx;
+  background-color: #ffffff;
+}
+.footer .btn {
+  width: 693rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFD925;
+  color: #1A1A1A;
+}

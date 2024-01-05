@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "empty": "/components/empty",
+    "navigation-bar": "/components/custom-navigation-bar-return",
+    "dialog-express": "/components/dialog-express",
+    "dialog-package": "/components/dialog-package",
+    "dialog-confirm": "/components/dialog-confirm"
+  }
+}

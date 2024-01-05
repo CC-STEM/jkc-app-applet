@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "tabs": "/components/tabs",
+    "empty": "/components/empty",
+    "navigation-bar": "/components/custom-navigation-bar-msg",
+    "picker-age": "/components/picker-age",
+    "dialog-cate": "/components/dialog-cate",
+    "single-picker": "/components/single-picker"
+  }
+}

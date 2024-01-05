@@ -1,0 +1,115 @@
+<view class="modal modal-bottom-dialog">
+  <view class="modal-cancel" bindtap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{ animationData }}">
+    <view class='Mselect'>
+      <view class="modal-head">
+        <text>订单确认</text>
+        <image
+          class="close"
+          src="https://image.jkcspace.com/wxmini_static/images/picker-close.png"
+          alt=""
+          bind:tap="hideModal"
+        />
+      </view>
+      <view class="ctn-wrap">
+        <view class="express">
+          <navigator url="/pages/order/address/index">
+            <view class="item">
+              <image
+                class="avator"
+                src="https://image.jkcspace.com/wxmini_static/images/order-details-icon2.png"
+                alt=""
+              />
+              <view class="ctn">
+                <view class="title">
+                  {{ addressData.consignee || '添加地址' }}
+                  {{ addressData.mobile }}
+                </view>
+                <view class="desc">
+                  {{ addressData.province_name }} {{ addressData.city_name }} {{ addressData.district_name }} {{ addressData.address }}
+                </view>
+              </view>
+              <image
+                class="arrow"
+                src="https://image.jkcspace.com/wxmini_static/images/arrow-right.png"
+                alt=""
+              />
+            </view>
+          </navigator>
+        </view>
+        <view class="info">
+          <view class="avator-wrap">
+            <image
+              class="avator"
+              src="{{ uploadUrlHost }}/{{ cover }}"
+              alt=""
+            />
+            <view class="ctn">
+              <view class="title">{{ dataSource.name }}</view>
+              <view class="desc">已选择：{{ selectedStr }}</view>
+              <view class="money">
+                <view class="left">数量</view>
+                <view class="action">
+                  <view class="btn" bind:tap="onReduce">-</view>
+                  <text>{{ number }}</text>
+                  <view class="btn" bind:tap="onPlus">+</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view
+          class="item"
+          wx:for="{{ dataSource.prop }}"
+          wx:key="index"
+        >
+          <view class="title">{{ item[0].prop_name }}</view>
+          <view class="tag-wrap">
+            <view
+              bind:tap="onSelect"
+              wx:for="{{ item }}"
+              wx:key="prop_value"
+              data-index="{{ index }}"
+              data-name="{{ item.prop_name }}"
+              data-value="{{ item.prop_value }}"
+              class="tag {{ item.isActive ? 'active' : '' }}"
+            >
+              {{ item.prop_value }}
+            </view>
+          </view>
+        </view>
+        
+      </view>
+      <!-- 优惠券-->
+        <view class="select-coupon coupon" >
+          <view>
+            <text>已选择</text>
+            <text class="red" wx:if="{{ curCoupon.id }}">
+              <text wx:if="{{ curCoupon.threshold_amount > 0 }}">满{{ curCoupon.threshold_amount }}</text>
+              <text wx:else>无门槛</text> 减<text>{{ curCoupon.amount }}</text>元  
+            </text>
+            <text class="red" wx:else>不使用优惠券{{curCoupon.id}}</text>
+          </view>
+          <view class="btn" bind:tap="onShowCoupon">重新选择 ></view>
+        </view>
+      <view class="footer">
+        <view class="left">
+          需支付
+          <text>{{ totalPrice }}</text>
+          币
+        </view>
+        <view class="btn" bind:tap="onSubmit">立即支付</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<dialog-coupon
+  wx:if="{{ showCoupon }}"
+  show="{{ showCoupon }}"
+  default-data="{{ couponData }}"
+  coupon="{{ curCoupon }}"
+  bind:ok="onSelectCoupon"
+  bind:cancel="onCancel"
+/>

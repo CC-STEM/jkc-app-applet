@@ -1,0 +1,43 @@
+<navigation-bar default-data="{{ defaultData }}" isManager="{{true}}"></navigation-bar>
+
+<view class="page-title">
+  <view class="top">
+    <picker bindchange="bindPickerChange" fields="day" mode="date">
+      <view class="change-btn">
+        <text>{{ fdate }}</text>
+        <image
+          class="arrow"
+          src="https://image.jkcspace.com/wxmini_static/images/manage-down-arrow.png"
+          alt=""
+        />
+      </view>
+    </picker>
+    <view class="alert">
+      已购买会员卡的不在以下展示
+    </view>
+  </view>
+</view>
+
+<empty wx:if="{{ !dataSource.length }}" />
+
+<view wx:else class="list-wrap">
+  <view class="item item{{item.order_type}}" wx:for="{{dataSource }}" wx:key="index">
+    <view class="title">
+      <view class="left">{{ item.course_name }}</view>
+      <view class="right">{{item.course_type_text}}</view>
+    </view>
+    <view class="line">
+      <view class="label">用户信息</view>
+      <view class="num">{{item.member_name}}({{item.member_mobile}})</view>
+    </view>
+    <view class="line">
+      <view class="label">上课时间</view>
+      <view class="num">{{item.start_at}}-{{item.end_at}}</view>
+    </view>
+    <view class="line">
+      <view class="label">上课老师</view>
+      <view class="num">{{item.teacher_name}}</view>
+    </view>
+    <image alt="" class="img" src="https://image.jkcspace.com/wxmini_static/images/tiyan-{{item.order_type - 1}}.png" />
+  </view>
+</view>

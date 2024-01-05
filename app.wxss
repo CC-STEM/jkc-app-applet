@@ -1,0 +1,143 @@
+@import "./pages/wxParse/wxParse.wxss";
+
+/* 变量 */
+page {
+  background-color: #F7F7F7;
+  --primary-color: #2866DE;
+  --border-color: #f0f0f0;
+  --link-color: #576B95;
+
+  --base-space: 24rpx;
+  --large-space: 32rpx;
+  --text-color: #333333;
+  --text-color-black: #1A1A1A;
+  --text-color-secondary: #B3B3B3;
+  --text-color-tertiary: rgba(0, 0, 0, .3);
+  --text-color-inverse: #fff;
+}
+
+page, view, text, navigator {
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+page {
+  font-size: 28rpx;
+  color: var(--text-color);
+  color: #333;
+  font-weight: 500;
+}
+navigator {
+  color: var(--link-color);
+  height: unset !important;
+}
+/* 重置点击样式 */
+.navigator-hover {
+  background-color: inherit;
+  opacity: unset;
+}
+
+.tl {
+  text-align: left;
+}
+.tc {
+  text-align: center;
+}
+.tr {
+  text-align: right;
+}
+.tc-sec {
+  color: var(--text-color-secondary);
+}
+.tc-ter {
+  color: var(--text-color-tertiary);
+}
+.tc-inv {
+  color: var(--text-color-inverse);
+}
+.tc-link {
+  color: var(--link-color);
+}
+
+/* ------------重置按钮样式------------ */
+button {
+  width: fit-content !important;
+  margin-left: unset !important;
+  margin-right: unset !important;
+  padding: 16rpx 24rpx !important;
+  font-size: 30rpx !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  border-radius: 8rpx !important;
+  background: #fff !important;
+  border: 1rpx solid #e9e9e9;
+}
+button.no-border {
+  border: 0;
+}
+button::after {
+  border: 0;
+}
+/* 小按钮 */
+button[size='mini'] {
+  padding: 12rpx 30rpx !important;
+  font-size: 24rpx !important;
+}
+/* 宽度充满父组件的按钮，添加data-block属性 */
+button[data-block='true'] {
+  width: unset !important;
+}
+button[type='primary'] {
+  border-color: var(--primary-color) !important;
+  background: var(--primary-color) !important;
+  color: #fff;
+}
+/* 主按钮镂空 */
+button[type='primary'][plain] {
+  background: transparent !important;
+  color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+/* 主按钮禁用 */
+button[disabled][type='primary'] {
+  border-color: rgba(40, 102, 222, .6) !important;
+  background: rgba(40, 102, 222, .6) !important;
+  color: var(--text-color-inverse) !important;
+}
+/* 镂空主按钮禁用 */
+button[type='primary'][plain][disabled] {
+  background: transparent !important;
+  color: var(--text-color-tertiary) !important;
+  border-color: #E5E5E5 !important;
+}
+/* ------------重置按钮样式------------ */
+
+/* ------------weui tabBar重置-------------- */
+.weui-tabbar {
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.weui-tabbar__label {
+  color: #797b7e;
+}
+.weui-tabbar__item.weui-bar__item_on .weui-tabbar__label {
+  color: var(--primary-color);
+}
+/* ------------weui tabBar重置-------------- */
+
+/* ------------weui表单样式重置-------------- */
+.weui-cells__title {
+  margin-top: var(--base-space);
+  margin-bottom: 12rpx;
+  padding: 0 var(--large-space);
+  color: var(--text-color);
+  font-size: 26rpx;
+}
+/* ------------weui表单样式重置-------------- */
+
+/* 编辑器的样式 */
+.ql-align-center {
+  text-align: center;
+}

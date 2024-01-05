@@ -1,0 +1,98 @@
+/*模态框*/
+.modal {
+  position:fixed; 
+  top:0; 
+  right:0;
+  bottom:0; 
+  left:0; 
+  z-index: 99999;
+}
+.modal-cancel {
+  position: absolute; 
+  z-index: 2000; 
+  top:0; 
+  right:0; 
+  bottom: 0; 
+  left:0; 
+  background:rgba(0,0,0,0.3);
+}
+.bottom-dialog-body {
+  width: 100%; 
+  position: absolute;
+  z-index: 3000; 
+  top: 0; 
+  left: 0;
+  background:#dfdede;
+}
+/*动画前初始位置*/
+.bottom-positon{-webkit-transform:translateY(100%);transform:translateY(100%);}
+
+
+/* 底部弹出框 */
+.bottom-positon{
+  text-align: center;
+}
+.modal-head {
+  text-align: center;
+  padding: 50rpx 0 0;
+  font-size: 36rpx;
+  font-weight: 800;
+  color: #1A1A1A;
+  position: relative;
+}
+.modal-head .close {
+  width: 42rpx;
+  height: 42rpx;
+  position: absolute;
+  right: 32rpx;
+  top: 40rpx;
+}
+.Mselect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 300rpx;
+  margin: auto;
+  width: 626rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  background: linear-gradient(-140deg, #fff9dd, #ffffff);
+}
+
+.Mselect .ctn-wrap {
+  padding: 0 44rpx 22rpx;
+  color: #1A1A1A;
+  padding-top: 60rpx;
+  text-align: left;
+}
+.Mselect .content {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+  text-align: center;
+  max-height: 500rpx;
+  overflow-y: scroll;
+}
+.Mselect .poster {
+  text-align: left;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 35rpx;
+}
+.footer .btn {
+  width: 232rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #FFD925;
+  border-radius: 44px;
+  margin: 50rpx auto;
+  font-size: 32rpx;
+  font-weight: 800;
+}
+.footer .btn.ghost {
+  background: #F0F1F5;
+}

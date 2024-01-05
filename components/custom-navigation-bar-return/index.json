@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "share-btn": "/components/share-btn"
+  }
+}

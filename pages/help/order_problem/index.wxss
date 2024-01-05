@@ -1,0 +1,34 @@
+page {
+  padding: 28rpx 25rpx;
+}
+
+.list-wrap {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.list-wrap .item {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  margin-bottom: 22rpx;
+  padding: 32rpx 26rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}  
+.list-wrap .item .left {
+  display: flex;
+  align-items: center;
+}
+.list-wrap .item .name {
+  color: #1a1a1a;
+}
+.list-wrap .item image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+.list-wrap .item .arrow {
+  width: 30rpx;
+  height: 30rpx;
+}

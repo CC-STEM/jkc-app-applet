@@ -1,0 +1,197 @@
+page {
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
+}
+
+.no-choose-wrap {
+  padding: 20rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  position: relative;
+  font-weight: bold;
+  display: inline-block;
+}
+.title::before {
+  content: '';
+  width: 100%;
+  height: 14rpx;
+  display: block;
+  position: absolute;
+  bottom: -2rpx;
+  left: 0;
+  background: #FFD925;
+  z-index: -1;
+}
+
+
+.no-data {
+  font-size: 26rpx;
+  color: #333333;
+  line-height: 39rpx;
+  text-align: center;
+  padding: 27rpx 0 112rpx;
+}
+.no-data image {
+  width: 165rpx;
+  height: 165rpx;
+  font-size: 26rpx;
+  color: #333333;
+  line-height: 39rpx
+}
+
+.opration-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.opration-wrap .opration {
+  font-size: 28rpx;
+  font-weight: 800;
+  color: #333333;
+  display: flex;
+  justify-content: center;
+}
+.opration-wrap .opration .text {
+  margin-left: 40rpx;
+}
+.opration-wrap .opration image {
+  width: 12rpx;
+  height: 12rpx;
+  margin-left: 8rpx;
+}
+
+.course-list {
+  font-size: 24rpx;
+  /* display: flex;
+  align-items: center; */
+  padding: 20rpx;
+}
+.course-list .item {
+  width: 710rpx;
+  height: 285rpx !important;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+  position: relative;
+  padding: 36rpx 20rpx 0 268rpx;
+  background-size: 310rpx 245rpx;
+  background-repeat: no-repeat;
+}
+.course-list .item .img {
+  width: 490rpx;
+  height: 285rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 20rpx;
+}
+.course-list .item .title {
+  margin-bottom: 20rpx;
+  font-size: 36rpx;
+  font-weight: 800;
+  color: #1A1A1A;
+  display: flex;
+  justify-content: space-between;
+}
+.course-list .item .title .text {
+  flex: 1;
+}
+.course-list .item .action-btn {
+  width: 36rpx;
+  height: 36rpx;
+  margin-top: 8rpx;
+}
+.course-list .item .ctn {
+  position: relative;
+  display: flex;
+}
+.course-list .item .tag {
+  padding: 7rpx 16rpx;
+  border-radius: 5rpx;
+  margin-right: 10rpx;
+}
+.course-list .item .tag.blue {
+  color: #3E7EFF;
+  background: #E0F0FF;
+}
+.course-list .item .tag.orange {
+  color: #FF6326;
+  background: #FFF5E4;
+}
+.course-list .item .bottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  bottom: 0;
+  width: 490rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 47rpx;
+}
+.course-list .item .bottom .text {
+  color: #999;
+  font-size: 24rpx;
+}
+.course-list .item .bottom .btn {
+  width: 203rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+  background: #FFD925;
+  border-radius: 40px 0px 20px 0px;
+  font-size: 30rpx;
+}
+.course-list .item .bottom .gray {
+  background-color: #EAEAEA;
+  color: #BABABA;
+}
+
+
+.list-wrap {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(0deg, #FFFFFF, #F7F7F7);
+}
+.list-wrap .item {
+  width: 340rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin-right: 16rpx;
+  position: relative;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+.list-wrap .item:nth-child(2n) {
+  margin-right: 0;
+}
+.list-wrap .item .bage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #1A1A1A;
+  background-color: #FFD31E;
+  border-radius: 20rpx 0 14rpx 0;
+  font-size: 22rpx;
+  padding: 12rpx 16rpx;
+}
+.list-wrap .item image {
+  width: 340rpx;
+  height: 224rpx;
+}
+.list-wrap .item .bottom {
+  padding: 29rpx 18rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #000000;
+}
+.list-wrap .item .name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

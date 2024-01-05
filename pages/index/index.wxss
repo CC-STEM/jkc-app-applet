@@ -1,0 +1,247 @@
+page {
+  padding: 20rpx 20rpx calc(50px + env(safe-area-inset-bottom));
+}
+.swiper-wrap {
+  width: 710rpx;
+  height: 332rpx;
+  border-radius: 20px;
+  overflow: hidden;
+}
+swiper {
+	height: 332rpx !important;
+}
+.swiper-wrap image {
+  width: 710rpx;
+  height: 332rpx;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* 菜单入口 */
+.menu-wrap {
+  padding: 23rpx 0;
+  text-align: center;
+  font-size: 26rpx;
+}
+.menu-wrap .item {
+  width: 343rpx;
+  height: 146rpx;
+  padding-top: 20rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+  background-position: 38rpx center;
+  background-repeat: no-repeat;
+  background-size: 131rpx 27rpx;
+  background-image: url(https://image.jkcspace.com/wxmini_static/images/home-menu2.png);
+}
+.menu-wrap .item:last-child {
+  margin-left: 16rpx;
+  background-image: url(https://image.jkcspace.com/wxmini_static/images/home-menu1.png);
+}
+.menu-wrap image {
+  width: 100rpx;
+  height: 100rpx;
+  float: right;
+}
+.menu-wrap .text {
+  color: #1a1a1a;
+}
+
+/*开通会员 */
+.member-wrap {
+  width: 710rpx;
+  height: 233rpx;
+  background-position: 0 center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url(https://image.jkcspace.com/wxmini_static/images/home-member.png);
+}
+.member-wrap .btn {
+  float: right;
+  margin: 12rpx 18rpx 0 0;
+}
+.member-wrap .btn image {
+  width: 132rpx;
+  height: 57rpx;
+}
+
+/* 门店切换 */
+.addressTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.addressTitle .tag {
+  font-size: 22rpx;
+  color: #1A1A1A;
+  position: relative;
+  background-position: 22rpx center;
+  padding-left: 50rpx;
+  background-repeat: no-repeat;
+  background-size: 20rpx;
+  background-image: url(https://image.jkcspace.com/wxmini_static/images/home-icon-new.png);
+  width: 111rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  background-color: #FFFFFF;
+  border-radius: 23rpx;
+}
+.addressCtn {
+  background-color: #ffffff;
+  padding: 25rpx 20rpx;
+  border-radius: 20rpx;
+  padding-left: 220rpx;
+  background-position: 20rpx center;
+  background-repeat: no-repeat;
+  background-size: 180rpx;
+  background-image: url(https://image.jkcspace.com/wxmini_static/images/store.png);
+}
+.addressCtn .title {
+  display: flex;
+  padding: 0;
+  justify-content: space-between;
+  font-size: 34rpx;
+  font-weight: 800;
+  color: #1A1A1A;
+  flex: 1;
+}
+.addressCtn .desc {
+  font-size: 28rpx;
+  color: #666;
+  margin: 20rpx 0 15rpx;
+}
+.addressCtn .bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.addressCtn .bottom .tag {
+  height: 40rpx;
+  line-height: 40rpx;
+  background: #EFF8FF;
+  border-radius: 8rpx;
+  padding: 0 17rpx;
+  font-size: 22rpx;
+  color: #1A94FB;
+ }
+ .btn-wrap {
+  display: flex;
+  font-size: 24rpx;
+  background-color: #ffffff;
+}
+.btn-wrap .btn {
+  display: flex;
+  align-items: center;
+  margin-left: 20rpx;
+}
+.btn-wrap image {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 10rpx;
+}
+
+.title {
+  padding: 36rpx 0;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+/* 精品列表 */
+.list-wrap {
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.list-wrap .item {
+  width: 340rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin-bottom: 16rpx;
+  position: relative;
+}
+.list-wrap navigator:nth-child(2n-1) {
+  margin-right: 22rpx;
+}
+.list-wrap .item .bage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #1A1A1A;
+  background-color: #FFD31E;
+  border-radius: 20rpx 0 14rpx 0;
+  font-size: 22rpx;
+  padding: 12rpx 16rpx;
+  font-weight: 500;
+}
+.list-wrap .item:nth-child(2n) {
+  margin-right: 0;
+}
+.list-wrap .item .banner {
+  width: 340rpx;
+  height: 180rpx;
+}
+.list-wrap .item .bottom {
+  padding: 20rpx 18rpx;
+}
+.list-wrap .item .ctn {
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #000;
+}
+.list-wrap .item .tag {
+  padding: 2rpx 10rpx;
+  font-size: 20rpx;
+  text-align: center;
+  color: #fff;
+  border-radius: 18rpx;
+  margin-right: 10rpx;
+}
+.list-wrap .item .tag.orange {
+  background: linear-gradient(90deg, #FD891E, #FC4B1E);
+}
+.list-wrap .item .tag.green {
+  background: linear-gradient(90deg, #1DBBCD, #19B99F);
+}
+.list-wrap .item .avator-wrap {
+  color: var(--text-color-secondary);
+  display: flex;
+  align-items: center;
+}
+.list-wrap .item .avator {
+  width: 42rpx;
+  height: 42rpx;
+  margin-right: 13rpx;
+  border-radius: 50%;
+}
+.list-wrap .item .name, .list-wrap .item .text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 新人礼包 右侧菜单 */
+.libao-wrap {
+  width: 147rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: fixed;
+  right: 0;
+  bottom: 188rpx;
+  z-index: 1;
+}
+.libao-wrap .img {
+  width: 147rpx;
+  height: 152rpx
+}
+.libao-wrap .close {
+  width: 36rpx;
+  height: 36rpx
+}

@@ -1,0 +1,10 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="wrap">
+  <text class="ctn">{{ content }}</text>
+</view>
+<view class="footer">
+  <view class="btn" bind:tap="onDisagree">不同意</view>
+  <view class="btn orange" bind:tap="onAgree">同意</view>
+</view>
+

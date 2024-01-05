@@ -1,0 +1,17 @@
+.share-btn {
+  position: fixed;
+  top: 170rpx;
+  right: 0;
+  z-index: 9999;
+  background: initial !important;
+  padding: 0 !important;
+  width: 96rpx !important;
+  height: 67rpx !important;
+}
+.image {
+  width: 96rpx;
+  height: 67rpx;
+}
+button, button::after {
+  border: 0;
+}

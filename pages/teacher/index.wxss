@@ -1,0 +1,354 @@
+page {
+  padding-bottom: calc(50px + 85rpx + env(safe-area-inset-bottom));
+}
+
+.page-title {
+  padding: 24rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+}
+.change-btn {
+  color: red;
+}
+
+.table-wrap {
+  margin: auto;
+  padding: 0 24rpx;
+  background-color: #FFFFFF;
+}
+.table-wrap .tr {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #1A1A1A;
+  border-radius: 10rpx;
+}
+.table-wrap .tr:first-child {
+  background: #FFFEF4;
+  margin-bottom: 20rpx;
+}
+.table-wrap .tr:nth-child(2) {
+  background: #F3F9FF;
+}
+.table-wrap .tr:last-child {
+  color: #999999;
+  font-size: 22rpx;
+}
+.table-wrap .tr:last-child .td {
+  line-height: 80rpx;
+  padding: 0;
+}
+.table-wrap .td {
+  flex: 1;
+  height: 80rpx; 
+  line-height: 80rpx;
+  text-align: center;
+}
+.table-wrap .td.label {
+  font-size: 22rpx;
+  width: 90rpx;
+  line-height: 28rpx;
+  padding: 12rpx 20rpx 0;
+  flex: initial;
+  border-radius: 10rpx;
+}
+.table-wrap .td.white {
+  color: #fff;
+}
+.table-wrap .td.bg1 {
+  background-color: #FFD925;
+}
+.table-wrap .td.bg2 {
+  background-color: #2690FC;
+}
+
+.list-wrap {
+  font-size: 24rpx;
+  padding: 0 24rpx;
+  margin: 24rpx 24rpx 0;
+  background: #fff;
+  border-radius: 20rpx;
+}
+.list-wrap .item {
+  width: 100%;
+  margin-bottom: 25rpx;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1rpx solid #F3F3F3;
+  padding: 24rpx 0;
+}
+.list-wrap .item .cover {
+  width: 230rpx;
+  height: 162rpx;
+  margin-right: 14rpx;
+}
+.list-wrap .item .play {
+  width: 58rpx;
+  height: 58rpx;
+  position: absolute;
+  top: 86rpx;
+  left: 88rpx;
+}
+.list-wrap .item .ctn {
+  flex: 1;
+  font-size: 24rpx;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.list-wrap .title {
+  font-size: 28rpx;
+  line-height: 28rpx;
+  color: #1A1A1A;
+  margin-bottom: 14rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.list-wrap .item .text {
+  margin-top: 8rpx;
+}
+
+.upload-wrap {
+  width: 687rpx;
+  height: 386rpx;
+  background: #FFF1E3;
+  border-radius: 20px;
+  text-align: center;
+  padding-top: 86rpx;
+  margin-bottom: 24rpx;
+}
+.upload-wrap image {
+  width: 146rpx;
+  height: 146rpx;
+}
+.upload-wrap .btn {
+  margin: 28rpx auto 0;
+  width: 170rpx;
+  height: 65rpx;
+  line-height: 65rpx;
+  background: #FA800E;
+  border-radius: 33rpx;
+  font-size: 28rpx;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.ctn-wrap {
+  /* height: 400rpx; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  color: #1A1A1A;
+  position: relative;
+}
+
+.total-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 750rpx;
+  background: #2678FF;
+  border-radius: 20rpx 20rpx 0 0;
+  color: #FFFFFF;
+  padding: 60rpx 32rpx 18rpx;
+}
+.ctn-wrap .more {
+  /* width: 70rpx;
+  height: 6rpx;
+  border-radius: 6rpx;
+  background-color: #fff; */
+  position: absolute;
+  left: 0;
+  top: 16rpx;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  z-index: 1;
+  color: #fff;
+  font-size: 20rpx;
+}  
+.total-top .item {
+  flex: 1;
+}
+.total-top .item1 .left {
+  display: flex;
+  align-items: center;
+}
+.total-top .item1 .left .eye {
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 6rpx;
+}
+.total-top .item1 .change-btn {
+  width: 139rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  background: #FFFFFF;
+  border-radius: 23rpx;
+  text-align: center;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #000000;
+}
+.total-top .item1 .coin {
+  display: flex;
+  align-items: flex-end;
+  font-size: 26rpx;
+}
+.total-top .item1 .coin .strong {
+  line-height: 1;
+  margin-right: 14rpx;
+  font-size: 48rpx;
+  font-weight: bold;
+  margin-top: 2rpx;
+}
+
+.total-top .item2 {
+  width: 220rpx;
+  height: 88rpx;
+  background: #1A6AED;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+}
+.total-top .item2 .ma {
+  width: 50%;
+  height: 23px;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+  padding: 14rpx 0;
+  font-size: 24rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+} 
+.ma .icon {
+  width: 36rpx;
+  height: 36rpx;
+}
+.ma .text {
+  width: 100%;
+}
+.total-top .item2 .ma:last-child {
+  border-left: 1rpx solid #427EDF;
+}
+
+.total-top .item3 {
+  text-align: right;
+  color: #fff;
+}
+
+.total-bottom {
+  transition: all 0.3s ease-in-out;
+  width: 750rpx;
+  height: 0;
+}
+.up .total-bottom {
+  padding: 0;
+  height: 446rpx;
+}
+
+.ctn-wrap {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  background: #fff;
+  border-radius: 20rpx 20rpx 0rpx 0rpx;
+}
+.ctn-wrap .title {
+  text-align: left;
+  font-size: 22rpx;
+  font-weight: 500;
+  color: #060606;
+  margin: 0 32rpx 32rpx;
+  padding-top: 32rpx;
+  width: 100%;
+}
+.ctn-wrap .total-wrap {
+  margin: 32rpx 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.ctn-wrap .total-wrap .item {
+  flex: 1;
+  height: 95rpx;
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #000000;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.ctn-wrap .total-wrap .item .value {
+  width: 100%;
+  text-align: center;
+  line-height: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ctn-wrap .total-wrap .item .label {
+  font-size: 22rpx;
+  font-weight: 400;
+  width: 100%;
+  text-align: center;
+  color: #999999;
+}
+.ctn-wrap .total-wrap .item .img {
+  width: 35rpx;
+  height: 12rpx;
+  position: absolute;
+  bottom: 2rpx;
+  left: 42rpx;
+}
+.ctn-wrap .total-wrap .item.active {
+  color: #FF6D25;
+  background: #FFFFFF;
+}
+
+.total1 {
+  margin-bottom: 0;
+}
+.total2 {
+  margin-top: 24rpx;
+}
+.border {
+  border-top: 1rpx solid #F2F2F2;
+}
+
+.ctn-wrap .num {
+  display: flex;
+  align-items: flex-end;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #999999;
+  padding-right: 16rpx;
+}
+.ctn-wrap .num .strong {
+  line-height: 1;
+  margin-right: 14rpx;
+  font-size: 50rpx;
+  font-weight: bold;
+  margin-top: 12rpx;
+  margin-left: 18rpx;
+  font-weight: bold;
+  color: #2678FF;
+}

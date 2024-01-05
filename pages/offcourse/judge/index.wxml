@@ -1,0 +1,57 @@
+<navigation-bar default-data="{{defaultData}}" isManager="{{true}}"></navigation-bar>
+
+<view class="top" />
+<view class="inner">
+  <view class="titles" wx:if="{{isSet}}">
+    对 
+    <text class="name">{{teacherName}}</text>
+    这节课的评价
+  </view>
+  <view class="titles" wx:else>
+    请对
+    <text class="name">{{teacherName}}</text>
+    这节课进行评价
+  </view>
+ 
+  <view class="star-wrap">
+    <image
+      wx:for="{{star}}"
+      wx:key="index"
+      class="star"
+      src="{{index + 1 <= starIndex ? 'https://image.jkcspace.com/wxmini_static/images/star-selected.png' : 'https://image.jkcspace.com/wxmini_static/images/star.png'}}"
+      alt=""
+      data-index="{{index}}"
+      bind:tap="onSelect"
+    />
+  </view>
+
+  <view class="title2">满意度评价</view>
+
+  <view class="tag-wrap">
+    <view class="tag {{item.isSelect ? 'active' : ''}}" data-tag="{{item.name}}" data-index="{{index}}" bind:tap="onSelectTag" wx:for="{{tags}}" wx:key="index">
+      {{item.name}}
+    </view>
+  </view>
+
+  <cell border="{{false}}">
+    <textarea
+      disabled="{{isSet}}"
+      slot="field"
+      style="width:588rpx;padding: 38rpx 26rpx;background: #F9F9F9;border-radius: 20rpx;min-height: 276rpx;color: #333;font-size: 28rpx;"
+      data-field="desc"
+      value="{{desc}}"
+      placeholder="您是否还有其他意见或建议"
+      maxlength="{{1000}}"
+      auto-height
+      show-confirm-bar="{{false}}"
+      disable-default-padding
+      bind:input="handleChangeData"
+    />
+  </cell>
+</view>
+
+<view class="footer" wx:if="{{!isSet}}">
+  <view class="btn orange" bind:tap="onSubmit">
+    立即评价
+  </view>
+</view>

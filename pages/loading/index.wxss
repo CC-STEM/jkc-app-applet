@@ -1,0 +1,11 @@
+page {
+  text-align: center;
+  padding-top: 30vh;
+}
+
+.image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  margin-bottom: 60rpx;
+}

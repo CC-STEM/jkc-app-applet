@@ -1,0 +1,21 @@
+<import src="../../wxParse/wxParse.wxml" />
+
+<navigation-bar default-data="{{ defaultData }}"></navigation-bar>
+
+<view class="details-wrap">
+  <view class="name">
+    <text>{{ name }}</text>
+  </view>
+  <view class="content">
+    <template is="wxParse" data="{{ wxParseData: article.nodes }}" />
+    <!-- <text>{{ dataSource.describe }}</text> -->
+  </view>
+
+  <!-- <view class="bottom">
+    <view class="title">【温馨提示】:</view>
+    <view class="text">实付金额指:不包含优惠券抵扣、运费的单个订单实际支付的商品金额~</view>
+    <view class="text">实付金额指:不包含优惠券抵扣、运费的单个订单实际支付的商品金额~</view>
+  </view> -->
+
+</view>
+

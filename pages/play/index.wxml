@@ -1,0 +1,45 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view
+  id='hook1'
+  class="wrap"
+  bindtouchstart="scrollTouchStart"
+  bindtouchmove='scrollTouchMove'
+  bindtouchend="scrollTouchEnd"
+>
+  <video
+    wx:if="{{ details.video_url }}"
+    src="{{ uploadUrlHost }}/{{ details.video_url }}"
+    binderror="videoErrorCallback"
+    style="width:100%;"
+    object-fit="contain"
+  />
+  <view class="info">
+    <view class="title">
+      <view class="text">{{ details.name }}</view>
+      <!-- <view class="tip">共126353人已学习</view> -->
+    </view>
+    <view class="tag-wrap">
+      <view class="tag blue">适龄{{ details.suit_age_min }}-{{ details.suit_age_max }}</view>
+      <view class="tag orange">教学</view>
+    </view>
+    <view class="desc">
+      {{ details.describe }}
+    </view>
+  </view>
+
+  <view class="footer">
+    <image
+      class="arrow"
+      src="https://image.jkcspace.com/wxmini_static/images/play-return.png"
+      bind:tap="onReturn"
+    />
+    <view class="btn-wrap">
+      <navigator wx:if="{{ details.is_reach_goods == 1 }}" url="/pages/tool/details/index?id={{ details.goods_id }}">
+        <view class="btn blue">教具详情</view>
+      </navigator>
+      <view class="btn orange" bind:tap="onAdd">立即报名约课</view>
+    </view>
+  </view>
+</view>
+

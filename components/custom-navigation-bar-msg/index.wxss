@@ -1,0 +1,129 @@
+.navigation-container {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+}
+.navigation-container.no-bg {
+  background-color: inherit;
+}
+.navigation-bar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.navigation-buttons {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  color: var(--text-color-black);
+  font-size: 30rpx;
+}
+.nav-img {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 12rpx;
+}
+.navigation-title {
+  position: absolute;
+  left: 104px;
+  right: 104px;
+  text-align: center;
+  color: #000000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tab-wrap {
+  width: 310rpx;
+  height: 74rpx;
+  background: #F2F2F2;
+  border-radius: 37rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 6rpx;
+}
+.tab {
+  width: 154rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #A0A0A0;
+  text-align: center;
+}
+.tab-wrap .tab.active {
+  background: #FFFFFF;
+  color: #1A1A1A;
+}
+.tab-wrap .tab .title {
+  height: 60rpx;
+  line-height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 购买head tab样式 */
+.type1 {
+  background: inherit;
+}
+.type1 .tab {
+  font-size: 36rpx;
+  font-weight: 800;
+  position: relative;
+  color: #FFFFFF;
+  opacity: 0.21;
+  height: inherit;
+  line-height: 1;
+}
+.type1 .tab.active {
+  background: inherit;
+  color: #FFFFFF;
+  opacity: 1;
+}
+.type1 .tab.active, .type1 .tab.active.desc {
+  color: #FFFFFF;
+}
+.type1 .tab .title {
+  height: initial;
+  line-height: 1;
+}
+.type1 .tab .desc {
+  line-height: 1;
+}
+.type1 .tab .desc {
+  font-size: 24rpx;
+  color: #636366;
+  margin-top: 4rpx;
+}
+.type1 .line-img {
+  width: 41rpx;
+  height: 7rpx;
+  position: absolute;
+  bottom: 0rpx;
+  left: 54rpx;
+}
+
+
+/* 我的约课 tab样式 */
+.navigation-container.type2 {
+  background: #FFD925;
+  padding-bottom: 10rpx;
+}
+.navigation-container.type2 .tab-wrap  {
+  background: #FFF5C5;
+}
+.navigation-container.type2 .tab {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #929292;
+  position: relative;
+}
+.navigation-container.type2 .tab.active {
+  color: #1A1A1A;
+}

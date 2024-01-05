@@ -1,0 +1,35 @@
+<!-- 自定义顶部栏 -->
+<view class="navigation-container" style="height: {{ navBarAndStatusBarHeight }}px">
+  <!--空白来占位状态栏-->
+  <view style="height: {{ statusBarHeight }}px"></view>
+  <!--自定义导航栏-->
+  <view class="navigation-bar" style="height: {{ navBarHeight }}px">
+    <view class="navigation-buttons" style="height: {{ menuButtonHeight }}px">
+      <!-- <navigator url="/pages/message/index"> -->
+      <image
+        class="nav-img"
+        src="{{ defaultData.teacher_avatar }}"
+        alt=''
+      />
+      <!-- </navigator> -->
+      <view class="text">{{ defaultData.teacher_name }}{{ defaultData.teacher_name }}</view>
+    </view>
+    <view class="navigation-title" style="line-height: {{ navBarHeight }}px">
+      <view class="tab-wrap" wx:if="{{ defaultData.showTab }}">
+        <view
+          wx:for="{{ tabs }}"
+          wx:key="index"
+          data-index="{{ index }}"
+          bind:tap="handleClick"
+          class="tab {{ defaultData.activeTab == index ? 'active' : '' }}"
+        >
+          {{ item.value }}({{ index == 0 ? defaultData.noLectureCount : defaultData.lecturedCount }})
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<share-btn wx:if="{{!defaultData.hideShare}}" />
+<!--空白占位fixed空出的位置-->
+<view style="height: {{ navBarAndStatusBarHeight }}px; background: #ffffff"></view>
+

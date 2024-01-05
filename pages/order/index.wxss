@@ -1,0 +1,110 @@
+page {
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
+}
+view {
+  line-height: 1;
+}
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin-bottom: var(--base-space);
+}
+
+
+.list {
+  padding: 20rpx;
+}
+.item {
+  background-color: #ffffff;
+  border-radius: 20rpx;
+}
+.avator-wrap {
+  display: flex;
+  flex: 1;
+  padding: 24rpx;
+  padding-bottom: 0;
+}
+.avator-wrap .avator {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 20rpx;
+  margin-right: 18rpx;
+  border: 2px solid #ffffff;
+}
+.ctn {
+  flex: 1;
+  font-weight: bold;
+}
+.ctn .title {
+  display: flex;
+  justify-content: space-between;
+  line-height: 30rpx;
+}
+.ctn .title .text {
+  font-size: 30rpx;
+  color: #000;
+  margin-right: 30rpx;
+  line-height: 36rpx;
+  flex: 1;
+}
+.ctn .title .status {
+  font-size: 28rpx;
+  color: #333333;
+}
+.ctn .desc {
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 16rpx;
+}
+.ctn .money {
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #333;
+  margin-top: 20rpx;
+}
+.right {
+  justify-content: flex-end;
+}
+.ctn .money .strong {
+  font-weight: bold;
+}
+.ctn .money .left, .ctn .money .right {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}
+.ctn .money .left .strong {
+  font-size: 34rpx;
+  color: #1A1A1A;
+}
+.ctn .money .left .num {
+  margin-left: 10rpx;
+}
+.ctn .money .right .strong {
+  font-size: 46rpx;
+  color: #FF6326;
+  margin-left: 10rpx;
+}
+.ctn .money .right .text:last-child {
+  color: #FF6326;
+}
+.ctn .money .num {
+  color: #999;
+}
+
+.item .action {
+  display: flex;
+  justify-content: flex-end;
+  padding: 36rpx 20rpx;
+}
+.item .action .btn {
+  background: #FFD925;
+  border-radius: 28px;
+  padding: 17rpx 40rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  font-weight: 800;
+  color: var(--text-color-black);
+}

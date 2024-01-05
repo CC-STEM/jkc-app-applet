@@ -1,0 +1,76 @@
+<view class="modal modal-bottom-dialog">
+  <view class="modal-cancel" bindtap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{ animationData }}">
+    <view class='Mselect'>
+      <image
+        bind:tap="onOk"
+        class="img"
+        src="{{ uploadUrlHost }}/{{ defaultLibao.img_url }}"
+        alt=""
+      />
+
+      <view class="addressCtn">
+        <view class="title">
+          <view class="text">{{ defaultData.name }}</view>
+          <view class="tag" bind:tap="onShowModal">切换门店</view>
+        </view>
+        <view class="desc">{{ defaultData.city_name }}{{ defaultData.district_name }}{{ defaultData.address }}</view>
+      </view>
+
+      <!-- 推荐码 -->
+      <view class="recommand-wrap">
+        <mp-cells title="">
+          <mp-cell
+            show-error
+            prop="number"
+            title="推荐码"
+            ext-class=""
+          >
+            <input
+              bind:input="formInputChange"
+              data-field="number"
+              value="{{ number }}"
+              class="weui-input"
+              placeholder="请输入推荐码（选填）"
+            />
+          </mp-cell>
+        </mp-cells>
+      </view>
+
+      <view
+        class="buy-btn"
+        bind:tap="onBuy"
+        disabled="{{ !defaultLibao.id }}"
+      >
+        新人专享{{ defaultLibao.price }}元
+      </view>
+
+      <view>
+        <image
+          bind:tap="hideModal"
+          class="close"
+          src="https://image.jkcspace.com/wxmini_static/images/home-libao-close.png"
+          alt=""
+        />
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<dialog-store
+  wx:if="{{ showStore }}"
+  show="{{ showStore }}"
+  bind:ok="onOk2"
+  bind:cancel="onCancel"
+/>
+
+<dialog-confirm
+  wx:if="{{ showConfirm }}"
+  show="{{ showConfirm }}"
+  default-data="{{ confirmData }}"
+  bind:ok="onCheck"
+  bind:cancel="onCancel"
+/>
+

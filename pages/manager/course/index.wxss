@@ -1,0 +1,106 @@
+page {
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
+  background: #F5F5F5;
+}
+
+.page-title {
+  padding: 20rpx 0 0 32rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  background-color: #fff;
+  color: #000;
+}
+.page-title .arrow {
+  width: 24rpx;
+  height: 13rpx;
+}
+
+.top .change-btn {
+  width: 200rpx;
+}
+.top .input-wrap {
+  width: 392rpx;
+  height: 72rpx;
+  background: #F3F3F3;
+  border-radius: 20rpx;
+  padding: 14rpx 14rpx 14rpx 46rpx;
+  background-repeat: no-repeat;
+  background-size: 30rpx;
+  background-position: 13rpx center;
+  background-image: url(https://image.jkcspace.com/wxmini_static/images/arrow-right.png);
+}
+.top .btn {
+  padding: 21rpx 34rpx;
+  font-size: 28rpx;
+}
+input::input-placeholder{
+  font-size: 30rpx;
+  font-weight: 400;
+  color: #D4D4D4;
+}
+
+.list-wrap {
+  font-size: 24rdpx;
+  font-weight: 400;
+  margin-top: 30rpx;
+}
+.list-wrap .item {
+  width: 700rpx;
+  margin: auto;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+  padding: 0 24rpx 32rpx;
+  font-size: 26rpx;
+}
+
+.list-wrap .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #191919;
+  padding: 32rpx 24rpx 32rpx 40rpx;
+  border-bottom: 1rpx solid #F0F0F0;
+  background-repeat: no-repeat;
+  background-size: 30rpx;
+  background-position: left center;
+  background-image: url(https://image.jkcspace.com/wxmini_static/images/manage-icon1.png);
+}
+
+.list-wrap .line {
+  padding-top: 16rpx;
+  width: 647rpx;
+  margin: auto;
+  border-radius: 20rpx;
+  color: #666666;
+  display: flex;
+  align-items: center;
+}
+.list-wrap .line.bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.list-wrap .line .left, .list-wrap .line .right {
+  display: flex;
+  align-items: flex-end;
+}
+.list-wrap .label {
+  font-weight: 400;
+}
+.list-wrap .num {
+  font-weight: 500;
+  color: #1A1A1A;
+  margin-left: 30rpx;
+}
+.list-wrap .right .text {
+  font-size: 20rpx;
+  font-weight: 400;
+  color: #ADADAD;
+}
+.list-wrap .right .money {
+  font-size: 32rpx;
+  line-height: 38rpx;
+  padding: 0 12rpx;
+  font-weight: bold;
+  color: #060606;
+}

@@ -1,0 +1,64 @@
+<navigation-bar default-data="{{ defaultData }}" isManager="{{true}}"></navigation-bar>
+
+<view class="total">
+  <view class="title">会员统计</view>
+  <view class="canvas">
+    <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" force-use-old-canvas="true"></ec-canvas>
+  </view>
+  <view class="value-wrap">
+    <view class="item">{{totalData.member_theme_type_rate1}}%</view>
+    <view class="item">{{totalData.member_theme_type_rate2}}%</view>
+    <view class="item">{{totalData.member_theme_type_rate3}}%</view>
+    <view class="item">{{totalData.member_theme_type_rate4}}%</view>
+  </view>
+  <view class="tips">上个月最后一次上完课程类型数据为准</view>
+</view>
+ 
+<view class="total total2">
+  <view class="title">会员属性</view>
+  <view class="member">
+    <view class="avatar-wrap" >
+      <image src="{{item.avatar}}" wx:for="{{mList}}" wx:key="index" />
+    </view>
+    <navigator url="/pages/manager/member/index" class="btn">会员列表 <text>></text> </navigator>
+  </view>
+  <view class="total-wrap">
+    <view class="item">
+      <view class="text">活跃会员</view>
+      <view class="text-wrap">
+        <view class="text strong">{{totalData.member_status_type_count1}}</view>
+        <view class="text">人</view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="text">危险会员</view>
+      <view class="text-wrap">
+        <view class="text strong">{{totalData.member_status_type_count2}}</view>
+        <view class="text">人</view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="text">沉默会员</view>
+      <view class="text-wrap">
+        <view class="text strong">{{totalData.member_status_type_count3}}</view>
+        <view class="text">人</view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="text">流失会员</view>
+      <view class="text-wrap">
+        <view class="text strong">{{totalData.member_status_type_count4}}</view>
+        <view class="text">人</view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="text">人均课频</view>
+      <view class="text-wrap">
+        <view class="text strong">{{totalData.per_capita_class_frequency}}</view>
+        <view class="text">次</view>
+      </view>
+    </view>
+    <view class="item" />
+  </view>
+</view>
+

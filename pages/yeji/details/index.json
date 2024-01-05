@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "empty": "/components/empty",
+    "mp-slideview": "weui-miniprogram/slideview/slideview",
+    "navigation-bar": "/components/custom-navigation-bar-return",
+    "dialog-student-details": "/components/dialog-student-details"
+  }
+}

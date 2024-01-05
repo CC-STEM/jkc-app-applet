@@ -1,0 +1,37 @@
+<view
+  class="mask"
+  wx:if="{{_show}}"
+  bind:tap="_handleCancel"
+>
+  <view class="wrap" catch:tap="_handleStopPropagation">
+    <view class="head">
+      <text bind:tap="_handleCancel">取消</text>
+      <text class="ok-btn" bind:tap="_handleOk">确定</text>
+    </view>
+    <picker-view
+      value="{{ selectedArr }}"
+      class="picker"
+      indicator-class="indicator"
+      bind:change="_handleChange"
+    >
+      <picker-view-column>
+        <view
+          wx:for="{{ list }}"
+          wx:key="{{ item.value }}"
+          class="line"
+        >{{ item.name }}
+        </view>
+      </picker-view-column>
+      <picker-view-column>
+        <view
+          wx:for="{{ list }}"
+          wx:key="{{ item.value }}"
+          class="line"
+        >{{ item.name }}
+        </view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>
+<slot bind:tap="_handleShow" />
+

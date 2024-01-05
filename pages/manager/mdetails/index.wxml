@@ -1,0 +1,95 @@
+<navigation-bar default-data="{{defaultData}}" isManager="{{true}}"></navigation-bar>
+
+<view class="top" />
+<view class="inner">
+  <view class="user-info">
+    <image
+      class="avator"
+      src="{{ dataSource.avatar || defaultAvatar }}"
+      alt=""
+    />
+    <view class="ctn">
+      <view class="name">
+        {{ dataSource.name }}
+      </view>
+      <view class="number">
+        {{ dataSource.mobile }}
+      </view>
+    </view>
+    <image
+      class="tag"
+      src="https://image.jkcspace.com/wxmini_static/images/member-bage-{{dataSource.member_status_type}}.png"
+      alt=""
+    />
+  </view>
+
+  <view class="weui-flex total-wrap">
+    <view class="weui-flex__item item">
+      <view class="text-wrap">
+        <view class="text strong">{{ dataSource.member_course_offline1 }}</view>
+      </view>
+      <view class="text">待上课<navigator url="/pages/manager/course/index?id={{id}}&num1={{dataSource.member_course_offline1}}&num2={{dataSource.member_course_offline2}}" class="btn">明细</navigator></view>
+    </view>
+    <view class="weui-flex__item item">
+      <view class="text-wrap">
+        <view class="text strong">{{ dataSource.member_course_offline2 }}</view>
+      </view>
+      <view class="text">已上课<navigator url="/pages/manager/course/index?status=1&id={{id}}&num1={{dataSource.member_course_offline1}}&num2={{dataSource.member_course_offline2}}" class="btn">明细</navigator></view>
+    </view>
+    <view class="weui-flex__item item">
+      <view class="text-wrap">
+        <view class="text strong">{{ dataSource.vip_card_surplus }}</view>
+      </view>
+      <view class="text">可约课</view>
+    </view>
+  </view>
+</view>
+
+<view class="teacher">
+  <view class="item">
+    <view class="left">最近时间</view>
+    <view class="right">{{dataSource.recently_event}}</view>
+  </view>
+  <view class="item">
+    <view class="left">最后老师</view>
+    <view class="right">{{dataSource.recently_event_teacher}}</view>
+  </view>
+</view>
+
+<view class="titles">
+  会员卡
+  <text class="desc">仅展示当前有效会员卡</text>
+</view>
+
+<view class="list-wrap">
+  <view
+    class="list-item"
+    wx:for="{{ dataSource.vip_card_order_list }}"
+    wx:key="index"
+  >
+    <view class="item-top">
+      <view class="name">{{ item.order_title }}</view>
+      <view class="desc">有效期 {{item.expire_at}}</view>
+      <view wx:if="{{ item.is_activation == 1 }}" class="btn" data-id="{{item.id}}" bindtap="onShowModal">延期</view>
+    </view>
+
+    <view class="bottom">
+      <view class="item">
+        <view class="label">总课时</view>
+        <view class="num">{{item.total_course}}</view>
+      </view>
+      <view class="item">
+        <view class="label">剩余课时</view>
+        <view class="num">{{item.surplus_course}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<dialog-set-input
+  wx:if="{{ show }}"
+  show="{{ show }}"
+  default-data="{{ setData }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+/>

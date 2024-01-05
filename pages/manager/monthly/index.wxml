@@ -1,0 +1,50 @@
+<navigation-bar default-data="{{ defaultData }}" isManager="{{true}}"></navigation-bar>
+
+<view class="page-title">
+  <view class="top">
+    <picker bindchange="bindPickerChange" fields="month" mode="date">
+      <view class="change-btn">
+        <text>{{ fdate }}</text>
+        <image
+          class="arrow"
+          src="https://image.jkcspace.com/wxmini_static/images/manage-down-arrow.png"
+          alt=""
+        />
+      </view>
+    </picker>
+  </view>
+</view>
+
+<empty wx:if="{{ !dataSource.length }}" />
+
+<view wx:else class="list-wrap">
+  <navigator url="/pages/manager/daily/index?date={{item.date_text}}" class="item" wx:for="{{ dataSource }}" wx:key="index">
+    <view class="time">{{item.date_text}}</view>
+    <view class="bottom">
+      <view class="top">
+        <text class="text">营收</text>
+        <view class="money">￥{{item.revenue}}</view>
+      </view>
+      <view class="line line1">
+        <view class="left"> 
+          <view class="label">上课</view>
+          <view class="num">￥{{item.course}}</view>
+        </view>
+        <view class="right">
+          <view class="label">会员卡</view>
+          <view class="num">￥{{item.vip_card}}</view>
+        </view>
+      </view>
+      <view class="line line2">
+        <view class="left">
+          <view class="label">商城</view>
+          <view class="num">￥{{item.goods}}</view>
+        </view>
+        <view class="right"> 
+          <view class="label">退款</view>
+          <view class="num">￥{{item.refund}}</view>
+        </view>
+      </view>
+    </view>
+  </navigator>
+</view>

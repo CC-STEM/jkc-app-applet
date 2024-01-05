@@ -1,0 +1,60 @@
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .6);
+  z-index: 3;
+  transition: all .3s;
+}
+
+.wrap {
+  background-color: #fff;
+  border-radius: 24rpx 24rpx 0 0;
+  box-sizing: content-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-bottom: env(safe-area-inset-bottom);
+  animation: .3s show;
+}
+@keyframes show {
+  from {
+    height: 0;
+  }
+  to {
+    height: 550rpx;
+  }
+}
+.head {
+  box-sizing: border-box;
+  text-align: right;
+}
+.head .close {
+  width: 42rpx;
+  height: 42rpx;
+  padding: 32rpx;
+}
+.head text {
+  height: 99rpx;
+  line-height: 99rpx;
+  padding: 0 var(--large-space);
+}
+.head .ok-btn {
+  padding: 32rpx;
+  color: var(--link-color);
+}
+
+.picker {
+  box-sizing: border-box;
+  height: 450rpx;
+}
+.indicator {
+  height: 100rpx;
+}
+.line {
+  text-align: center;
+  line-height: 100rpx;
+}

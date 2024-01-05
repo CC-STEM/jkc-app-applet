@@ -1,0 +1,46 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view wx:if="{{ remark }}" class="remark-wrap">退回原因：{{ remark }}</view>
+
+<view class="title">{{ name }}</view>
+
+<view wx:if="{{ videoUrl }}" class="videoWrap">
+  <image
+    class="close"
+    src="https://image.jkcspace.com/wxmini_static/images/teacher-close.png"
+    alt=""
+    bind:tap="onDelete"
+  />
+  <video src="{{ uploadUrlHost }}/{{videoUrl}}"></video>
+</view>
+
+<cell wx:else border="{{false}}">
+  <view class="upload-wrap" bind:tap="onChooseVideo">
+    <image src="https://image.jkcspace.com/wxmini_static/images/course-upload.png" alt="" />
+    <view class="btn">
+      添加视频
+    </view>
+  </view>
+</cell>
+
+<cell border="{{false}}">
+  <textarea
+    slot="field"
+    style="width:665rpx;padding: 30rpx 20rpx;background: #ffffff;border-radius: 20rpx;min-height: 283rpx;color: #333;font-size: 26rpx;"
+    data-field="desc"
+    value="{{desc}}"
+    placeholder="请填写作品说明"
+    maxlength="{{1000}}"
+    auto-height
+    show-confirm-bar="{{false}}"
+    disable-default-padding
+    bind:input="handleChangeData"
+  />
+  </cell>
+
+<view class="footer">
+  <view class="btn orange" bind:tap="onSubmit">
+    确定提交
+  </view>
+</view>
+

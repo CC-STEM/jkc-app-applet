@@ -1,0 +1,72 @@
+<view class="modal modal-bottom-dialog">
+  <view class="modal-cancel" bindtap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{ animationData }}">
+    <view class='Mselect'>
+      <view class="modal-head">
+        <text>门店切换</text>
+        <image
+          class="close"
+          src="https://image.jkcspace.com/wxmini_static/images/picker-close.png"
+          alt=""
+          bind:tap="hideModal"
+        />
+      </view>
+      <view class="modalList">
+        <view
+          class="minfo"
+          bind:tap="onSubmit"
+          wx:for="{{ list }}"
+          wx:key="*this"
+          data-index="{{ index }}"
+          data-item="{{ item }}"
+        >
+          <!-- <image
+            class="banner"
+            src="{{ uploadUrlHost }}/{{ item.img_url }}"
+            alt=""
+          /> -->
+          <view class="ctn">
+            <view class="title">
+              <view class="text">{{ item.name }}</view>
+            </view>
+            <view class="desc">{{ item.city_name }}{{ item.district_name }}{{ item.address }}</view>
+            <view class="bottom">
+              <view class="tag">距离我{{ item.distance }}km</view>
+              <view class="btn-wrap">
+                <view class="btn" data-wxcode="{{ item.wechat_qr_code }}" catch:tap="onShowQrcode">
+                  <image
+                    class="img"
+                    src="https://image.jkcspace.com/wxmini_static/images/offcourse-icon1.png"
+                    alt=""
+                  />
+                  微信
+                </view>
+                <view
+                  class="btn"
+                  data-phone="{{ item.store_phone }}"
+                  bind:tap="onCall"
+                >
+                  <image
+                    class="img"
+                    src="https://image.jkcspace.com/wxmini_static/images/offcourse-icon2.png"
+                    alt=""
+                  />
+                  电话
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<dialog-qrcode
+  wx:if="{{ showQrcode }}"
+  show="{{ showQrcode }}"
+  default-data="{{ wxQrcode }}"
+  bind:ok="onCancel"
+  bind:cancel="onCancel"
+/>

@@ -1,0 +1,99 @@
+<navigation-bar default-data="{{ defaultData }}" isManager="{{true}}"></navigation-bar>
+
+<view class="page-title">
+  <view class="top">
+    <picker bindchange="bindPickerChange" fields="day" mode="date">
+      <view class="change-btn">
+        <text>{{ fdate }}</text>
+        <image
+          class="arrow"
+          src="https://image.jkcspace.com/wxmini_static/images/manage-down-arrow.png"
+          alt=""
+        />
+      </view>
+    </picker>
+    <view class="input-wrap">
+      <input
+        bind:input="formInputChange"
+        data-field="number"
+        value="{{ number }}"
+        class="weui-input"
+        placeholder="请输入学员名称/手机号"
+      />
+    </view>
+    <view class="btn" bind:tap="onShowModal">筛选</view>
+  </view>
+</view>
+
+<empty wx:if="{{ !dataSource.length }}" />
+
+<view wx:else class="list-wrap">
+  <view class="item item{{item.detail_type}}  {{ item.detail_type >= 4 ? 'gray' : ''}}" wx:for="{{dataSource }}" wx:key="index">
+    <navigator wx:if="{{item.detail_type == 1}}" url="/pages/manager/cdetails/index?id={{item.course_offline_plan_id}}">
+      <view class="top">
+        <view class="left">
+          <view class="text">实到</view>
+          <view class="money">{{item.course_class_attendance_num}}</view>
+          <view class="text">/ 报名</view>
+          <view class="money">{{item.course_sign_up_num}}</view>
+        </view>
+        <view class="red">¥<text>{{item.amount}}</text></view>
+      </view>
+      <view class="title">
+        <view class="left">{{item.detail_name}}</view>
+        <view class="right">{{item.detail_prop}}</view>
+      </view>
+      <view class="line">
+        <view class="label">上课时间</view>
+        <view class="num">{{item.date1}}-{{item.date2}}</view>
+      </view>
+      <view class="line">
+        <view class="label">上课老师</view>
+        <view class="num">{{item.belong_to_name}}</view>
+      </view>
+    </navigator>
+    <view wx:if="{{item.detail_type != 1}}">
+      <view class="top top1">
+        <view class="left">
+          <view class="text">{{item.member_name}}</view>
+          <view class="text">{{item.member_mobile}}</view>
+        </view>
+        <view class="guishu">
+          <!--<image
+            class="icon"
+            src="https://image.jkcspace.com/wxmini_static/images/manage-tan1.png"
+            alt=""
+          />-->
+          <text>{{item.belong_to_name}}</text>
+        </view>
+      </view>
+      <view class="title">
+        <view class="left">{{item.detail_name}}</view>
+        <view class="red">¥<text>{{item.amount}}</text></view>
+      </view>
+      <view class="line" wx:if="{{item.detail_type == 2}}">
+        <view class="label">商品规格</view>
+        <view class="num">{{item.detail_prop}}</view>
+      </view>
+      <view class="line">
+        <view class="label">付款时间</view>
+        <view class="num">{{item.date1}}</view>
+      </view>
+      <image
+        wx:if="{{item.detail_type == 4 || item.detail_type == 5}}"
+        class="tuikuan"
+        src="https://image.jkcspace.com/wxmini_static/images/manage-tuikuan.png"
+        alt=""
+      />
+    </view>
+  </view>
+  
+</view>
+
+<dialog-member
+  wx:if="{{ show }}"
+  show="{{ show }}"
+  default-data="{{ filter }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+/>

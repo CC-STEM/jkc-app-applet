@@ -1,0 +1,88 @@
+page {
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
+}
+view {
+  line-height: 1;
+}
+
+.select-wrap {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+.select-wrap .item {
+  width: 100%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #999999;
+  padding: 34rpx;
+}
+.select-wrap .item.selected{
+  color: #333;
+}
+.select-wrap image {
+  width: 16rpx;
+  height: 16rpx;
+}
+
+.list-wrap {
+  font-size: 24rpx;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 24rpx;
+}
+.list-wrap .item {
+  width: 340rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin: 0 20rpx 20rpx 0;
+  position: relative;
+}
+.list-wrap .item .bage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #1A1A1A;
+  background-color: #FFD31E;
+  border-radius: 20rpx 0 14rpx 0;
+  font-size: 22rpx;
+  padding: 12rpx 16rpx;
+  font-weight: bold;
+}
+.list-wrap .item:nth-child(2n) {
+  margin-right: 0;
+}
+.list-wrap .item .banner {
+  width: 340rpx;
+  height: 320rpx;
+}
+.list-wrap .item .bottom {
+  padding: 20rpx 18rpx;
+}
+.list-wrap .item .bottom .name {
+  font-size: 30rpx;
+  line-height: 34rpx;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 26rpx;
+}
+
+.list-wrap .item .bottom .strong {
+  font-size: 42rpx;
+  font-weight: bold;
+  color: #FF6326;
+}
+.list-wrap .item .bottom .money {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-wrap .item .bottom .coin {
+  display: flex;
+  align-items: center;
+}
+.list-wrap .item .bottom .num {
+  font-size: 22rpx;
+  color: #999999;
+}

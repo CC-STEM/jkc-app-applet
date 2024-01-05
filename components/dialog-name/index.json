@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "single-picker": "/components/single-picker" 
+  }
+}

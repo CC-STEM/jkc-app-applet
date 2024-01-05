@@ -1,0 +1,34 @@
+<view class="modal modal-bottom-dialog">
+  <view class="modal-cancel" bindtap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{ animationData }}">
+    <view class='Mselect'>
+      <view class="modal-head">
+        <text>{{type == 2 ? '支付宝支付' : '支付宝代付'}}</text>
+        <image
+          class="close"
+          src="https://image.jkcspace.com/wxmini_static/images/picker-close.png"
+          alt=""
+          bind:tap="hideModal"
+        />
+      </view>
+      <view wx:if="{{type == 2}}">
+        <view class="ctn-wrap">
+          <view class="item">
+            复制链接，通过浏览器打开
+          </view>
+        </view>
+        <view class="btn" bind:tap="onCopy">复制</view>
+      </view>
+      <view wx:else>
+        <view class="top">好友需支付</view>
+        <view class="money">{{money}}</view>
+        <view class="btn" bind:tap="onCopy">
+          <view class="text1">复制链接</view>
+          <view class="text">（发送给好友，好友通过浏览器打开）</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "tabs": "/components/tabs",
+    "empty": "/components/empty",
+    "navigation-bar": "/components/custom-navigation-bar-return",
+    "calendar": "/components/calendar"
+  }
+}

@@ -1,0 +1,69 @@
+<navigation-bar default-data="{{ defaultData }}" isManager="{{true}}"></navigation-bar>
+
+<view class="page-title">
+  <view class="top">
+    <picker bindchange="bindPickerChange" fields="month" mode="date">
+      <view class="change-btn">
+        <text>{{ fdate }}</text>
+        <image
+          class="arrow"
+          src="https://image.jkcspace.com/wxmini_static/images/manage-down-arrow.png"
+          alt=""
+        />
+      </view>
+    </picker>
+  </view>
+</view>
+
+<empty wx:if="{{ !dataSource.length }}" />
+
+<view class="teacher_cell" wx:for="{{ dataSource }}" wx:key="{{item.id}}" wx:if="{{ dataSource.length }}">
+  <view class="teacher_main">
+    <view class="teachet_header dp-center-b">
+      <view class="dp-center">
+        <image class="_avatar" src="{{item.avatar || defaultAvatar }}"></image>
+        <text class="text-30 fw-b">{{item.name || '--'}}</text>
+      </view>
+      <view wx:if="{{ isCurMonth }}" class="_btn" data-item="{{item}}" bindtap="onShowModal">目标设定</view>
+    </view>
+    <view class="teachet_content">
+      <view class="dp-center-b">
+        <view class="progress_cell">
+          <view class="progress_value" style="width:{{item.rate}}%">
+            <view class="_triggle" wx:if="{{item.rate}}"></view>
+            <view class="_amount text-A5">营收<text class="text-232323 fw-b">￥{{item.revenue_amount}}</text></view>
+          </view>
+        </view>
+        <text class="text-24 text-A5 fw-b">目标<text class="text-232323">￥{{item.revenue_target_amount}}</text></text>
+      </view>
+
+      <view class="teachet_footer">
+        <view class="_unit">
+          <text class="text-1A text-26 fw-b">{{item.course_offline_order_amount}}</text>
+          <text class="mgt20">上课</text>
+        </view>
+        <view class="_unit">
+          <text class="text-1A text-26 fw-b">{{item.vip_card_order_amount}}</text>
+          <text class="mgt20">会员卡</text>
+        </view>
+        <view class="_unit">
+          <text class="text-1A text-26 fw-b">{{item.order_amount}}</text>
+          <text class="mgt20">商城</text>
+        </view>
+        <view class="_unit">
+          <text class="text-1A text-26 fw-b">{{item.refund_amount}}</text>
+          <text class="mgt20">退款</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- ----------老师管理 ending---------------->
+
+<dialog-set-input
+  wx:if="{{ show }}"
+  show="{{ show }}"
+  default-data="{{ setData }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+/>

@@ -1,0 +1,35 @@
+<view class="modal modal-bottom-dialog">
+  <view class="modal-cancel" bindtap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{animationData}}">
+    <view class='Mselect'>
+      <view class="modal-head">
+        <text>{{defaultData.title}}</text>
+        <image
+          class="close"
+          src="https://image.jkcspace.com/wxmini_static/images/picker-close.png"
+          alt=""
+          bind:tap="hideModal"
+        />
+      </view>
+      <view class="ctn-wrap">
+        <view class="tips">{{defaultData.tips}}</view>
+        <view class="input-wrap">
+          <input
+            bind:input="formInputChange"
+            data-field="number"
+            value="{{ number }}"
+            class="weui-input"
+            placeholder="{{defaultData.placeholder}}"
+          />
+        </view>
+      </view>
+
+      <view class="footer">
+        <view class="cancel btn" bind:tap="hideModal">取消</view>
+        <view class="ok btn" bind:tap="onOk">确定</view>
+      </view>
+    </view>
+  </view>
+</view>
+

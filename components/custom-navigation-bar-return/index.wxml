@@ -1,0 +1,27 @@
+<!-- 自定义顶部栏 -->
+<view class="navigation-container {{ defaultData.buy ? 'buy' : '' }} {{ defaultData.noBgColor ? 'noBgColor' : '' }} {{ defaultData.type == 3 ? 'type3' : '' }} {{ defaultData.isDetails ? 'details' : '' }}" style="height: {{ navBarAndStatusBarHeight }}px">
+  <!--空白来占位状态栏-->
+  <view style="height: {{ statusBarHeight }}px"></view>
+  <!--自定义导航栏-->
+  <view class="navigation-bar" style="height: {{ navBarHeight }}px">
+    <view
+      class="navigation-buttons"
+      wx:if="{{ !defaultData.hideReturn }}"
+      style="height: {{ menuButtonHeight }}px"
+    >
+      <image
+        class="nav-img"
+        src="{{ defaultData.isWhite ? 'https://image.jkcspace.com/wxmini_static/images/jkc-return.png' : 'https://image.jkcspace.com/wxmini_static/images/arrow-left.png'}}"
+        alt=''
+        bind:tap="onReturn"
+      />
+    </view>
+    <view class="navigation-title" style="line-height: {{ navBarHeight }}px;">
+      {{ defaultData.title }}
+    </view>
+  </view>
+</view>
+<share-btn wx:if="{{!defaultData.hideShare}}" />
+<!--空白占位fixed空出的位置-->
+<view style="height: {{ navBarAndStatusBarHeight }}px; background: {{type == 3 ? '#ffffff' : ''}}"></view>
+

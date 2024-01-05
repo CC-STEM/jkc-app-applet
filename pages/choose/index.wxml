@@ -1,0 +1,23 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="choose-wrap">
+  <view class="title">请选择身份</view>
+  <view class="desc">选择不同的身份对应不同权限</view>
+
+  <view class="item" data-type="1" bindtap="onChoose">
+    <view class="left">
+      <view class="name">我是门店负责人</view>
+      <view class="text">Store Manager</view>
+    </view>
+    <image class="image" src="https://image.jkcspace.com/wxmini_static/images/choose-1.png" alt="" />
+    <image class="choose-arrow-right" src="https://image.jkcspace.com/wxmini_static/images/choose-3.png" alt="" />
+  </view>
+  <view class="item item2" data-type="2" bindtap="onChoose">
+    <view class="left">
+      <view class="name">我是老师</view>
+      <view class="text">Teacher</view>
+    </view>
+    <image class="image" src="https://image.jkcspace.com/wxmini_static/images/choose-2.png" alt="" />
+    <image class="choose-arrow-right" src="https://image.jkcspace.com/wxmini_static/images/choose-3.png" alt="" />
+  </view>
+</view>

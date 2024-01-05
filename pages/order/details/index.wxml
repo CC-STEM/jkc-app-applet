@@ -1,0 +1,189 @@
+<navigation-bar default-data="{{ defaultData }}"></navigation-bar>
+
+<view class="top">
+  <view class="title">{{ statusObj[dataSource.status]}}</view>
+  <view wx:if="{{ dataSource.status == 1 }}" class="tips">订单已确认，等待发货</view>
+  <view class="express">
+    <view
+      class="item"
+      wx:if="{{ dataSource.package1.length }}"
+      wx:for="{{ dataSource.package1 }}"
+    >
+      <image
+        class="avator"
+        src="https://image.jkcspace.com/wxmini_static/images/order-details-icon1.png"
+        alt=""
+      />
+      <view class="ctn">
+        <view class="title">{{ item.logis_name }}</view>
+        <view class="desc">
+          {{ item.express_number }}
+          <view class="copy-btn" bind:tap="onCopyNum">
+            复制
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="item">
+      <image
+        class="avator"
+        src="https://image.jkcspace.com/wxmini_static/images/order-details-icon2.png"
+        alt=""
+      />
+      <view class="ctn">
+        <view class="title">{{ dataSource.consignee.consignee }}</view>
+        <view class="desc">
+          {{ dataSource.consignee.province_name }} {{ dataSource.consignee.city_name }}{{ dataSource.consignee.district_name }}{{ dataSource.consignee.address }}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="info">
+  <view class="avator-wrap">
+    <image
+      class="avator"
+      src="{{ uploadUrlHost }}/{{ dataSource.goods.goods_img }}"
+      alt=""
+    />
+    <view class="ctn">
+      <view class="title">{{ dataSource.goods.goods_name }}</view>
+      <view class="desc">{{ dataSource.goods.prop_value_str }}</view>
+      <view class="money">
+        <view class="left">
+          <view class="strong">{{ dataSource.goods.price }}</view>
+          <view class="text">币</view>
+          <view class="num">x{{ dataSource.goods.quantity }}</view>
+        </view>
+
+        <view class="right">
+          <view class="text">实付</view>
+          <view class="strong">{{ dataSource.goods.amount }}</view>
+          <view class="text">币</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="action" wx:if="{{ dataSource.status <= 4 }}">
+    <!-- <view class="btn">钱币去向</view> -->
+    <navigator wx:if="{{ dataSource.status <= 3 }}" url="/pages/order/refund/index?id={{ id }}">
+      <view class="btn">申请退款</view>
+    </navigator>
+    <view
+      class="btn"
+      wx:if="{{ dataSource.status == 4 }}"
+      bind:tap="onShowConfirm"
+    >取消退款
+    </view>
+  </view>
+</view>
+
+<view class="return-wrap" wx:if="{{ dataSource.mailing_status != 0 }}">
+  <view class="action">
+    <image
+      class="bage"
+      src="https://image.jkcspace.com/wxmini_static/images/order-details-bage.png"
+      alt=""
+    />
+    <view class="copy-btn" bind:tap="onCopy">
+      复制
+    </view>
+  </view>
+  <view class="ctn">
+    <view class="title">{{ dataSource.seller_address.consignee }}
+      <view class="number">{{ dataSource.seller_address.mobile }}</view>
+    </view>
+    <view class="desc">
+      {{ dataSource.seller_address.province_name }}
+      {{ dataSource.seller_address.city_name }}
+      {{ dataSource.seller_address.district_name }}
+      {{ dataSource.seller_address.address }}
+    </view>
+  </view>
+  <image
+    class="bg"
+    src="https://image.jkcspace.com/wxmini_static/images/order-details-return.png"
+    alt=""
+  />
+</view>
+
+<view class="order">
+  <view class="title">订单信息</view>
+  <view class="item">
+    <view class="label">
+      订单编号
+    </view>
+    <view class="text">{{ dataSource.order_no }}
+      <view class="copy-btn" bind:tap="onCopyOrder">
+        复制
+      </view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="label">
+      下单时间
+    </view>
+    <view class="text">{{ dataSource.pay_at }}</view>
+  </view>
+  <view class="item" wx:if="{{ dataSource.status != 1 && dataSource.status < 4 }}">
+    <view class="label">
+      发货时间
+    </view>
+    <view class="text">{{ dataSource.shipment_at }}</view>
+  </view>
+  <view class="item" wx:if="{{ dataSource.status == 3 }}">
+    <view class="label">
+      完成时间
+    </view>
+    <view class="text">{{ dataSource.finished_at }}</view>
+  </view>
+  <view class="item" wx:if="{{ dataSource.status > 4 }}">
+    <view class="label">
+      退款时间
+    </view>
+    <view class="text">{{ dataSource.receipt_at }}</view>
+  </view>
+</view>
+
+<view class="footer" wx:if="{{ dataSource.mailing_status != 0 }}">
+  <view
+    wx:if="{{ dataSource.mailing_status == 1 }}"
+    class="btn orange"
+    bind:tap="onShowModal"
+  >
+    我已寄出，填写寄件信息
+  </view>
+  <view
+    wx:if="{{ dataSource.mailing_status == 2 }}"
+    class="btn default"
+    bind:tap="onShowPackage"
+  >
+    寄件信息
+  </view>
+</view>
+
+<dialog-express
+  wx:if="{{ show }}"
+  show="{{ show }}"
+  default-data="{{ modalData }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+/>
+
+<dialog-package
+  wx:if="{{ showPackage }}"
+  show="{{ showPackage }}"
+  default-data="{{ modalData }}"
+  bind:ok="onCancel"
+  bind:cancel="onCancel"
+/>
+
+<dialog-confirm
+  wx:if="{{ showConfirm }}"
+  show="{{ showConfirm }}"
+  default-data="{{ confirmData }}"
+  bind:ok="onCancelRefund"
+  bind:cancel="onCancel"
+/>
+

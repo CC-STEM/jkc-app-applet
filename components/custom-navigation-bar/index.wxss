@@ -1,0 +1,54 @@
+
+.navigation-container {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+}
+.navigation-bar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.navigation-buttons {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  box-sizing: border-box;
+}
+.nav-img {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 18rpx;
+}
+.navigation-buttons .age {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-right: 8rpx;
+  display: flex;
+  align-items: center;
+}
+.navigation-buttons .addr {
+  padding: 1rpx 15rpx;
+  background: #F2F2F2;
+  color: #1A1A1A;
+  border-radius: 50%;
+  font-size: 26rpx;
+  border-radius: 19px 20px 19px 19px;
+}
+.navigation-title {
+  position: absolute;
+  left: 104px;
+  right: 104px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

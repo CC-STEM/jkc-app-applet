@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "分享",
+  "usingComponents": {
+    "navigation-bar": "/components/custom-navigation-bar-return",
+    "dialog-confirm": "/components/dialog-confirm"
+  }
+}

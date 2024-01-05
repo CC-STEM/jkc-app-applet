@@ -1,0 +1,62 @@
+<!--components/calendar/calendar.wxml-->
+<view class="calendar">
+  <view class="title flex">
+    <view class="flex">
+      <picker
+        value="{{selectDay.year+'-'+(selectDay.month+1)}}"
+        bindchange="editMonth"
+        mode="date"
+        fields="month"
+        class="year-month"
+      >{{selectDay.year}}.{{selectDay.month>8?selectDay.month+1:"0"+(selectDay.month+1)}}
+      </picker>
+      <view class="last-icon" bindtap="lastMonth"> </view>
+      <view class="next-icon" bindtap="nextMonth"> </view>
+    </view>
+    <view catchtap="onSetToday" class="flex open">
+      <image src="https://image.jkcspace.com/wxmini_static/images/offcourse-icon4.png" alt="" />
+    </view>
+  </view>
+
+  <!-- 日历头部 -->
+  <view class="flex-around calendar-week">
+    <view class="view">日</view>
+    <view class="view">一</view>
+    <view class="view">二</view>
+    <view class="view">三</view>
+    <view class="view">四</view>
+    <view class="view">五</view>
+    <view class="view">六</view>
+  </view>
+
+  <!-- 日历主体 -->
+  <view class="calendar-main">
+    <view class="date-group" style="height:{{ open ? dateList.length / 7 * 85 : 85 }}rpx;">
+      <view class="flex-start flex-wrap date-transform" style="transform: translateY({{open ? 0 : - 85 * transform}}rpx);">
+        <view
+          wx:for="{{dateList}}"
+          wx:key="dateList"
+          class="day"
+        >
+          <view
+            class="bg {{(item.year === selectDay.year && item.month === selectDay.month) ?'': 'other-month'}} {{item.dateString === selectDay.dateString?'select':''}}"
+            catchtap="selectChange"
+            data-date="{{item.date}}"
+            data-year="{{item.year}}"
+            data-month="{{item.month}}"
+            data-date-string="{{item.dateString}}"
+          >
+            {{item.date}}
+          </view>
+          <view class="spot {{ item.isOver ? 'gray' : '' }}" wx:if="{{item.spot}}"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view catchtap="openChange" class="{{ open ? 'arrow up' : 'arrow' }}">
+    <image src="https://image.jkcspace.com/wxmini_static/images/offcourse-icon7.png" alt="" />
+    <text>当月课程</text>
+  </view>
+</view>
+

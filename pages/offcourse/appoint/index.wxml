@@ -1,0 +1,50 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="card">
+  <calendar
+    defaultDate=""
+    spot="{{ spot }}"
+    bind:dateChange="dateChange"
+  ></calendar>
+</view>
+
+<view class="list-wrap">
+  <view
+    class="item"
+    wx:for="{{ dataSource }}"
+    wx:key="index"
+  >
+    <view class="ctn">
+      <!-- <view class="title">人工智能编程</view> -->
+      <view class="desc">{{ item.date }}</view>
+      <view class="desc">{{ item.start_time }}-{{ item.end_time }}</view>
+      <view class="desc2">{{ item.name }}</view>
+    </view>
+    <navigator url="/pages/offcourse/details/index?id={{ item.id }}">
+      <view class="link" style="background-image:url('https://image.jkcspace.com/wxmini_static/images/offcourse-icon5.png')">课程安排详情</view>
+    </navigator>
+
+    <view wx:if="{{ item.classroom_status == 1 }}" class="tag">已满</view>
+    <view wx:if="{{ item.classroom_status == 1 }}" class="disabled" />
+    <image
+      wx:if="{{ item.classroom_status != 1 }}"
+      class="icon"
+      src="https://image.jkcspace.com/wxmini_static/images/{{ item.isChecked ? 'checkbox-selected' : 'checkbox'}}.png"
+      alt=""
+      data-id="{{ item.id }}"
+      data-index="{{ index }}"
+      bind:tap="onSelect"
+    />
+  </view>
+</view>
+
+<view class="footer">
+  <view class="left">
+    <view class="text">
+      <view class="strong">{{ selectedList.length }}</view>
+      {{ courseType != 3 ? '次' : '套'}}
+    </view>
+  </view>
+  <view class="btn" bind:tap="onSubmit">确认</view>
+</view>
+

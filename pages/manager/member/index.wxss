@@ -1,0 +1,139 @@
+page {
+  padding: 0 0 calc(env(safe-area-inset-bottom));
+  background: #F7F7F7;
+}
+
+.top {
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+  width: 750rpx;
+  /* height: 248rpx; */
+  padding: 0 0 20rpx 32rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.top .input-wrap {
+  width: 587rpx;
+  height: 72rpx;
+  background: #F3F3F3;
+  border-radius: 20rpx;
+  padding: 14rpx 14rpx 14rpx 46rpx;
+  background-repeat: no-repeat;
+  background-size: 30rpx;
+  background-position: 13rpx center;
+  background-image: url(https://image.jkcspace.com/wxmini_static/images/search.png);
+}
+.top .btn {
+  padding: 12rpx 34rpx 20rpx;
+}
+
+.list-wrap {
+  padding: 0 25rpx;
+  font-size: 28rpx;
+  height: calc(100% - 600rpx);
+  overflow-y: auto;
+}
+.list-item {
+  width: 700rpx;
+  margin-bottom: 20rpx;
+  border-radius: 20rpx;
+  text-align: right;
+  background-color: #fff;
+  position: relative;
+}
+.list-item .top-wrap {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #1A1A1A;
+  position: relative;
+  background: linear-gradient(180deg, #C2D8FF, #FFFFFF);
+  border-radius: 20rpx 20rpx 0 0;
+}
+.list-item .user-info {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 20rpx 20rpx 30rpx;
+  justify-content: space-between;
+  width: 580rpx;
+}
+.list-item .user-info .avator {
+  width: 52rpx;
+  height: 52rpx;
+  display: block;
+  border-radius: 26rpx;
+  margin-right: 16rpx;
+  border: 3rpx solid #ffffff;
+}
+.user-info .name {
+  flex: 1;
+  font-size: 32rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  width: 230rpx;
+}
+.user-info .text {
+  margin-right: 12rpx;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.user-info .number {
+  margin-left: 12rpx;
+}
+.list-item .tag {
+  width: 106rpx;
+  height: 48rpx;
+  position: absolute;
+  right: -10rpx;
+  top: 24rpx;
+}
+.list-item.item2 .top-wrap {
+  background: linear-gradient(180deg, #FFE3D2, #FFFFFF);
+}
+.list-item.item3 .top-wrap {
+  background: linear-gradient(180deg, #D7D7D7, #FFFFFF);
+}
+.list-item.item4 .top-wrap {
+  background: linear-gradient(180deg, #D7D7D7, #FFFFFF);
+}
+
+.total-wrap {
+  padding: 16rpx 30rpx;
+  text-align: center;
+  font-size: 24rpx;
+  text-align: center;
+  color: #666;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  border-top: 1px solid #F2F2F2;
+  border-bottom: 1px solid #F2F2F2;
+}
+.total-wrap .item {
+  position: relative;
+}
+.total-wrap .strong {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #1A1A1A;
+  margin-bottom: 15rpx;
+}
+
+.bottom {
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #212121;
+  padding: 24rpx 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+}
+.bottom .label {
+  color: #666;
+  font-weight: 400;
+  margin-right: 16rpx;
+}

@@ -1,0 +1,72 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="top">
+  <view class="title">全部消息</view>
+  <view class="btn">标记为已读</view>
+</view>
+
+<view class="list-wrap">
+  <view class="item">
+    <view class="top-title">
+      <view class="left">
+        <image
+          class="img1"
+          src="https://image.jkcspace.com/wxmini_static/images/message-notice.png"
+          alt="线下约课"
+        />
+        <image
+          class="dot"
+          src="https://image.jkcspace.com/wxmini_static/images/message-dot.png"
+          alt="线下约课"
+        />
+        <view clacss="name">约课提醒</view>
+      </view>
+      <view class="time">14:00</view>
+    </view>
+    <view class="content">
+      您好，宝贝在今晚19:30有一节预约编程少儿课，请提前20分钟预习上课内容，检查上课设备，并准时进入教室。
+    </view>
+    <navigator url="/pages/detail/index">
+      <view class="bottom">
+        <view clacss="name">查看详情</view>
+        <image
+          class="arrow"
+          src="https://image.jkcspace.com/wxmini_static/images/arrow-right.png"
+          alt="线下约课"
+        />
+      </view>
+    </navigator>
+  </view>
+  <view class="item read">
+    <view class="top-title">
+      <view class="left">
+        <image
+          class="img1"
+          src="https://image.jkcspace.com/wxmini_static/images/message-notice.png"
+          alt="线下约课"
+        />
+        <image
+          class="dot"
+          src="https://image.jkcspace.com/wxmini_static/images/message-dot.png"
+          alt="线下约课"
+        />
+        <view clacss="name">约课提醒</view>
+      </view>
+      <view class="time">14:00</view>
+    </view>
+    <view class="content">
+      您好，宝贝在今晚19:30有一节预约编程少儿课，请提前20分钟预习上课内容，检查上课设备，并准时进入教室。
+    </view>
+    <navigator url="/pages/detail/index">
+      <view class="bottom">
+        <view clacss="name">查看详情</view>
+        <image
+          class="arrow"
+          src="https://image.jkcspace.com/wxmini_static/images/arrow-right.png"
+          alt="线下约课"
+        />
+      </view>
+    </navigator>
+  </view>
+</view>
+

@@ -1,0 +1,222 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="info">
+  <image
+    class="banner"
+    src="https://image.jkcspace.com/wxmini_static/images/banner.png"
+    alt=""
+  />
+  <view class="ctn">
+    <view class="title">
+      <view class="text">{{ physicalStore.name }}</view>
+      <view class="tag" bind:tap="onShowModal">切换门店</view>
+    </view>
+    <view class="desc">{{ physicalStore.city_name }}{{ physicalStore.district_name }}{{ physicalStore.address }}</view>
+    <view class="bottom">
+      <view class="tag">{{ physicalStore.distance }}km</view>
+      <view class="btn-wrap">
+        <view class='btn' bind:tap="onShowModal2">
+          <image
+            class="img"
+            src="https://image.jkcspace.com/wxmini_static/images/offcourse-icon1.png"
+            alt=""
+          />
+          微信
+        </view>
+        <view class="btn" bind:tap="onCall">
+          <image
+            class="img"
+            src="https://image.jkcspace.com/wxmini_static/images/offcourse-icon2.png"
+            alt=""
+          />
+          电话
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="tabs">
+  <tabs
+    noBg="{{ true }}"
+    tabs="{{ typeMap }}"
+    lineImg="{{ null }}"
+    activeTab="{{ curType }}"
+    bind:change="handleChangeType"
+  />
+</view>
+
+<view class="card type1" wx:if="{{ curType < 3 }}">
+  <view class="weui-flex total-wrap">
+    <navigator
+      url="/pages/my/buy/index?outActiveTab=theme{{ item.theme_type }}&activeTab={{ item.type == 1 ? 'child' : 'juvenile' }}&id={{ item.vip_card_id }}"
+      wx:for="{{ vipList }}"
+      wx:key="vip_card_id"
+    >
+      <view class="weui-flex__item item">
+        <view class="bage-tag">{{ item.title }}</view>
+        <view class="title">{{ item.content }}</view>
+        <view class="bottom">
+          <view class="text-wrap" wx:if="{{ item.original_price > 0 }}">
+            <view class="text">¥</view>
+            <view class="text strong">{{ item.price }}</view>
+          </view>
+          <view class="money" wx:if="{{ item.original_price > 0 }}">
+            <view class="text">¥</view>
+            {{ item.original_price }}
+          </view>
+        </view>
+        <image
+          class="btn"
+          src="https://image.jkcspace.com/wxmini_static/images/offcourse-btn.png"
+          alt=""
+        />
+      </view>
+    </navigator>
+  </view>
+  <view class="weui-flex total-wrap">
+    <view
+      data-url="{{ item.url }}"
+      bind:tap="goPage"
+      wx:for="{{ typeList }}"
+      wx:key="*this"
+    >
+      <view class="weui-flex__item item item2">
+        <view class="title">{{ item.title }}</view>
+        <view class="desc">{{ item.desc }}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="card yuyue" wx:else>
+  <image
+    class="image"
+    src="https://image.jkcspace.com/wxmini_static/images/offcourse-nostart.png"
+    alt=""
+  />
+  <view class="title">课程暂未开放</view>
+  <view class="btn" bind:tap="onReport">我感兴趣，报名预约</view>
+</view>
+
+<view class="card card2" wx:if="{{ curType < 3 }}">
+  <view class="page-title" style="color: #000;">线下约课</view>
+  <scroll-view
+    wx:if="{{ tagList.length }}"
+    scroll-x="true"
+    style=" white-space: nowrap; display: flex"
+    scroll-into-view="{{rightId}}"
+    class="date-wrap"
+  >
+    <view class="tag-wrap">
+      <view
+        class="tag {{ curIndex == index ? 'select' : '' }}"
+        wx:for="{{ tagList }}"
+        wx:key="index"
+        data-index="{{ index }}"
+        bind:tap="onChangeTag"
+      >
+        <text>{{item.describe}}</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <calendar
+    wx:if="{{ spot.length }}"
+    defaultDate="{{ dateString }}"
+    spot="{{ spot }}"
+    bind:dateChange="dateChange"
+  ></calendar>
+
+  <view class="card yuyue" wx:if="{{ curIndex >= 6 }}">
+    <image
+      class="image"
+      src="https://image.jkcspace.com/wxmini_static/images/offcourse-nostart.png"
+      alt=""
+    />
+    <view class="title">课程暂未开放</view>
+    <view class="btn" bind:tap="onReport">我感兴趣，报名预约</view>
+  </view>
+
+  <empty wx:elif="{{ !dataSource.length }}" />
+
+  <view class="list-wrap" wx:else>
+    <view
+      class="item"
+      wx:for="{{ dataSource }}"
+      wx:key="id"
+    >
+      <navigator class="link" url="/pages/offcourse/details/index?id={{ item.id }}">
+
+        <view class="bage-tag">{{ item.phase }}</view>
+        <image
+          class="cover"
+          src="{{ uploadUrlHost }}/{{ item.img_url }}"
+          alt=""
+        />
+      </navigator>
+      <view class="bage-tag2 bg{{item.type}}">{{ typeObj[item.type] }}</view>
+      <view class="ctn">
+        <navigator class="link" url="/pages/offcourse/details/index?id={{ item.id }}">
+
+          <view class="title">{{ item.name }}</view>
+          <view class="desc">{{ item.class_time }} 上课</view>
+          <view class="names">
+            <view class="line">{{ item.teacher_name }}</view>
+            <view class="line">{{ item.classroom_name }}</view>
+          </view>
+          <view class="line" wx:if="{{ item.outline }}">{{ item.outline }}</view>
+        </navigator>
+        <view class="bottom">
+          <view
+            wx:if="{{ currencyCourse > 0 }}"
+            class="btn ghost"
+            data-item="{{ item }}"
+            bind:tap="onExperience"
+          >体验约课
+          </view>
+          <view
+            class="btn"
+            data-item="{{ item }}"
+            bind:tap="onReverse"
+          >报名约课
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<dialog-store
+  wx:if="{{ show }}"
+  show="{{ show }}"
+  default-list="{{ storeList }}"
+  default-data="{{ physicalStore }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+/>
+
+<dialog-qrcode
+  wx:if="{{ showQrcode }}"
+  show="{{ showQrcode }}"
+  default-data="{{ physicalStore.wechat_qr_code }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+/>
+
+<dialog-reverse
+  wx:if="{{ showReverse }}"
+  show="{{ showReverse }}"
+  default-data="{{ curData }}"
+  bind:ok="onOkReverse"
+  bind:cancel="onCancel"
+/>
+
+<dialog-confirm
+  wx:if="{{ showConfirm }}"
+  show="{{ showConfirm }}"
+  default-data="{{ confirmData }}"
+  bind:ok="onBuy"
+  bind:cancel="onCancel"
+/>
+

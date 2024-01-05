@@ -1,0 +1,41 @@
+<view class="modal modal-bottom-dialog">
+  <view class="modal-cancel" bindtap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{ animationData }}">
+    <view class='Mselect'>
+      <view class="modal-head">
+        <text>学生信息</text>
+      </view>
+      <view class="ctn-wrap">
+        <view class="form-item">
+          <view class="label">孩子姓名</view>
+          <view class="text">{{ defaultData.name }}</view>
+        </view>
+        <view class="form-item">
+          <view class="label">学校名称</view>
+          <view class="text">{{ defaultData.school }}</view>
+        </view>
+        <view class="form-item">
+          <view class="label">出生年月</view>
+          <view class="text">{{ defaultData.birthday }}</view>
+        </view>
+        <view class="form-item">
+          <view class="label">已约课</view>
+          <view class="text">{{ defaultData.used_course_count }}节</view>
+        </view>
+        <view class="form-item">
+          <view class="label">已上课</view>
+          <view class="text">{{ defaultData.class_attendance_count }}节</view>
+        </view>
+        <view class="form-item">
+          <view class="label">未约课</view>
+          <view class="text">{{ defaultData.surplus_course_count }}节</view>
+        </view>
+      </view>
+      <view class="btn-wrap">
+        <view class="btn" bind:tap="hideModal">我知道了</view>
+      </view>
+    </view>
+  </view>
+</view>
+

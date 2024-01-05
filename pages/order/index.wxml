@@ -1,0 +1,61 @@
+<!-- <wxs module="tools" src="../../utils/wxmlTools.wxs" /> -->
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="tabs">
+  <tabs
+    lineImg="{{lineImg}}"
+    tabs="{{statusOptions}}"
+    activeTab="{{status}}"
+    bind:change="handleChangeTab"
+  />
+</view>
+
+<view class="create-btn" bind:tap="handleToCreate" />
+
+<empty wx:if="{{!dataSource.length}}" />
+
+<view class="list">
+  <view
+    class="item"
+    wx:for="{{ dataSource }}"
+    wx:key="id"
+  >
+    <navigator url="/pages/order/details/index?id={{ item.id }}">
+      <view class="avator-wrap">
+        <image
+          class="avator"
+          src="{{ uploadUrlHost }}/{{ item.goods_img }}"
+          alt=""
+        />
+        <view class="ctn">
+          <view class="title">
+            <view class="text">{{ item.goods_name }}</view>
+            <view class="status">{{ statusObj[item.order_status] }}</view>
+          </view>
+
+          <view class="desc">{{ item.prop_value_str }}</view>
+
+          <view class="money">
+            <view class="left">
+              <view class="strong">{{ item.price }}</view>
+              <view class="text">币</view>
+              <view class="num">x{{ item.quantity }}</view>
+            </view>
+
+            <view class="right">
+              <view class="text">实付</view>
+              <view class="strong">{{ item.amount }}</view>
+              <view class="text">币</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </navigator>
+    <view class="action">
+      <navigator url="/pages/tool/details/index?id={{ item.goods_id }}">
+        <view class="btn">再来一单</view>
+      </navigator>
+    </view>
+  </view>
+</view>
+

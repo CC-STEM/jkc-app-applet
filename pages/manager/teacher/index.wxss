@@ -1,0 +1,267 @@
+/* pages/courseDetail/index.wxss */
+page {
+  background: #F5F5F5;
+  position: relative;
+}
+
+.page-title {
+  padding: 20rpx 32rpx 30rpx 32rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  background-color: #fff;
+}
+.change-btn {
+  display: flex;
+  align-items: center;
+}
+.page-title .arrow {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+/** 公共css  **/
+.mgl20 {
+  margin-left: 20rpx;
+}
+.dp-center {
+  display: flex;
+  align-items: center;
+}
+.dp-center-b{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mgt38 {
+  margin-top: 38rpx;
+}
+
+.mgl20 {
+  margin-left: 20rpx;
+}
+
+.mgt10 {
+  margin-top: 10rpx;
+}
+.mgt20{margin-top: 20rpx;}
+
+.dp_c_b {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dp_c {
+  display: flex;
+  align-items: center;
+}
+
+.text-999 {
+  color: #999;
+}
+
+.text-1A {
+  color: #1A1A1A;
+}
+
+.text-1F {
+  color: #1F1F1F;
+}
+
+.text-1D {
+  color: #1D1D1D;
+}
+
+.text-19 {
+  color: #191919;
+}
+
+.text-2A {
+  color: #2A2A2A;
+}
+
+.text-06 {
+  color: #060606;
+}
+
+.text-AD {
+  color: #ADADAD;
+}
+
+.text-999 {
+  color: #999;
+}
+
+.text-75 {
+  color: #757575;
+}
+
+.text-A5 {
+  color: #A5A5A5;
+}
+
+.text-232323 {
+  color: #232323;
+}
+
+.text-32 {
+  font-size: 32rpx;
+}
+
+.text-30 {
+  font-size: 30rpx;
+}
+
+.text-28 {
+  font-size: 28rpx;
+}
+
+.text-26 {
+  font-size: 26rpx;
+}
+
+.text-24 {
+  font-size: 24rpx;
+}
+
+.text-22 {
+  font-size: 22rpx;
+}
+
+.text-20 {
+  font-size: 20rpx;
+}
+
+.green_s {
+  color: #0AB28A;
+}
+
+.blue_s {
+  color: #2A74F3;
+}
+
+.red_s {
+  color: #FF2146;
+}
+
+.cancle_s {
+  color: #272727;
+}
+
+/** --ending --- **/
+
+/**  -------------老师管理-----------   **/
+.teacher_cell {
+  width: 700rpx;
+  margin: 24rpx 22rpx 24rpx 28rpx;
+  border-radius: 20rpx;
+  position: relative;
+  font-size: 0;
+}
+
+.teacher_cell .teacher_main {
+  /* position: absolute; */
+  width: 100%;
+  /* left: 0;
+  top: 0; */
+}
+
+.teacher_cell .teacher_main .teachet_header {
+  padding: 23rpx 21rpx 19rpx 27rpx;
+  border-radius: 20rpx 20rpx 0 0;
+  color: #303030;
+  background: linear-gradient(177deg, #C1E8FF, #FFFFFF);
+}
+
+.teacher_cell .teacher_main .teachet_header ._avatar {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50rpx;
+  background: #BFBFBF;
+  border: 3rpx solid #FFFFFF;
+  margin-right: 20rpx;
+}
+
+.teacher_cell .teacher_main .teachet_header ._btn {
+  display: inline-block;
+  width: 143rpx;
+  height: 49rpx;
+  line-height: 49rpx;
+  background: linear-gradient(90deg, #FAC84F, #FF7505);
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  border-radius: 25rpx;
+}
+
+.teacher_cell .teacher_main .teachet_content {
+  background-color: #fff;
+  border-radius: 20rpx 0 20rpx 20rpx;
+  height: 269rpx;
+  padding: 77rpx 40rpx 0;
+}
+
+.teacher_cell .teacher_main .teachet_content .progress_cell {
+  width: 450rpx;
+  height: 27rpx;
+  background: #ECF3FF;
+  border-radius: 14rpx;
+  position: relative;
+  display: flex;
+}
+
+.teacher_cell .teacher_main .teachet_content .progress_value {
+  height: 27rpx;
+  border-radius: 14rpx;
+  background: linear-gradient(-89deg, #28ABF7, #1963FB);
+  box-shadow: 15rpx -1rpx 21rpx 0rpx rgba(38, 162, 247, 0.48);
+  position: absolute;
+  left: 0;
+}
+
+.teacher_cell .teacher_main .teachet_content .progress_value ._triggle {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 10rpx solid transparent;
+  border-right: 10rpx solid transparent;
+  border-bottom: 12rpx solid #1C86F4;
+  display: inline-block;
+  top: -12rpx;
+  position: absolute;
+  left: calc(50% - 10rpx);
+}
+
+.teacher_cell .teacher_main .teachet_content .progress_value ._amount {
+  display: inline-block;
+  top: -50rpx;
+  position: absolute;
+  left: calc(50% - 75rpx);
+  font-size: 24rpx;
+  min-width: 150rpx;
+  text-align: center;
+  line-height: 30rpx;
+}
+
+.teacher_cell .teacher_main .teachet_content .teachet_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50rpx;
+  padding: 0 10rpx;
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #5C5C5C;
+}
+
+.teacher_cell .teacher_main .teachet_content ._unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24rpx;
+  color: #5C5C5C;
+  line-height: 20rpx;
+}
+
+/**  -------------老师管理ending-----------   **/

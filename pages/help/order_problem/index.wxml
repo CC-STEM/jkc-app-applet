@@ -1,0 +1,26 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="list-wrap">
+  <navigator
+    url="/pages/help/details/index?id={{ item.id }}&img={{ img }}"
+    wx:for="{{ dataSource }}"
+    wx:key="id"
+  >
+    <view class="item">
+      <view class="left">
+        <image
+          class="img1"
+          src="{{ img }}"
+          alt=""
+        />
+        <view class="name">{{ item.title }}</view>
+      </view>
+      <image
+        class="arrow"
+        src="https://image.jkcspace.com/wxmini_static/images/arrow-right.png"
+        alt=""
+      />
+    </view>
+  </navigator>
+</view>
+

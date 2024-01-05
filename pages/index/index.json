@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "tabs": "/components/tabs",
+    "empty": "/components/empty",
+    "mp-slideview": "weui-miniprogram/slideview/slideview",
+    "navigation-bar": "/components/custom-navigation-bar-return",
+    "single-picker": "/components/single-picker",
+    "dialog-libao": "/components/dialog-libao",
+    "dialog-store": "/components/dialog-store",
+    "dialog-qrcode": "/components/dialog-qrcode"
+  }
+}

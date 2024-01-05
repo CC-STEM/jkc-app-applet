@@ -1,0 +1,20 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="ctn">
+  <view class="text f48 mt100">您已开通</view>
+  <view class="text f60">CC编程黄金月卡会员</view>
+  <image
+    class="avator"
+    src="https://image.jkcspace.com/wxmini_static/images/my-vip-icon1.png"
+    alt=""
+  />
+  <view class="text day">
+    有效为
+    <view class="red">30</view>
+    天
+  </view>
+  <view class="text">请您尽快约课，避免失效</view>
+  <view class="btn">去约课</view>
+
+</view>
+

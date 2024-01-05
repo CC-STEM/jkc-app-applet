@@ -1,0 +1,45 @@
+<view
+  catchtouchmove="preventTouchMove"
+  class="share"
+  hidden="{{!posterDatas.show}}"
+>
+  <image
+    wx:if="{{ posterDatas.pic }}"
+    class="poster-img"
+    src='{{ posterDatas.pic }}'
+  />
+  <canvas 
+    wx:else
+    type="2d"
+    id="firstCanvas"
+    class="firstCanvas"
+    style="width:{{posterDatas.width}}px;height:{{posterDatas.height}}px;"
+  ></canvas>
+
+</view>
+
+<view class="footer">
+  <view class="btn-wrap">
+     <button
+      class='button'
+      bindtap='onShareImges'
+    >
+      <image src="https://image.jkcspace.com/wxmini_static/images/share-icon1.png" alt="" />
+      <view class="text">微信好友</view>
+    </button>
+    <view class='button' bindtap="onSharefriends">
+      <image src="https://image.jkcspace.com/wxmini_static/images/share-icon2.png" alt="" />
+      <view class="text">朋友圈</view>
+    </view>
+    <button class='button' bindtap='onDownloadImges'>
+      <image src="https://image.jkcspace.com/wxmini_static/images/share-icon3.png" alt="" />
+      <view class="text">保存图片</view>
+    </button>
+  </view>
+  <navigator url="/pages/teacher/index" class="cancel">取消</navigator>
+</view>
+<!--
+ <view wx:if="{{showDom}}" class="guide-wrap" bindtap="onHideDom">
+    <image src="https://image.jkcspace.com/wxmini_static/images/guide.png" alt="" />
+  </view>
+-->

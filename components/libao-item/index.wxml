@@ -1,0 +1,16 @@
+
+<view class="addressCtn">
+  <view class="title">
+    <view class="text">{{ defaultData.name }}</view>
+    <view class="tag" bind:tap="onShowModal">切换门店</view>
+  </view>
+  <view class="desc">{{ defaultData.city_name }}{{ defaultData.district_name }}{{ defaultData.address }}</view>
+</view>
+
+<dialog-store
+  wx:if="{{ showStore }}"
+  show="{{ showStore }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+/>
+

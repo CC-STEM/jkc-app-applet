@@ -1,0 +1,119 @@
+page {
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
+}
+
+.no-choose-wrap {
+  padding: 20rpx;
+}
+
+.info {
+  width: 750rpx;
+  position: relative;
+  font-weight: bold;
+  display: inline-block;
+  padding: 40rpx 38rpx;
+  background: #fff;
+}
+.info .title {
+  display: flex;
+  justify-content: space-between;
+}
+.info .title .text {
+  font-size: 36rpx;
+  font-weight: 800;
+  color: #1A1A1A;
+  flex: 1;
+}
+.info .title .tip {
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 10rpx;
+}
+.tag-wrap {
+  display: flex;
+  font-size: 24rpx;
+}
+.tag-wrap .tag {
+  padding: 7rpx 16rpx;
+  border-radius: 5rpx;
+  margin-right: 10rpx;
+}
+.tag-wrap .tag.blue {
+  color: #3E7EFF;
+  background: #E0F0FF;
+}
+.tag-wrap .tag.orange {
+  color: #FF6326;
+  background: #FFF5E4;
+}
+
+
+.list-wrap {
+  font-size: 24rpx;
+  padding: 24rpx;
+}
+.list-wrap .item {
+  width: 702rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin-bottom: 25rpx;
+  position: relative;
+}
+.list-wrap .item .banner {
+  width: 700rpx;
+  height: 345rpx;
+}
+.list-wrap .item .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.list-wrap .left {
+  background-color: #ffffff;
+  padding: 30rpx 34rpx;
+  border-radius: 0 20rpx 20rpx 20rpx;
+}
+.list-wrap .title {
+  font-size: 32rpx;
+  font-weight: 800;
+  color: #1A1A1A;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 18rpx;
+}
+.list-wrap .item .desc {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 17rpx;
+}
+.list-wrap .right {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #1A1A1A;
+  padding: 0 20rpx;
+  text-align: center;
+  font-weight: 800;
+  width: 159rpx;
+  height: 67rpx;
+  line-height: 67rpx;
+  background: #FFD925;
+  border-radius: 33px;
+}
+.list-wrap .right.gray {
+  background: #EEEEEE;
+}
+.bage-tag {
+  background: rgba(0, 0, 0, 0.52);
+  border-radius: 20rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  font-size: 22rpx;
+  font-weight: 500;
+  color: #FFFFFF;
+  padding: 0 14rpx;
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+}

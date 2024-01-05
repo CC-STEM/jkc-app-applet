@@ -1,0 +1,184 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="top" style="background-image:url('https://image.jkcspace.com/wxmini_static/images/member-bg.png')">
+  <view class="user-info">
+    <view class="avator-wrap">
+      <image
+        wx:if="{{ userInfo.avatar }}"
+        class="avator"
+        data-type="img"
+        src="{{ uploadUrlHost }}/{{ userInfo.avatar }}"
+        bindtap="getUserProfile"
+        alt=""
+      />
+      <image
+        wx:else
+        class="avator"
+        data-type="img"
+        src="https://image.jkcspace.com/wxmini_static/images/my-avatar.png"
+        bindtap="getUserProfile"
+        alt=""
+      />
+      <view class="ctn">{{ userInfo.name }}</view>
+    </view>
+  </view>
+
+  <view class="weui-flex total-wrap">
+    <view class="weui-flex__item item">
+      <view class="text-wrap">
+        <view class="text strong">{{ userInfo.course1 }}</view>
+        <view class="text">次</view>
+      </view>
+      <view class="text">幼儿课</view>
+      <navigator url="/pages/my/buy/index">
+        <view class="btn">去购买</view>
+      </navigator>
+    </view>
+    <view class="weui-flex__item item">
+      <view class="text-wrap">
+        <view class="text strong">{{ userInfo.course3 }}</view>
+        <view class="text">套</view>
+      </view>
+      <view class="text">少儿课</view>
+      <navigator url="/pages/my/buy/index">
+        <view class="btn">去购买</view>
+      </navigator>
+    </view>
+    <view class="weui-flex__item item">
+      <view class="text-wrap">
+        <view class="text strong">{{ userInfo.course2 }}</view>
+        <view class="text">次</view>
+      </view>
+      <view class="text">主题活动</view>
+      <navigator url="/pages/my/buy/index">
+        <view class="btn">去购买</view>
+      </navigator>
+    </view>
+  </view>
+
+</view>
+
+<view class="title">我的课程</view>
+
+<!-- <view class="alert">有3次幼儿课或活动课在2022.10.09过期，请尽快约课！</view> -->
+
+<view class="list-wrap">
+  <view
+    class="list-item"
+    wx:for="{{ dataSource }}"
+    wx:key="index"
+  >
+    <view class="top-wrap">
+      <view class="left">
+        <view class="name">
+          <view>{{ item.order_title }}</view>
+          <view class="coin" wx:if="{{ item.order_type == 1 }}">
+            <view class="strong">{{ item.price }}</view>
+            <view class="text">币</view>
+          </view>
+        </view>
+        <view wx:if="{{ item.expire_at }}" class="text">{{ item.expire_at || '--' }}过期</view>
+        <image
+          wx:if="{{ item.status == 3 }}"
+          class="status-icon"
+          src="https://image.jkcspace.com/wxmini_static/images/member-icon.png"
+          alt=""
+        />
+        <image
+          wx:if="{{ item.status == 5 }}"
+          class="status-icon"
+          src="https://image.jkcspace.com/wxmini_static/images/daishiyong.png"
+          alt=""
+        />
+        <image
+          wx:if="{{ item.status == 4 }}"
+          class="status-icon"
+          src="https://image.jkcspace.com/wxmini_static/images/tuikuan.png"
+          alt=""
+        />
+        <image
+          class="status-img{{ item.order_type }}"
+          src="https://image.jkcspace.com/wxmini_static/images/member-bg{{ item.order_type }}.png"
+          alt=""
+        />
+      </view>
+      <view class="right">
+        <view class="text" bind:tap="onGoPage">
+          去约课
+          <image
+            class="arrow"
+            src="https://image.jkcspace.com/wxmini_static/images/arrow-right.png"
+            alt=""
+          />
+        </view>
+      </view>
+    </view>
+    <!-- 好友推荐&新人礼包字段不一样 -->
+    <view class="bottom" wx:if="{{ item.order_type == 1}}">
+      <view class="item" wx:if="{{ item.course2 > 0 }}">
+        <view
+          wx:if="{{ item.course2_surplus > 0 }}"
+          class="count"
+          style="background-image:url('https://image.jkcspace.com/wxmini_static/images/member-bg-count.png')"
+        >
+          剩余{{ item.course2_surplus }}次
+        </view>
+        <view class="num">{{ item.course2_used }}/{{ item.course2 }}</view>
+        <view class="label">主题活动</view>
+      </view>
+      <view class="item" wx:if="{{ item.course3 > 0 }}">
+        <view
+          wx:if="{{ item.course3_surplus > 0 }}"
+          class="count"
+          style="background-image:url('https://image.jkcspace.com/wxmini_static/images/member-bg-count.png')"
+        >
+          剩余{{ item.course3_surplus }}套
+        </view>
+        <view class="num">{{ item.course3_used }}/{{ item.course3 }}</view>
+        <view class="label">少儿课</view>
+      </view>
+      <view class="item" wx:if="{{ item.course1 > 0 }}">
+        <view
+          wx:if="{{ item.course1_surplus > 0 }}"
+          class="count"
+          style="background-image:url('https://image.jkcspace.com/wxmini_static/images/member-bg-count.png')"
+        >
+          剩余{{ item.course1_surplus }}次
+        </view>
+        <view class="num">{{ item.course1_used }}/{{ item.course1 }}</view>
+        <view class="label">幼儿课</view>
+      </view>
+    </view>
+    <view class="bottom" wx:else>
+      <view class="item">
+        <view
+          wx:if="{{ item.currency_course_surplus > 0 }}"
+          class="count"
+          style="background-image:url('https://image.jkcspace.com/wxmini_static/images/member-bg-count.png')"
+        >
+          剩余{{ item.currency_course_surplus }}次
+        </view>
+        <view class="num">{{ item.currency_course_used }}/{{ item.currency_course }}</view>
+        <view class="label">课程抵扣券</view>
+      </view>
+    </view>
+    <view class="tongyong-info">
+      <view class="left">
+        <view class="line" wx:if="{{item.physical_store.length}}">
+          <text>部分门店通用：</text>
+          <view class="text-wrap">{{item.physical_store1}} </view>
+        </view>
+        <view class="line desc">{{typeObj[item.card_theme_type]}}可使用</view>
+      </view>
+      <view wx:if="{{item.physical_store.length}}" class="details-btn" data-stores="{{item.physical_store}}" bind:tap="onShowModal">详情</view>
+    </view>
+  </view>
+</view>
+
+<dialog-confirm
+  wx:if="{{ showConfirm }}"
+  show="{{ showConfirm }}"
+  default-data="{{ confirmData }}"
+  bind:ok="onCancel"
+  bind:cancel="onCancel"
+/>

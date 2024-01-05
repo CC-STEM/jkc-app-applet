@@ -1,0 +1,40 @@
+
+.addressCtn {
+  width: 688rpx;
+  padding: 20rpx;
+  background: #FFFFFF;
+  box-shadow: 0rpx 0rpx 59rpx 0rpx rgba(0,0,0,0.17);
+  border-radius: 20rpx;
+  margin-bottom: 18rpx;
+}
+.addressCtn .title {
+  display: flex;
+  padding: 0;
+  justify-content: space-between;
+}
+.addressCtn .text {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #1A1A1A;
+  flex: 1;
+  line-height: 43rpx;
+  padding-right: 30rpx;
+}
+.addressCtn .tag {
+  width: 133rpx;
+  height: 47rpx;
+  line-height: 47rpx;
+  background: #FF7807;
+  border-radius: 24rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-align: center;
+}
+.addressCtn .desc {
+  font-size: 26rpx;
+  line-height: 28rpx;
+  color: #666;
+  margin: 15rpx 0 0;
+  text-align: left;
+}

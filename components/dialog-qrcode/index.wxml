@@ -1,0 +1,23 @@
+<view class="modal modal-bottom-dialog">
+  <view class="modal-cancel" bindtap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{ animationData }}">
+    <view class='Mselect'>
+
+      <view class="modal-head">
+        <text class="tips">微信</text>
+        <image
+          class="close"
+          src="https://image.jkcspace.com/wxmini_static/images/picker-close.png"
+          alt=""
+          bind:tap="hideModal"
+        />
+      </view>
+      <view class="ctn-wrap">
+        <image alt="" src="{{ uploadUrlHost }}/{{ defaultData }}" />
+        <!-- <view class="tips"></view> -->
+      </view>
+    </view>
+  </view>
+</view>
+

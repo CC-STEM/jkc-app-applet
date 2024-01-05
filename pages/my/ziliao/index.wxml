@@ -1,0 +1,142 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class='ziliao'>
+  <view class="head">
+    <view>首次登录 </view>
+    <view>填写学生信息</view>
+  </view>
+  <view class="tips">后续资料需要编辑可通过个人中心编辑资料变更</view>
+  <view class="ctn-wrap">
+    <!--<view class="images-wrap">
+      <view class="item" wx:if="{{ formData.avatar }}">
+        <image
+          class="img"
+          src="{{ uploadUrlHost }}/{{ formData.avatar }}"
+          alt=""
+        />
+        <image
+          class="close"
+          bind:tap="onDeleteImg"
+          src="https://image.jkcspace.com/wxmini_static/images/teacher-close.png"
+          alt=""
+        />
+      </view>
+      <view
+        wx:else
+        class="item upload-wrap"
+        bind:tap="ChooseImage"
+      >
+        <image src="https://image.jkcspace.com/wxmini_static/images/refund-creame.png" alt="" />
+      </view>
+    </view>-->
+    <view class="form-item">
+      <view class="label">孩子姓名</view>
+      <input
+        class="input"
+        data-field="name"
+        placeholder-class="placeholder"
+        placeholder="请输入孩子姓名"
+        value="{{ formData.name }}"
+        bind:input="handleChangeData"
+      />
+    </view>
+    <view class="form-item">
+      <view class="label">学校名称</view>
+      <input
+        class="input"
+        data-field="school"
+        placeholder-class="placeholder"
+        placeholder="请输入学校名称"
+        value="{{ formData.school }}"
+        bind:input="handleChangeData"
+      />
+    </view>
+    <!--<picker
+      bindchange="pickSex"
+      value="{{ formData.gender }}"
+      class="sex"
+      range="{{ sexMap }}"
+    >
+      <view class="wrap">
+        <view class="label"></view>
+        <input
+          class="input"
+          data-field="gender"
+          placeholder-class="placeholder"
+          placeholder="请选择孩子性别"
+          value="{{ sexMap[formData.gender] }}"
+        />
+        <image
+          class="arrow"
+          src="https://image.jkcspace.com/wxmini_static/images/arrow-down.png"
+          alt=""
+        />
+      </view>
+    </picker>-->
+    <picker
+      mode="date"
+      value="{{ formData.birthday }}"
+      bind:change="bindDateChange"
+    >
+      <view class="form-item">
+        <view class="label">出生年月</view>
+        <view
+          class="input"
+          data-field="name"
+        >
+          <text wx:if="{{ formData.birthday }}" class="text">{{ formData.birthday }}</text>
+          <text wx:else class="placeholder">请选择出生年月</text>
+        </view>
+        <image
+          class="arrow"
+          src="https://image.jkcspace.com/wxmini_static/images/arrow-down.png"
+          alt=""
+        />
+      </view>
+    </picker>
+    <view class="form-item">
+      <view class="label">家长联系方式</view>
+      <input
+        class="input"
+        data-field="parent_mobile"
+        placeholder-class="placeholder"
+        placeholder="请输入家长联系方式"
+        value="{{ formData.parent_mobile }}"
+        bind:input="handleChangeData"
+      />
+    </view>
+    <!-- <picker
+      mode="date"
+      value="{{ formData.birthday }}"
+      bind:change="bindDateChange"
+    >
+      <view class="form-item">
+        <view class="label">意向上课时间</view>
+        <input
+          class="input"
+          data-field="name"
+          placeholder-class="placeholder"
+          placeholder="请选择上课时间"
+          value="{{ formData.birthday }}"
+          bind:input="handleChangeData"
+        />
+        <image
+          class="arrow"
+          src="https://image.jkcspace.com/wxmini_static/images/arrow-down.png"
+          alt=""
+        />
+      </view>
+    </picker>
+    -->
+    <view class="lujing">
+      <view class="title">您是如何知晓CC编程？</view>
+      <view class="tag-wrap">
+        <view class="tag {{ formData.channel == item ? 'active' : '' }}" key="{{item}}" data-type="{{item}}" wx:for="{{ tagArr }}" bind:tap="onChangeTag">{{ item }}</view>
+      </view>
+    </view>
+  </view>
+  <view class="btn-wrap">
+    <view class="btn" bind:tap="onSubmit">提交</view>
+  </view>
+</view>
+

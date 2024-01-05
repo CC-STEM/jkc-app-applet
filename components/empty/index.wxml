@@ -1,0 +1,4 @@
+<view class="empty">
+  <image style="{{style}}" src="{{ url }}" class="image" />
+  <view>{{desc}}</view>
+</view>

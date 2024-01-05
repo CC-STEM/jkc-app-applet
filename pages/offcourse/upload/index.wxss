@@ -1,0 +1,46 @@
+page {
+  padding: 24rpx 24rpx calc(50px + env(safe-area-inset-bottom));
+}
+view {
+  line-height: 1;
+}
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin-bottom: var(--base-space);
+}
+
+.title {
+  padding: 40rpx 35rpx;
+  background-color: #ffffff;
+  font-size: 32rpx;
+  font-weight: 800;
+  margin-bottom: 27rpx;
+  color: #1A1A1A;
+}
+
+.upload-wrap {
+  width: 687rpx;
+  height: 386rpx;
+  background: #FFF1E3;
+  border-radius: 20px;
+  text-align: center;
+  padding-top: 86rpx;
+  margin-bottom: 24rpx;
+}
+.upload-wrap image {
+  width: 146rpx;
+  height: 146rpx;
+}
+.upload-wrap .btn {
+  margin: 28rpx auto 0;
+  width: 170rpx;
+  height: 65rpx;
+  line-height: 65rpx;
+  background: #FA800E;
+  border-radius: 33rpx;
+  font-size: 28rpx;
+  font-weight: 800;
+  color: #FFFFFF;
+}

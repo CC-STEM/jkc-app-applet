@@ -1,0 +1,65 @@
+<view class="modal modal-bottom-dialog">
+  <view class="modal-cancel" bindtap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{animationData}}">
+    <view class='Mselect'>
+      <view class="modal-head">
+        <text>选择上课时间</text>
+        <image
+          class="close"
+          src="https://image.jkcspace.com/wxmini_static/images/picker-close.png"
+          alt=""
+          bind:tap="hideModal"
+        />
+      </view>
+      <view class="ctn-wrap">
+        <view class="list-wrap">
+          <view
+            class="item"
+            wx:for="{{ dataSource }}"
+            wx:key="index"
+          >
+            <view class="top">
+              <view class="title">
+                <view class="text">{{ item.name }}</view>
+                <view class="tag status">{{ typeObj[item.type] }}</view>
+              </view>
+              <navigator class="link" url="/pages/offcourse/details/index?id={{ item.id }}">
+                详情
+                <image
+                  class="img"
+                  src="https://image.jkcspace.com/wxmini_static/images/arrow-right-circle.png"
+                  alt=""
+                />
+              </navigator>
+            </view>
+            <view class="desc">
+              <view class="left">
+                <view class="text">{{ item.class_time }}</view>
+                <view wx:if="{{ item.status == 3 }}" class="tag">已满</view>
+                <view wx:if="{{ item.status == 2 }}" class="tag green">已学</view>
+                <view wx:if="{{ item.status == 1 }}" class="tag blue">已约课</view>
+              </view>
+              <image
+                wx:if="{{ item.status == 0 }}"
+                class="icon"
+                src="https://image.jkcspace.com/wxmini_static/images/{{ item.isChecked ? 'checkbox-selected' : 'checkbox'}}.png"
+                alt=""
+                data-id="{{ item.id }}"
+                data-index="{{ index }}"
+                data-batchno="{{ item.batch_no }}"
+                data-themetype="{{ item.theme_type }}"
+                bind:tap="onSelect"
+              />
+              <view wx:else class="disabled" />
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="btn" bind:tap="onSubmit">确定
+        <text wx:if="{{ selectedList.length }}">({{ selectedList.length }}次)</text>
+      </view>
+    </view>
+  </view>
+</view>
+

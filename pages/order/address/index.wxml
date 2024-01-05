@@ -1,0 +1,89 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="top" style="background-image:url('https://image.jkcspace.com/wxmini_static/images/order-map.png">
+  <mp-form
+    id="form"
+    rules="{{rules}}"
+    models="{{formData}}"
+  >
+    <mp-cells title="">
+      <mp-cell
+        show-error
+        prop="consignee"
+        title="收件人"
+        ext-class=""
+      >
+        <input
+          bind:input="formInputChange"
+          data-field="consignee"
+          value="{{ consignee }}"
+          class="weui-input"
+          placeholder="请输入收件人姓名"
+        />
+      </mp-cell>
+      <mp-cell
+        show-error
+        prop="mobile"
+        title="联系电话"
+        ext-class=""
+      >
+        <input
+          bind:input="formInputChange"
+          data-field="mobile"
+          value="{{ mobile }}"
+          class="weui-input"
+          placeholder="请输入手机号"
+        />
+      </mp-cell>
+
+      <picker-address
+        data-field="type"
+        value="{{ area }}"
+        bind:ok="handleOk"
+        bind:cancel="handleCancel"
+      >
+        <mp-cell
+          show-error
+          prop="mobile"
+          title="所在区域"
+          ext-class=""
+        >
+          <view class="action">
+            {{ areaName }}
+          </view>
+        </mp-cell>
+      </picker-address>
+      <mp-cell
+        show-error
+        prop="address"
+        title="详细地址"
+        ext-class=""
+        noBorder
+      >
+        <textarea
+          bind:input="formInputChange"
+          data-field="address"
+          value="{{ address }}"
+          auto-height
+          placeholder="如街道、门牌号、小区、楼栋号、单元室"
+        />
+        </mp-cell>
+    </mp-cells>
+  </mp-form>
+
+  <!-- <checkbox-group slot="tips" bindchange="bindAgreeChange">
+    <label class="weui-agree">
+      <checkbox class="weui-agree__checkbox-check" />
+      <text class="weui-agree__checkbox"></text>
+      <view class="weui-agree__text">阅读并同意<navigator>《相关条款》</navigator>
+      </view>
+    </label>
+  </checkbox-group> -->
+</view>
+
+<view class="footer">
+  <view class="btn" bind:tap="onAddAddress">
+    确定保存
+  </view>
+</view>
+

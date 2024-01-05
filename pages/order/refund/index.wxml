@@ -1,0 +1,118 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="info">
+  <image
+    class="avator"
+    src="{{ uploadUrlHost }}/{{ dataSource.goods.goods_img }}"
+    alt=""
+  />
+  <view class="ctn">
+    <view class="title">{{ dataSource.goods.goods_name }}</view>
+    <view class="desc">{{ dataSource.goods.prop_value_str }}</view>
+    <view class="money">
+      <view class="left">
+        <view class="strong">{{ dataSource.goods.price }}</view>
+        <view class="text">币</view>
+        <view class="num">x{{ dataSource.goods.quantity }}</view>
+      </view>
+
+      <view class="right">
+        <view class="text">实付</view>
+        <view class="strong">{{ dataSource.goods.amount }}</view>
+        <view class="text">币</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="reason">
+  <view class="title">
+    <view class="left">
+      <view class="text">申请原因</view>
+      <image
+        class="avator"
+        src="https://image.jkcspace.com/wxmini_static/images/refund-bage.png"
+        alt=""
+      />
+    </view>
+
+    <single-picker
+      data-field="reason"
+      range="{{ reasonList }}"
+      value="{{ reason }}"
+      range-key="name"
+      bind:ok="handleChangeData"
+    >
+      <view class="right">
+        <view class="text">{{ reasonName || '请选择' }}</view>
+        <image
+          class="avator"
+          src="https://image.jkcspace.com/wxmini_static/images/arrow.png"
+          alt=""
+        />
+      </view>
+    </single-picker>
+  </view>
+
+  <cell border="{{false}}">
+    <textarea
+      slot="field"
+      style="width:625rpx;padding: 30rpx 20rpx;background: #F8F8F8;border-radius: 10rpx;min-height: 276rpx;color: #333;font-size: 26rpx;margin-bottom: 20rpx;"
+      data-field="remark"
+      value="{{remark}}"
+      placeholder="补充详细申请原因，有利于商家更快帮您处理"
+      maxlength="{{1000}}"
+      auto-height
+      show-confirm-bar="{{false}}"
+      disable-default-padding
+      bind:input="handleChangeData"
+    />
+    </cell>
+
+  <cell border="{{false}}">
+    <view class="images-wrap">
+      <view
+        class="item"
+        wx:for="{{ imgArr }}"
+        wx:key="index"
+      >
+        <image
+          class="img"
+          src="{{ uploadUrlHost }}/{{ item }}"
+          alt=""
+        />
+        <image
+          class="close"
+          data-index="{{ index }}"
+          bind:tap="onDeleteImg"
+          src="https://image.jkcspace.com/wxmini_static/images/teacher-close.png"
+          alt=""
+        />
+      </view>
+      <view class="upload-wrap" bind:tap="ChooseImage">
+        <image
+          src="https://image.jkcspace.com/wxmini_static/images/refund-creame.png"
+          alt=""
+        />
+        <view class="text">
+          上传图片
+        </view>
+      </view>
+    </view>
+  </cell>
+</view>
+
+<view class="footer">
+  <view class="btn orange" bind:tap="onRefund">
+    提交申请
+  </view>
+</view>
+
+<dialog-confirm
+  wx:if="{{ showConfirm }}"
+  show="{{ showConfirm }}"
+  default-data="{{ confirmData }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+/>
+

@@ -1,0 +1,123 @@
+<navigation-bar default-data="{{ defaultData }}" isManager="{{true}}"></navigation-bar>
+
+  <navigator url="/pages/manager/teacher/index" class="url">
+    <view>老师管理</view>
+    <image class="arrow" src="https://image.jkcspace.com/wxmini_static/images/choose-3.png" alt="" />
+  </navigator>
+
+<view class="content">
+  <view class="total">
+    <view class="title">
+      <view class="left">
+        <view class="tag">GMV</view>完成率
+      </view>
+      <picker bindchange="bindPickerChange" fields="month" mode="date">
+        <view class="change-btn">
+          <text>{{ fdate }}</text>
+          <image
+            class="arrow"
+            src="https://image.jkcspace.com/wxmini_static/images/manage-down-arrow.png"
+            alt=""
+          />
+        </view>
+      </picker>
+    </view>
+    <view class="canvas">
+      <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" force-use-old-canvas="true"></ec-canvas>
+    </view>
+    <view class="table-wrap">
+      <view class="th">
+        <view class="td">类型</view>
+        <view class="td">首次购买</view>
+        <view class="td">二次付费</view>
+      </view>
+      <view class="tb">
+        <view class="tr">
+          <view class="td">会员卡</view>
+          <view class="td">
+            <view class="num">￥{{dataSource.vip_card_order_amount1}}</view>
+            <view class="blue">({{dataSource.vip_card_order_amount_rate1}}%)</view>
+          </view>
+          <view class="td">
+            <view class="num">￥{{dataSource.vip_card_order_amount2}}</view>
+            <view class="blue">({{dataSource.vip_card_order_amount_rate2}}%)</view>
+          </view>
+        </view>
+        <view class="tr">
+          <view class="td">商城</view>
+          <view class="td">
+            <view class="num">￥{{dataSource.order_amount1}}</view>
+            <view class="red">({{dataSource.order_amount_rate1}}%)</view>
+          </view>
+          <view class="td">
+            <view class="num">￥{{dataSource.order_amount2}}</view>
+            <view class="red">({{dataSource.order_amount_rate2}}%)</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <view class="total total2">
+    <view class="title">
+      <view class="left">
+        <view class="tag">课耗</view>
+        完成率
+      </view>
+    </view>
+    <view class="canvas">
+      <ec-canvas force-use-old-canvas="true" id="mychart-dom-pie1" canvas-id="mychart-pie1"></ec-canvas>
+    </view>
+    <view class="table-wrap">
+      <view class="th">
+        <view class="td">类型</view>
+        <view class="td">课耗金额</view>
+        <view class="td">开课班数</view>
+        <view class="td">平均人数</view>
+      </view>
+      <view class="tb">
+        <view class="tr">
+          <view class="td">常规班</view>
+          <view class="td">
+            <view class="num">￥{{dataSource.course_offline_order_amount1}}</view>
+          </view>
+          <view class="td">
+            <view class="num">{{dataSource.course_offline_plan1}}</view>
+          </view>
+          <view class="td">
+            <view class="num">{{dataSource.course_offline_student_num1}}</view>
+          </view>
+        </view>
+        <view class="tr">
+          <view class="td">精品小班</view>
+          <view class="td">
+            <view class="num">￥{{dataSource.course_offline_order_amount2}}</view>
+          </view>
+          <view class="td">
+            <view class="num">{{dataSource.course_offline_plan2}}</view>
+          </view>
+          <view class="td">
+            <view class="num">{{dataSource.course_offline_student_num2}}</view>
+          </view>
+        </view>
+        <view class="tr">
+          <view class="td">代码编程</view>
+          <view class="td">
+            <view class="num">￥{{dataSource.course_offline_order_amount3}}</view>
+          </view>
+          <view class="td">
+            <view class="num">{{dataSource.course_offline_plan3}}</view>
+          </view>
+          <view class="td">
+            <view class="num">{{dataSource.course_offline_student_num3}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+

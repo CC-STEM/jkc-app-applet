@@ -1,0 +1,15 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<image src="https://image.jkcspace.com/wxmini_static/images/mobile.png" class="img" />
+<view class="desc">登录手机号</view>
+<view class="title">{{ userInfo.mobile }}</view>
+
+<view class="tc">
+  <view
+    class="auth-btn"
+    bindtap="onSignOut"
+  >
+    退出
+  </view>
+</view>
+

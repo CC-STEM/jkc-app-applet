@@ -1,0 +1,57 @@
+page {
+  padding-bottom: 30rpx;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.ctn .text {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #1A1A1A;
+}
+.ctn .mt100 {
+  margin-top: 100rpx;
+}
+.ctn .f48 {
+  font-size: 48rpx;
+}
+.ctn .f60 {
+  font-size: 60rpx;
+}
+.ctn image {
+  width: 441rpx;
+  height: 347rpx;
+  margin: 60rpx auto 90rpx;
+}
+.ctn .day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: 32rpx;
+}
+.ctn .day::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  content: '';
+  width: 31px;
+  height: 5px;
+  background: #FFD925;
+}
+.ctn .red {
+  color: red;
+}
+.ctn .btn {
+  width: 400rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  border-radius: 46px;
+  background: #2C2C2C;
+  font-size: 30rpx;
+  font-weight: 800;
+  color: #fff;
+  margin: 80rpx auto 0;
+}

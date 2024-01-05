@@ -1,0 +1,105 @@
+<navigation-bar default-data="{{defaultData}}" bind:change="onChangeTab"></navigation-bar>
+
+<view class="list" wx:if="{{ dataSource.length }}">
+  <view
+    class="list-item"
+    wx:for="{{ dataSource }}"
+    wx:key="id"
+  >
+    <view class="time-wrap">
+      <view class="date">{{ item.date }}</view>
+      <view class="time">{{ item.time }}</view>
+    </view>
+
+    <view class="info">
+      <view
+        wx:if="{{ item.status != 0 }}"
+        class="info-title"
+        style="background-image:url('https://image.jkcspace.com/wxmini_static/images/jkc-icon-bage-{{ item.status }}.png')"
+      >{{ item.physical_store_name || '--' }}
+      </view>
+      <view wx:else class="info-title">{{ item.physical_store_name || '--' }}</view>
+
+      <view class="left">
+        <view class="text">{{ item.city_name }}{{ item.district_name }}{{ item.address }}</view>
+        <view class="btn-wrap">
+          <view
+            class="btn"
+            data-qrcode="{{ item.wechat_qr_code }}"
+            bind:tap="onShowModal2"
+          >
+            <image
+              class="img"
+              src="https://image.jkcspace.com/wxmini_static/images/offcourse-icon1.png"
+              alt=""
+            />
+            <view>微信</view>
+
+          </view>
+          <view
+            class="btn"
+            data-storephone="{{ item.store_phone }}"
+            bind:tap="onCall"
+          >
+            <image
+              class="img"
+              src="https://image.jkcspace.com/wxmini_static/images/offcourse-icon2.png"
+              alt=""
+            />
+            <view>电话</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="tag-wrap">
+        <view class="tag blue">距我{{ item.distance }}km</view>
+        <view class="class-name">{{ item.classroom_name }}</view>
+      </view>
+
+      <view class="ctn">
+        <view class="info-title info-title2">
+          <view class="addr2">{{ item.course_name }}</view>
+          <view class="tag tag2">{{ typeObj[item.course_type] }}</view>
+        </view>
+        <view class="desc" style="background-image:url('https://image.jkcspace.com/wxmini_static/images/catalogue-time.png')">{{ item.class_time }}</view>
+      </view>
+
+      <view class="action" wx:if="{{ defaultData.activeTab == 0 }}">
+        <view
+          class="btn"
+          data-item="{{ item }}"
+          bind:tap="onShowModal"
+        >取消约课
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<view class="card yuyue" wx:else>
+  <image
+    class="image"
+    src="https://image.jkcspace.com/wxmini_static/images/offcourse-nostart.png"
+    alt=""
+  />
+  <view class="title">您暂时还没有约课</view>
+  <view class="btn" bind:tap="onReverse">立即报名约课</view>
+</view>
+
+<dialog-cancel
+  wx:if="{{ show }}"
+  show="{{ show }}"
+  default-data="{{ curData }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+/>
+
+<dialog-qrcode
+  wx:if="{{ showQrcode }}"
+  show="{{ showQrcode }}"
+  default-data="{{ qrCode }}"
+  bind:ok="onCancel"
+  bind:cancel="onCancel"
+/>
+

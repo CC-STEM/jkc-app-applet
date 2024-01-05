@@ -1,0 +1,33 @@
+<view class="modal modal-bottom-dialog">
+  <view class="modal-cancel" bindtap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{ animationData }}">
+    <view class='Mselect'>
+      <view class="modal-head">
+        <text>调课申请</text>
+        <image
+          class="close"
+          src="https://image.jkcspace.com/wxmini_static/images/picker-close.png"
+          alt=""
+          bind:tap="hideModal"
+        />
+      </view>
+      <view class="ctn-wrap">
+        <textarea
+          slot="field"
+          style="width:615rpx;margin: 0 auto;padding: 30rpx 20rpx;background: #F2F3F7;border-radius: 20rpx;min-height: 283rpx;color: #333;font-size: 26rpx;"
+          data-field="desc"
+          value="{{desc}}"
+          placeholder="请描述调课原因及可上课日期，便于我们更好安排"
+          maxlength="{{1000}}"
+          auto-height
+          show-confirm-bar="{{false}}"
+          disable-default-padding
+          bind:input="handleChangeData"
+        />
+        </view>
+      <view class="btn" bind:tap="onSubmit">确定</view>
+    </view>
+  </view>
+</view>
+

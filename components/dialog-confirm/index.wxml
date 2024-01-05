@@ -1,0 +1,35 @@
+<view class="modal modal-bottom-dialog">
+  <view class="modal-cancel" bind:tap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{ animationData }}">
+    <view class='Mselect'>
+      <view class="modal-head">
+        <text>{{ defaultData.title }}</text>
+      </view>
+      <view class="ctn-wrap" wx:if="{{ defaultData.content || defaultData.isPoster }}">
+        <view wx:if="{{ !defaultData.isPoster }}" class="content">{{ defaultData.content }}</view>
+        <view wx:else class="content poster">
+          <view>1.邀请者参与活动条件：CC编程注册用户。</view>
+          <view>2.如果被邀请者为CC编程新用户（没有待激活的体验卡，也没有激活过体验卡），到店上体验课后受邀者可获得1张常规课程抵扣券（内含1节常规课）。</view>
+          <view>3.邀请好友玩法介绍：</view>
+          <view>①进入邀请好友页面可自行发起邀请，邀请方式为立即分享给微信好友。邀请者发起邀请，受邀者接受邀请即可获得常规课程抵扣券1张。</view>
+          <view>②邀请者每成功邀请1位新用户到店并上体验课，邀请者即可获得1张常规课程抵扣券，邀请者单人单号最多可获得4张常规课程抵扣券。（举例：若邀请人邀请了10位新用户成功上体验课，邀请人最多也只获得4张常规课程抵扣券。)</view>
+          <view>③邀请者可以将专属邀请链接分享给好友，受邀请新用户通过邀请链接可以领取免费常规课抵扣券到店激活并上体验课，邀请者即可得到相应常规课程抵扣券。</view>
+          <view>4.被邀请者为新用户领取体验卡后，需再7天内到CC编程线下门店上体验课或购买正式会员卡可直接激活体验卡；若体验卡逾期未激活，则到期小程序自动作废。</view>
+          <view>*本活动的奖品不可折现、转赠；如发现用户存在批量注册、激活、邀请等违规行为，CC编程有权取消用户的资格。CC编程内部员工和门店运营管理者，不能参与此活动。</view>
+        </view>
+      </view>
+      <view class="footer">
+        <view
+          wx:if="{{ !defaultData.hideCancel }}"
+          class="btn ghost"
+          bind:tap="hideModal"
+        >
+          {{ defaultData.cancelText }}
+        </view>
+        <view class="btn" bind:tap="onSubmit">{{ defaultData.okText }}</view>
+      </view>
+    </view>
+  </view>
+</view>
+

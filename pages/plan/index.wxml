@@ -1,0 +1,17 @@
+<navigation-bar default-data="{{defaultData}}" bind:change="handleChangeData"></navigation-bar>
+
+<view>
+  <image
+    class="bg"
+    src="https://image.jkcspace.com/wxmini_static/images/plan{{ defaultData.activeTab + 1 }}.png"
+    alt=""
+  />
+  <navigator url="/pages/my/buy/index?activeTab={{ defaultData.activeTab + 1 }}">
+    <image
+      class='button'
+      src="https://image.jkcspace.com/wxmini_static/images/jkc-plan-btn.png"
+      alt=""
+    />
+  </navigator>
+</view>
+

@@ -1,0 +1,14 @@
+.empty {
+  padding: 150rpx 0 30rpx;
+  text-align: center;
+}
+
+.image {
+  width: 120rpx;
+  height: 106rpx;
+  margin-bottom: var(--base-space);
+}
+
+.empty view {
+  color: var(--text-color-tertiary);
+}

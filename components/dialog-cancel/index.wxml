@@ -1,0 +1,40 @@
+<view class="modal modal-bottom-dialog">
+  <view class="modal-cancel" bindtap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{ animationData }}">
+    <view class='Mselect'>
+      <view class="modal-head">
+        <text>取消课程</text>
+        <!-- <image
+          class="close"
+          src="https://image.jkcspace.com/wxmini_static/images/picker-close.png"
+          alt=""
+          bind:tap="hideModal"
+        /> -->
+      </view>
+      <view class="ctn-wrap">
+        <view class="tips">取消后您所消耗的约课次数将返还到账户里</view>
+        <view class="title">机械类初学者</view>
+        <view class="list">
+          <view class="line" style="background-image:url('https://image.jkcspace.com/wxmini_static/images/catalogue-time.png')">
+            <view class="label">上课时间</view>
+            <view class="text">{{ defaultData.date }} {{ defaultData.time1 }}</view>
+          </view>
+          <view class="line" style="background-image:url('https://image.jkcspace.com/wxmini_static/images/catalogue-time.png')">
+            <view class="label">上课地点</view>
+            <view class="text">{{ defaultData.city_name }}{{ defaultData.district_name }}{{ defaultData.address }}</view>
+          </view>
+          <view class="line" style="background-image:url('https://image.jkcspace.com/wxmini_static/images/catalogue-time.png')">
+            <view class="label">教室</view>
+            <view class="text">{{ defaultData.classroom_name }}</view>
+          </view>
+        </view>
+      </view>
+      <view class="footer">
+        <view class="btn ghost" bind:tap="hideModal">暂时不取消</view>
+        <view class="btn" bind:tap="onSubmit">确认取消</view>
+      </view>
+    </view>
+  </view>
+</view>
+

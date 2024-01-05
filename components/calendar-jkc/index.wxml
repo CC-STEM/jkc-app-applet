@@ -1,0 +1,34 @@
+<view class="calendar">
+  <scroll-view
+    scroll-x="true"
+    style=" white-space: nowrap; display: flex"
+    scroll-into-view="{{rightId}}"
+    class="date-wrap"
+  >
+    <view view class="calendar-week">
+      <view
+        class="item {{ !item.spot ? 'gray' : '' }}"
+        wx:for="{{dateList}}"
+        wx:key="dateList"
+      >
+        {{item.week}}
+      </view>
+    </view>
+    <view class="calendar-day">
+      <view
+        class="item {{ item.dateString == selectDay.dateString || item.dateString == defaultDate ? 'active' : '' }} {{ !item.spot ? 'gray' : '' }}"
+        wx:for="{{dateList}}"
+        wx:key="dateList"
+        catchtap="selectChange"
+        data-date="{{item.date}}"
+        data-year="{{item.year}}"
+        data-month="{{item.month}}"
+        data-spot="{{item.spot}}"
+        data-date-string="{{item.dateString}}"
+      >
+        {{item.date}}
+      </view>
+    </view>
+  </scroll-view>
+</view>
+

@@ -1,0 +1,164 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="swiper-wrap">
+  <swiper
+    indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}"
+    interval="{{interval}}"
+    duration="{{duration}}"
+    indicator-active-color="#ffffff"
+  >
+    <block wx:for="{{banner}}" wx:key="*this">
+      <swiper-item>
+        <image
+          data-url="{{ item.link }}"
+          bind:tap="goOtherPage"
+          class="swiper-item"
+          src="{{ uploadUrlHost }}/{{ item.img_url }}"
+          alt=""
+        />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class="weui-flex menu-wrap">
+  <view
+    bind:tap="onGoPage"
+    class="weui-flex__item item"
+    url="/pages/offcourse/index"
+  >
+    <image src="https://image.jkcspace.com/wxmini_static/images/index-menu1.png" alt="线下约课" />
+  </view>
+  <navigator class="weui-flex__item item" url="/pages/tool/index">
+    <image src="https://image.jkcspace.com/wxmini_static/images/index-menu3.png" alt="教具商城" />
+  </navigator>
+</view>
+
+<view class="member-wrap">
+  <view class="btn">
+    <navigator url="/pages/my/buy/index">
+      <image src="https://image.jkcspace.com/wxmini_static/images/home-btn-new.png" alt="" />
+    </navigator>
+  </view>
+</view>
+
+<view class="title addressTitle">
+  <view class="text">门店信息</view>
+  <view class="tag" bind:tap="onShowModal">切换</view>
+</view>
+
+<view class="addressCtn">
+  <view class="title">
+    <view class="text">{{ physicalStore.name }}</view>
+  </view>
+  <view class="desc">{{ physicalStore.city_name }}{{ physicalStore.district_name }}{{ physicalStore.address }}</view>
+  <view class="bottom">
+    <view class="tag">{{ physicalStore.distance }}km</view>
+    <view class="btn-wrap">
+      <view class='btn' bind:tap="onShowModal2">
+        <image
+          class="img"
+          src="https://image.jkcspace.com/wxmini_static/images/offcourse-icon1.png"
+          alt=""
+        />
+        微信
+      </view>
+      <view class="btn" bind:tap="onCall">
+        <image
+          class="img"
+          src="https://image.jkcspace.com/wxmini_static/images/offcourse-icon2.png"
+          alt=""
+        />
+        电话
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="title">精品课程</view>
+
+<empty wx:if="{{ !dataSource.length }}" />
+<view class="weui-flex list-wrap">
+  <navigator
+    url="/pages/play/index?id={{ item.id }}"
+    wx:for="{{ dataSource }}"
+    wx:key="id"
+  >
+    <view class="weui-flex__item item">
+      <view class="bage">适龄{{ item.suit_age_min }}岁</view>
+      <image
+        lazyload
+        mode='aspectFill'
+        class="banner"
+        src="{{ uploadUrlHost }}/{{ item.img_url }}"
+        alt=""
+      />
+      <view class="bottom">
+        <view class="ctn">
+          <view class="tag orange">{{ item.type == 1 ? '教学' : '作品' }}</view>
+          <view class="text">{{ item.name }}</view>
+        </view>
+        <view class="avator-wrap">
+          <image
+            lazyload
+            mode='aspectFill'
+            class="avator"
+            wx:if="{{ item.avator  }}"
+            src="{{ uploadUrlHost }}/{{ item.avator }}"
+            alt=""
+          />
+          <image
+            lazyload
+            mode='aspectFill'
+            wx:else
+            class="avator"
+            src="https://image.jkcspace.com/wxmini_static/images/logo.png"
+            alt=""
+          />
+          <view class="name">{{ item.author }}</view>
+        </view>
+      </view>
+    </view>
+  </navigator>
+</view>
+
+<view class="libao-wrap" wx:if="{{ showSilder }}">
+  <image
+    bind:tap="onShowModalLibao"
+    class="img"
+    src="https://image.jkcspace.com/wxmini_static/images/home-new-li.png"
+    alt=""
+  />
+  <image
+    class="close"
+    src="https://image.jkcspace.com/wxmini_static/images/home-close.png"
+    bind:tap="onHideModal"
+    alt=""
+  />
+</view>
+
+<dialog-libao
+  wx:if="{{ showLibao }}"
+  show="{{ showLibao }}"
+  default-data="{{ physicalStore }}"
+  default-libao="{{ libaoData }}"
+  bind:ok="onReward"
+  bind:cancel="onCancel"
+/>
+
+<dialog-store
+  wx:if="{{ show }}"
+  show="{{ show }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+/>
+
+<dialog-qrcode
+  wx:if="{{ showQrcode }}"
+  show="{{ showQrcode }}"
+  default-data="{{ physicalStore.wechat_qr_code }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+/>
+

@@ -1,0 +1,54 @@
+.navigation-container {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+.navigation-container.noBgColor {
+  background-color: inherit;
+  color: #fff;
+}
+.navigation-container.type3, .navigation-container.details {
+  color: #1a1a1a;
+}
+.navigation-container.details {
+  background-image:url('https://image.jkcspace.com/wxmini_static/images/my-bg.png');
+  background-repeat: no-repeat;
+  background-size: 750rpx 600rpx;
+  background-position: 0 0;
+}
+.navigation-bar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.navigation-buttons {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #1A1A1A;
+  padding-left: 46rpx;
+}
+.nav-img {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 8rpx;
+}
+.navigation-title {
+  position: absolute;
+  left: 104px;
+  right: 104px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+

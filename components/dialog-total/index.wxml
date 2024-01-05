@@ -1,0 +1,92 @@
+<view class="modal modal-bottom-dialog">
+  <view class="modal-cancel" bindtap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{animationData}}">
+    <view class='Mselect' bind:touchstart="touchStart" bind:touchmove="touchMove" bind:touchend="touchEnd">
+     <!-- <view class="modal-head">
+        <text>请选择学员年龄</text>
+        <image
+          class="close"
+          src="https://image.jkcspace.com/wxmini_static/images/picker-close.png"
+          alt=""
+          bind:tap="hideModal"
+        />
+      </view>-->
+      <view class="ctn-wrap {{ isUp ? 'up' : '' }}">
+        <view class="line" />
+        <view class="total-top">
+          <view class="item item1">
+            <view class="left">
+              <text>本月当前业绩</text>
+              <image
+                class="eye"
+                src="https://image.jkcspace.com/wxmini_static/images/{{ 1 ? 'yeji-eye' : 'yeji-eye-close' }}.png"
+                alt=""
+                bind:tap="onShowTotal"
+              />
+            </view>
+            <view class="coin" wx:if="{{ showTotal }}">
+              <view class="strong">2121</view>
+            </view>
+            <view class="coin" wx:else>
+              <view class="strong">******</view>
+            </view>
+          </view>
+          <view class="item item2">
+            <view class="ma">个人码</view>
+            <view class="ma">商品码</view>
+          </view>
+          <view class="item item3">
+            业绩明细 >
+          </view>
+        </view>
+        <view class="total-bottom">
+          <view class="title">业务人数统计</view>
+          <view class="total-wrap total1">
+            <view
+              class="item"
+              wx:for="{{ typeMap }}"
+              wx:key="index"
+              data-index="{{index}}"
+              bind:tap="onChangeType"
+            >
+              <view class="value">{{ item.value }}</view>
+              <view class="label">{{ item.name }}</view>
+            </view>
+          </view>
+
+          <view class="title border">上课人数说明</view>
+          <view class="total-wrap total2">
+            <view
+              class="item {{ item.type == type ? 'active' : '' }}"
+              wx:for="{{ typeMap }}"
+              wx:key="index"
+              data-index="{{index}}"
+              bind:tap="onChangeType"
+            >
+              <view class="value">{{ item.value }}</view>
+              <view class="label">{{ item.name }}</view>
+              <image wx:if="{{ item.type == type }}" class="img" src="https://image.jkcspace.com/wxmini_static/images/{{suitAge ? 'arrow' : 'arrow-down' }}.png" />
+            </view>
+            <view class="num">
+              <text>出勤率</text>
+              <view class="strong">85%</view>
+            </view>
+          </view>
+        </view>
+        
+        <!--<view
+          class="tag {{ value == item.value ? 'active' : '' }}"
+          wx:for="{{ optionList }}"
+          wx:key="value"
+          data-value='{{ item.value }}'
+          bindtap='getOption'
+        >
+          {{ item.name }}
+        </view>-->
+      </view>
+      <!--<view class="btn" bind:tap="onSelect">我选好了</view>-->
+    </view>
+  </view>
+</view>
+

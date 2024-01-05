@@ -1,0 +1,79 @@
+/**
+ * 一个简单的includes函数
+ * @param array
+ * @param searchElement
+ * @return {boolean}
+ */
+function includes (array, searchElement) {
+  return !!~array.indexOf(searchElement)
+}
+
+/**
+ * index / level 转换奖项中文名
+ * @param index / level 从0开始
+ * @return {string}
+ */
+function getLevelName (index) {
+  if (typeof index !== 'number' && typeof index !== 'string') return '';
+  return ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'][index] + '等奖';
+}
+
+/**
+ * 获取封面，封面可能是数组
+ * 可能传进来的是整个goods / goods_cfg，需要提取 goods.goods_cfg.cover / goods_cfg.cover，并对 积分类型特殊处理
+ * @param data
+ * @return {string|string|string|*|null}
+ */
+function getCover (data) {
+  if (!data) return null;
+  if (typeof data === 'string') return data;
+  if (typeof data === 'object' && data.goods_cfg) {
+    // 积分的需要特殊处理
+    if (data.belongsto && data.belongsto === 'jifen') return 'https://s.522573.com/static/akz6c.png';
+    return getCover(data.goods_cfg.cover);
+  }
+  if (typeof data === 'object' && data.cover) return getCover(data.cover);
+  if (data.length) return data[0];
+  return null;
+}
+
+/**
+ * 获取商品名称
+ * @param goods 商品
+ * @param jifenUnit 积分单位
+ * @return {*|string}
+ */
+function getGoodsName(goods, jifenUnit) {
+  if (!goods) return '';
+  return goods.belongsto === 'jifen' ? goods.goods_cfg.jifen + jifenUnit : goods.goods_cfg.name
+}
+
+/**
+ * 格式化显示时间为 YYYY年MM月DD日 HH:mm
+ * @param time / 10,13位时间戳 / YYYY-MM-DD HH:mm / YYYY/MM/DD HH:mm
+ * @return {string}
+ */
+function formatTime(time) {
+  var date = getDate()
+  if (time && typeof time === 'number') { // 数字认为是时间戳
+    date = getDate(time.toString().length === 10 ? time * 1000 : time)
+  } else if (time && typeof time === 'string') {
+    // ios 需要统一转换为 YYYY/MM/DD HH:mm 格式
+    date = getDate(time.replace(getRegExp('-', 'g'), '/'))
+  }
+  var year = date.getFullYear()
+  var month = ('0' + (date.getMonth() + 1)).slice(-2)
+  var day = ('0' + date.getDate()).slice(-2)
+  var hour = ('0' + date.getHours()).slice(-2)
+  var minute = ('0' + date.getMinutes()).slice(-2)
+
+  return year + '年' + month + '月' + day + '日' + ' ' + hour + ':' + minute
+}
+
+module.exports = {
+  includes: includes,
+  getLevelName: getLevelName,
+  getCover: getCover,
+  getGoodsName: getGoodsName,
+  formatTime: formatTime
+}

@@ -1,0 +1,135 @@
+
+/*模态框*/
+.modal {
+  position:fixed; 
+  top:0; 
+  right:0;
+  bottom:0; 
+  left:0; 
+  z-index: 99999;
+}
+.modal-cancel {
+  position: absolute; 
+  z-index: 2000; 
+  top:0; 
+  right:0; 
+  bottom: 0; 
+  left:0; 
+  background:rgba(0,0,0,0.3);
+}
+.bottom-dialog-body {
+  width: 100%; 
+  position: absolute;
+  z-index: 3000; 
+  bottom: 0; 
+  left: 0;
+  background:#dfdede;
+}
+/*动画前初始位置*/
+.bottom-positon{-webkit-transform:translateY(100%);transform:translateY(100%);}
+
+
+/* 底部弹出框 */
+.bottom-positon{
+  text-align: center;
+}
+.modal-head {
+  text-align: center;
+  padding: 42rpx 0;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1A1A1A;
+  position: relative;
+}
+.modal-head .close {
+  width: 42rpx;
+  height: 42rpx;
+  position: absolute;
+  right: 32rpx;
+  top: 40rpx;
+}
+.Mselect {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  background: #fff;
+  border-radius: 20rpx 20rpx 0rpx 0rpx;
+}
+.Mselect .ctn-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  color: #1A1A1A;
+}
+.Mselect .item {
+  width: 672rpx;
+  height: 120rpx;
+  background: #F2F3F7;
+  border-radius: 20rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  padding: 0 24rpx;
+  text-align: left;
+}
+.Mselect text {
+  line-height: 24rpx;
+  margin-left: 30rpx;
+}
+.Mselect input {
+  line-height: 24rpx;
+  margin-left: 30rpx;
+}
+.Mselect input::input-placeholder{
+	color:#cccccc;
+}
+.Mselect .tag.active {
+  background: #FFD925;
+}
+.Mselect .btn {
+  width: 656rpx;
+  height: 87rpx;
+  line-height: 87rpx;
+  background: #FFD925;
+  border-radius: 43rpx;
+  margin: 20rpx auto;
+  background: #FFD925;
+  font-size: 30rpx;
+  font-weight: 800;
+}
+
+.info-item {
+  width: 672rpx;
+  background: #F2F3F7;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  padding: 40rpx 24rpx;
+  text-align: left;
+}
+.info-item .line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.copy-btn {
+  width: 60rpx;
+  height: 30rpx;
+  line-height: 28rpx;
+  text-align: center;
+  background: rgba(11,8,96,0);
+  border: 1rpx solid #A5A5A5;
+  border-radius: 5rpx;
+  font-size: 22rpx;
+  color: #333333;
+  margin-left: 28rpx;
+  margin-left: 12rpx;
+}
+.number {
+  display: flex;
+  align-items: center;
+}

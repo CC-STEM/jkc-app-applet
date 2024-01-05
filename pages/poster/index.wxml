@@ -1,0 +1,101 @@
+<import src="../wxParse/wxParse.wxml" />
+
+<navigation-bar default-data="{{ defaultData }}"></navigation-bar>
+
+<view class="page" wx-if="{{ !showShare }}">
+  <image
+    class="bg"
+    src="https://image.jkcspace.com/wxmini_static/images/poster-bg.png"
+    alt=""
+  />
+  <view class="item item1">
+    <view class="jian" bindtap="goPage2">
+      <image
+        src="https://image.jkcspace.com/wxmini_static/images/poster-5.png"
+        alt=""
+      />
+    </view>
+    <view
+      bind:tap="onShowShare"
+      class='button'
+    />
+  </view>
+  <view class="item item2">
+    <view class="title">课程抵扣券</view>
+    <view class="desc">邀请新用户到店体验课程，每邀请1位新用户成功到店体验，推荐者即可获得1张课程抵扣券，课程抵扣券有效期14天。</view>
+    <view class="tips">
+      <view class="f24">温馨提示</view>
+      <view>邀请新用户最高可获得56天会员权益，每邀请1位新用户可得课程抵扣券一张，有效期14天。</view>
+    </view>
+  </view>
+  <view class="item item3" wx:if="{{data}}">
+    <view class="title">{{data.name}}</view>
+    <view class="subtitle">
+      <view class="money">{{data.amount}}元</view>
+      <view class="text">(可叠加使用,有效期{{data.expire}}天)</view>
+    </view>
+    <view class="content desc">
+      <template is="wxParse" data="{{ wxParseData: article.nodes }}" />
+    </view>
+    <view class="time">{{data.end_at}}截止</view>
+    <view class="tips">
+      <view class="f24">温馨提示</view>
+      <view>推荐好友购买新人礼包(体验课)或会员卡，推荐者与购买者均将获得一张学费减免券，成功推荐好友一位即可获得一张减免券，可叠加使用！</view>
+    </view>
+  </view>
+</view>
+
+<view class="invite-wrap" wx:else>
+  <view
+    catchtouchmove="preventTouchMove"
+    class="share"
+    hidden="{{!posterDatas.show}}"
+  >
+    <image
+      wx:if="{{ posterDatas.pic }}"
+      class="poster-img"
+      src='{{ posterDatas.pic }}'
+    />
+    <canvas 
+      wx:else
+      type="2d"
+      id="firstCanvas"
+      class="firstCanvas"
+      style="width:{{posterDatas.width}}px;height:{{posterDatas.height}}px;"
+    ></canvas>
+  </view>
+
+  <view class="footer">
+    <view class="btn-wrap">
+      <button
+        class='button'
+        bindtap='onShareImges'
+      >
+        <image src="https://image.jkcspace.com/wxmini_static/images/share-icon1.png" alt="" />
+        <view class="text">微信好友</view>
+      </button>
+      <view class='button' bindtap="onSharefriends">
+        <image src="https://image.jkcspace.com/wxmini_static/images/share-icon2.png" alt="" />
+        <view class="text">朋友圈</view>
+      </view>
+      <button class='button' bindtap='onDownloadImges'>
+        <image src="https://image.jkcspace.com/wxmini_static/images/share-icon3.png" alt="" />
+        <view class="text">保存图片</view>
+      </button>
+    </view>
+    <view bind:tap="goPage" class="cancel">取消</view>
+  </view>
+
+  <view wx:if="{{showDom}}" class="guide-wrap" bindtap="onHideDom">
+    <image src="https://image.jkcspace.com/wxmini_static/images/guie.png" alt="" />
+  </view>
+</view>
+
+<view class="rule" bind:tap="onShowModal">规则</view>
+
+<dialog-confirm
+  wx:if="{{ showConfirm }}"
+  show="{{ showConfirm }}"
+  default-data="{{ confirmData }}"
+  bind:ok="onCancel"
+/>

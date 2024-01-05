@@ -1,0 +1,119 @@
+<navigation-bar default-data="{{defaultData}}" bind:change="onChangeTab"></navigation-bar>
+
+<view class="tabs" wx:if="{{ isChoose }}">
+  <tabs
+    textLeft="{{ true }}"
+    lineImg="{{ null }}"
+    tabs="{{ statusOptions }}"
+    activeTab="{{ status }}"
+    bind:change="handleChangeTab"
+  />
+</view>
+<empty wx:if="{{ status != 0 && !dataSource.length }}" />
+<view class="course-list" wx:if="{{ isChoose }}">
+  <navigator
+    class="item"
+    wx:for="{{ dataSource }}"
+    wx:key="id"
+    style="background-image: url({{ uploadUrlHost }}/{{ item.img_url }})"
+    url="/pages/course/details/index?id={{ item.id }}"
+  >
+    <image
+      class="img"
+      src="https://image.jkcspace.com/wxmini_static/images/course-bg.png"
+      alt=""
+    />
+    <view class="title">
+      <view class="text">{{ item.name }}</view>
+      <single-picker
+        data-field="type"
+        data-id="{{ item.id }}"
+        range="{{ rangeArr }}"
+        value="{{ type }}"
+        bind:ok="handleChangeData"
+      >
+        <image
+          class="action-btn"
+          src="https://image.jkcspace.com/wxmini_static/images/course-spot.png"
+          alt=""
+        />
+      </single-picker>
+
+    </view>
+    <view class="ctn">
+      <view class="tag blue">适龄{{ item.suit_age_min }}-{{ item.suit_age_max }}岁</view>
+      <view class="tag orange">{{ item.total_section }}节课</view>
+    </view>
+
+    <view class="bottom">
+      <view class="text">{{ item.total_study }}人已学习</view>
+      <view wx:if="{{ item.study_status == 1 }}" class="btn gray">已完成</view>
+      <view wx:else class="btn">立即学习</view>
+    </view>
+  </navigator>
+</view>
+
+<view class="no-choose-wrap" wx:else>
+  <view class="title">我的课程</view>
+  <view class="no-data">
+    <image
+      class="icon"
+      src="https://image.jkcspace.com/wxmini_static/images/course-icon.png"
+      alt=""
+    />
+    <view class="text">您还没有添加添加</view>
+    <view class="text">可选择添加以下课程</view>
+  </view>
+
+  <view class="opration-wrap">
+    <view class="title">推荐课程</view>
+    <view class="opration">
+      <picker-age
+        class="text active"
+        bind:ok="onOk"
+        bind:cancel="onCancel"
+      >
+        <view>
+          适用年龄
+          <image class="icon" src="https://image.jkcspace.com/wxmini_static/images/{{suitAge ? 'arrow' : 'arrow-down' }}.png" />
+        </view>
+      </picker-age>
+      <view class="text" bind:tap="onShowModal">
+        分类
+        <image
+          class="icon"
+          src="https://image.jkcspace.com/wxmini_static/images/arrow.png"
+          alt=""
+        />
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-flex list-wrap">
+    <navigator
+      url="/pages/course/sub/index?id={{ item.id }}"
+      wx:for="{{ dataSource }}"
+      wx:id="id"
+    >
+      <view class="weui-flex__item item">
+        <view class="bage">适龄{{ item.suit_age_min }}~{{ item.suit_age_max }}岁</view>
+        <image
+          class="banner"
+          src="{{ uploadUrlHost }}/{{ item.img_url }}"
+          alt=""
+        />
+        <view class="bottom">
+          <view class="name">{{ item.name }}</view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<dialog-cate
+  wx:if="{{ showCate }}"
+  show="{{ showCate }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+/>
+

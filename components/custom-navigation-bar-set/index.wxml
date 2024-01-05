@@ -1,0 +1,24 @@
+<!-- 自定义顶部栏 -->
+<view class="navigation-container {{ defaultData.noBgColor ? 'noBgColor' : '' }} {{ defaultData.type == 3 ? 'type3' : '' }} {{ defaultData.isDetails ? 'details' : '' }}" style="height: {{ navBarAndStatusBarHeight }}px">
+  <!--空白来占位状态栏-->
+  <view style="height: {{ statusBarHeight }}px"></view>
+  <!--自定义导航栏-->
+  <view class="navigation-bar" style="height: {{ navBarHeight }}px">
+    <view 
+      class="navigation-buttons"
+      style="height: {{ menuButtonHeight }}px"
+      bind:tap="onSet"
+    >
+      <image
+        class="nav-img"
+        src="https://image.jkcspace.com/wxmini_static/images/set.png"
+        alt=''
+      />  
+      <text>设置</text>
+    </view>
+  </view>
+</view>
+<share-btn wx:if="{{!defaultData.hideShare}}" />
+<!--空白占位fixed空出的位置-->
+<view style="height: {{ navBarAndStatusBarHeight }}px; background: {{type == 3 ? '#ffffff' : ''}}"></view>
+

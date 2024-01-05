@@ -1,0 +1,26 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<scroll-view
+  scroll-x="true"
+  style=" white-space: nowrap; display: flex"
+  scroll-into-view="{{rightId}}"
+  class="date-wrap"
+>
+  <view class="tabs">
+    <tabs
+      tabs="{{ themeList }}"
+      activeTab="{{ curIndex }}"
+      class="bg"
+      bind:change="handleChangeTab"
+    />
+  </view>
+</scroll-view>
+
+<view class="create-btn" bind:tap="handleToCreate" />
+
+<empty wx:if="{{ !themeList[curIndex].content }}" />
+
+<view wx:else class="content">
+  <text>{{ themeList[curIndex].content }}</text>
+</view>
+

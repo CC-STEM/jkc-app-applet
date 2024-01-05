@@ -1,0 +1,49 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="info">
+  <view class="title">
+    <view class="text">{{ details.name }}</view>
+    <view class="tip">共{{ details.total_study }}人已学习</view>
+  </view>
+  <view class="tag-wrap">
+    <view class="tag blue">适龄{{ details.suit_age_min }}-{{ details.suit_age_max }}岁</view>
+    <view class="tag orange">{{ details.total_section }}节课</view>
+  </view>
+</view>
+<empty wx:if="{{ !dataSource.length }}" />
+
+<view class="list-wrap">
+  <view
+    class="item"
+    wx:for="{{ dataSource }}"
+    wx:key="id"
+  >
+    <video class="banner" src="{{ uploadUrlHost }}/{{ item.video_url }}" />
+    <view class="bage-tag">视频教学</view>
+    <view class="bottom">
+      <view class="left">
+        <view class="title">{{ item.name }}</view>
+        <view class="desc">{{ item.total_study }}人学习</view>
+      </view>
+      <view
+        wx:if="{{ item.study_video_url && item.status != 3 }}"
+        class="right"
+        data-item="{{ item }}"
+        bind:tap="onShowModal"
+      >查看作品
+      </view>
+      <navigator wx:else url="/pages/course/upload/index?id={{ item.id }}">
+        <view class="right">{{ item.status != 3 ? '上传作品' : '重新上传' }}</view>
+      </navigator>
+    </view>
+  </view>
+</view>
+
+<dialog-video
+  wx:if="{{ show }}"
+  default-data="{{ videoData }}"
+  show="{{ show }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+/>
+

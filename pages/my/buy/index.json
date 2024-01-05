@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "tabs": "/components/tabs",
+    "empty": "/components/empty",
+    "mp-cells": "weui-miniprogram/cells/cells",
+    "mp-cell": "weui-miniprogram/cell/cell",
+    "navigation-bar": "/components/custom-navigation-bar-return",
+    "single-picker": "/components/single-picker",
+    "dialog-store": "/components/dialog-store",
+    "dialog-confirm": "/components/dialog-confirm",
+    "dialog-coupon": "/components/dialog-coupon",
+    "dialog-jian": "/components/dialog-jian",
+    "dialog-pay": "/components/dialog-pay"
+  }
+}

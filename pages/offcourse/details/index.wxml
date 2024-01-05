@@ -1,0 +1,130 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="info">
+  <view class="bage-tag">{{ dataSource.phase }}</view>
+
+  <image
+    class="banner"
+    src="{{ uploadUrlHost }}/{{ dataSource.img_url }}"
+    alt=""
+  />
+  <view class="ctn">
+    <view class="title">
+      <view class="text">{{ dataSource.name }}</view>
+      <view class="tag">{{ dataSource.sign_up_num }}人已报名</view>
+    </view>
+    <view class="bottom">
+      <view class="tag-wrap">
+        <view class="tag blue">适龄{{ dataSource.suit_age_min }}岁</view>
+        <view class="tag orange">{{ typeObj[dataSource.type] }}</view>
+      </view>
+      <view class="btn-wrap">
+        <view class="btn">
+          <image
+            class="img"
+            src="https://image.jkcspace.com/wxmini_static/images/offcourse-icon1.png"
+            alt=""
+          />
+          微信
+        </view>
+        <view class="btn" bind:tap="onCall">
+          <image
+            class="img"
+            src="https://image.jkcspace.com/wxmini_static/images/offcourse-icon2.png"
+            alt=""
+          />
+          电话
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="card">
+  <view class="page-title" style="color: #000;">课程安排</view>
+  <view class="list-wrap">
+    <view class="line">
+      <view class="label">上课老师</view>
+      <view class="text">{{ dataSource.teacher_name }}</view>
+    </view>
+    <view class="line">
+      <view class="label">上课时间</view>
+      <view class="text">{{ dataSource.class_time }}</view>
+    </view>
+    <view class="line">
+      <view class="label">上课地点</view>
+      <view class="text">{{ dataSource.city_name }}{{ dataSource.district_name }}{{ dataSource.address }}</view>
+    </view>
+    <view class="line">
+      <view class="label">教室</view>
+      <view class="text">{{ dataSource.classroom_name }}</view>
+    </view>
+  </view>
+</view>
+
+<view class="footer">
+  <button
+    class="left"
+    open-type="contact"
+    bindcontact="handleContact"
+    wx:if="{{ token }}"
+  >
+    <image
+      class="icon"
+      src="https://image.jkcspace.com/wxmini_static/images/goods-kefu.png"
+      alt=""
+    />
+    <view class="num">客服</view>
+  </button>
+  <view class="left" wx:else bind:tap="goPage">
+    <image
+      class="icon"
+      src="https://image.jkcspace.com/wxmini_static/images/goods-kefu.png"
+      alt=""
+    />
+    <view class="num">客服</view>
+  </view>
+  <view wx:if="{{ dataSource.is_reserved == 1 || dataSource.classroom_status == 1 || dataSource.isOver }}" class="btn gray">
+    <view
+      class="text"
+      wx:if="{{ vipInfo.course[dataSource.type] <= 0 }}"
+      style="display: flex;align-items: flex-start;justify-content:center;"
+    >
+      <view class="num">{{ dataSource.price }}</view>
+      <view style="font-size: 24rpx;line-height: 34rpx;">币</view>
+    </view>
+    <view
+      wx:else
+      class="text"
+      style="display: flex;align-items: flex-start;justify-content:center;"
+    >
+      <view class="num">1</view>
+      <view style="font-size: 24rpx;line-height: 34rpx;">{{ dataSource.type == 3 ? '套' : '次' }}</view>
+    </view>
+    <view class="text" wx:if="{{ dataSource.is_reserved == 1 || dataSource.classroom_status == 1 }}">
+      {{ dataSource.is_reserved == 1 ? '已报名' : '已满' }}
+    </view>
+    <view class="text" wx:else>{{ dataSource.type == 1 ? '单节报名' : '立即报名' }}</view>
+  </view>
+  <view
+    bind:tap="onSubmit"
+    class="btn"
+    wx:else
+    style="background-image:url('https://image.jkcspace.com/wxmini_static/images/offcourse-bg.png')"
+  >
+    <view class="text" style="display: flex;align-items: flex-start;justify-content:center;color:#fff;">
+      <view class="num">1</view>
+      <view style="font-size: 24rpx;line-height: 34rpx;">{{ dataSource.type == 3 ? '套' : '次' }}</view>
+    </view>
+    <view class="text">{{ dataSource.type == 1 ? '单节报名' : '立即报名' }}</view>
+  </view>
+</view>
+
+<dialog-confirm
+  wx:if="{{ showConfirm }}"
+  show="{{ showConfirm }}"
+  default-data="{{ confirmData }}"
+  bind:ok="onBuy"
+  bind:cancel="onCancel"
+/>
+

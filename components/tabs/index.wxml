@@ -1,0 +1,18 @@
+<view class="tabs-wrap {{ textLeft ? 'style1' : '' }} {{ noBg ? 'style2' : '' }}">
+  <view
+    wx:for="{{tabs}}"
+    wx:key="*this"
+    data-index="{{index}}"
+    bind:tap="_handleClick"
+    class="tab {{ activeTab === index ? 'active' : '' }}"
+  >
+    {{ item.value }}
+    <image
+      class="{{ lineImg === 'order-bg-line' ? 'order-line' : '' }}"
+      wx:if="{{ activeTab === index && lineImg }}"
+      src="https://image.jkcspace.com/wxmini_static/images/{{ lineImg }}"
+      alt=""
+    />
+  </view>
+</view>
+

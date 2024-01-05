@@ -1,0 +1,39 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<image
+  class="bg"
+  src="https://image.jkcspace.com/wxmini_static/images/offcourse-bg2.png"
+  alt=""
+/>
+
+<view class="info">
+  <image
+    class="banner"
+    src="{{ uploadUrlHost }}/{{ dataSource.img_url }}"
+    alt=""
+  />
+  <view class="ctn">
+    <view class="title">{{ dataSource.category_name }}</view>
+    <view class="desc">{{ dataSource.city_name }}{{ dataSource.district_name }}{{ dataSource.address }}</view>
+    <view class="tag orange">{{ dataSource.total_section }}节课</view>
+  </view>
+</view>
+
+<view class="card">
+  <view class="page-title">课程安排</view>
+  <empty wx:if="{{ !dataSource.course.length }}" />
+  <view wx:else class="list-wrap">
+    <view
+      class="line"
+      wx:for="{{ dataSource.course }}"
+      wx:key="id"
+    >
+      <view class="label">
+        <view class="time">{{ item.time }}</view>
+        <view class="text">{{ item.date }}</view>
+      </view>
+      <view class="right">{{ item.name }}</view>
+    </view>
+  </view>
+</view>
+

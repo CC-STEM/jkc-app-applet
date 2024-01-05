@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "mp-half-screen-dialog": "weui-miniprogram/half-screen-dialog/half-screen-dialog",
+    "tabs": "/components/tabs",
+    "empty": "/components/empty",
+    "navigation-bar": "/components/custom-navigation-bar-return",
+    "calendar": "/components/calendar-jkc",
+    "dialog-store": "/components/dialog-store",
+    "dialog-qrcode": "/components/dialog-qrcode",
+    "dialog-reverse": "/components/dialog-reverse",
+    "dialog-confirm": "/components/dialog-confirm"
+  }
+}

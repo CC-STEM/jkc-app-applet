@@ -1,0 +1,111 @@
+.arrow{
+  display:inline-block;
+  border:6px solid transparent;
+  border-top-color:#000;
+  margin-left:8px;
+  position:relative;
+  top:6rpx;
+ }
+/* ---------------------------- */
+/*模态框*/
+.modal {
+  position:fixed; 
+  top:0; 
+  right:0;
+  bottom:0; 
+  left:0; 
+  z-index: 99999;
+}
+.modal-cancel {
+  position: absolute; 
+  z-index: 2000; 
+  top:0; 
+  right:0; 
+  bottom: 0; 
+  left:0; 
+  background:rgba(0,0,0,0.3);
+}
+.bottom-dialog-body {
+  width: 100%; 
+  position: absolute;
+  z-index: 3000; 
+  bottom: 0; 
+  left: 0;
+  background:#dfdede;
+}
+/*动画前初始位置*/
+.bottom-positon{-webkit-transform:translateY(100%);transform:translateY(100%);}
+
+
+/* 底部弹出框 */
+.bottom-positon{
+  text-align: center;
+}
+.modal-head {
+  text-align: center;
+  padding: 42rpx 0;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1A1A1A;
+  position: relative;
+}
+.modal-head .close {
+  width: 42rpx;
+  height: 42rpx;
+  position: absolute;
+  right: 32rpx;
+  top: 42rpx;
+}
+.Mselect {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 720rpx;
+  background: #fff;
+  border-radius: 20rpx 20rpx 0rpx 0rpx;
+}
+.Mselect .title {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #999999;
+  margin-bottom: 30rpx;
+}
+.Mselect .ctn-wrap {
+  height: 400rpx;
+  padding-left: 40rpx;
+  text-align: left;
+  color: #1A1A1A;
+  overflow-y: auto;
+}
+.Mselect .tag {
+  width: 200rpx;
+  height: 70rpx;
+  display: inline-block;
+  line-height: 70rpx;
+  text-align: center;
+  background: #F4F4F4;
+  border-radius: 35px;
+  font-size: 28rpx;
+  margin-bottom: 30rpx;
+  margin-right: 30rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+.Mselect .tag.active {
+  background: #FFD925;
+}
+.Mselect .btn {
+  width: 680rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  margin: auto;
+  margin-top: 48rpx;
+  background: #FFD925;
+  box-shadow: 5rpx 0px 21rpx 0rpx rgba(0,0,0,0.07);
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  font-weight: 800;
+}

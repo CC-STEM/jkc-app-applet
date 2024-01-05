@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "dialog-store": "/components/dialog-store"
+  }
+}

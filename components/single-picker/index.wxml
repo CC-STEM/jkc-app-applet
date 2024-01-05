@@ -1,0 +1,39 @@
+<view
+  class="mask"
+  wx:if="{{_show}}"
+  bind:tap="_handleCancel"
+>
+  <view class="wrap" catch:tap="_handleStopPropagation">
+    <view class="head">
+      <!-- <image
+        class="close"
+        src="https://image.jkcspace.com/wxmini_static/images/picker-close.png"
+        alt=""
+        bind:tap="_handleCancel"
+      /> -->
+      <view
+        data-value="{{ _value }}"
+        class="ok-btn"
+        bind:tap="_handleOk"
+      >确定
+      </view>
+    </view>
+    <picker-view
+      value="{{[_value]}}"
+      class="picker"
+      indicator-class="indicator"
+      bind:change="_handleChange"
+    >
+      <picker-view-column>
+        <view
+          wx:for="{{range}}"
+          wx:key="index"
+          class="line"
+        >{{rangeKey ? item[rangeKey] : item}}
+        </view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>
+<slot bind:tap="_handleShow" />
+

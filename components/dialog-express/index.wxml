@@ -1,0 +1,43 @@
+<view class="modal modal-bottom-dialog">
+  <view class="modal-cancel" bindtap="hideModal"></view>
+
+  <view class="bottom-dialog-body bottom-positon" animation="{{ animationData }}">
+    <view class='Mselect'>
+      <view class="modal-head">
+        <text>填写寄件信息</text>
+        <image
+          class="close"
+          src="https://image.jkcspace.com/wxmini_static/images/picker-close.png"
+          alt=""
+          bind:tap="hideModal"
+        />
+      </view>
+      <view class="ctn-wrap">
+        <view class="item">
+          <text>快递公司</text>
+          <input
+            class="input"
+            data-field="logis_name"
+            placeholder-class="placeholder"
+            placeholder="请输入快递公司"
+            value="{{ logis_name }}"
+            bind:input="handleChangeData"
+          />
+        </view>
+        <view class="item">
+          <text>快递单号</text>
+          <input
+            class="input"
+            data-field="express_number"
+            placeholder-class="placeholder"
+            placeholder="请输入快递公司"
+            value="{{ express_number }}"
+            bind:input="handleChangeData"
+          />
+        </view>
+      </view>
+      <view class="btn" bind:tap="onSubmit">确定</view>
+    </view>
+  </view>
+</view>
+

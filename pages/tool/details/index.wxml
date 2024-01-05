@@ -1,0 +1,112 @@
+<import src="../../wxParse/wxParse.wxml" />
+
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<image
+  class="banner"
+  src="{{ uploadUrlHost }}/{{ dataSource.img_url }}"
+  alt=""
+/>
+
+<view class="info-wrap">
+  <view class="item">
+    <view class="title">
+      <view class="coin">
+        <view class="strong">{{ dataSource.min_price }}</view>
+        币
+      </view>
+      <view class="num">已有{{ dataSource.csale }}人参与</view>
+    </view>
+    <view class="ctn">{{ dataSource.name }}</view>
+<!--
+    <view class="bottom">
+      <image
+        class="bage"
+        src="https://image.jkcspace.com/wxmini_static/images/goods-bage.png"
+        alt=""
+      />
+      <view class="text">全场包邮·48小时发货·退货包运费·假一赔十</view>
+    </view> -->
+  </view>
+</view>
+
+<view class="info-wrap">
+  <view class="item">
+    <view class="title">
+      <view class="text">优秀作品视频</view>
+      <navigator class="right" url="/pages/play/index?id={{ dataSource.teach_video[0].id }}&course_online_child_id={{ dataSource.course_online_child_id }}">
+        全部视频
+        <image
+          class="arrow"
+          src="https://image.jkcspace.com/wxmini_static/images/arrow-right.png"
+          alt=""
+        />
+      </navigator>
+    </view>
+    <view class="list">
+      <image
+        mode="widthFix"
+        wx:for="{{ dataSource.teach_video }}"
+        wx:key="id"
+        src="{{ uploadUrlHost }}/{{ item.img_url }}"
+      />
+    </view>
+    <!-- 
+    <image
+      wx:for="{{ dataSource.imgs }}"
+      wx:key="index"
+      class="cover"
+      src="{{ uploadUrlHost }}/{{ item.url }}"
+      alt=""
+    /> -->
+
+    <!-- <text>{{ dataSource.describe }}</text>-->
+    <view class="content">
+      <template is="wxParse" data="{{ wxParseData: article.nodes }}" />
+    </view>
+  </view>
+</view>
+
+<view class="footer footer2" wx:if="{{ showQrcodeBtn }}">
+  <view class="btn" bind:tap="goPoster">生成商品码</view>
+</view>
+
+<view class="footer" wx:else>
+  <button
+    class="left"
+    open-type="contact"
+    bindcontact="handleContact"
+    wx:if="{{ token }}"
+  >
+    <image
+      class="icon"
+      src="https://image.jkcspace.com/wxmini_static/images/goods-kefu.png"
+      alt=""
+    />
+    <view class="num">客服</view>
+  </button>
+  <view
+    class="left"
+    wx:else
+    bind:tap="goPage"
+  >
+    <image
+      class="icon"
+      src="https://image.jkcspace.com/wxmini_static/images/goods-kefu.png"
+      alt=""
+    />
+    <view class="num">客服</view>
+  </view>
+  <view class="btn" bind:tap="onShowModal">立即购买</view>
+</view>
+
+<dialog-buy
+  wx:if="{{ show }}"
+  show="{{ show }}"
+  default-data="{{ dataSource }}"
+  address-data="{{ addressData }}"
+  bind:ok="onOk"
+  bind:cancel="onCancel"
+/>
+
+

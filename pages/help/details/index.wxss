@@ -1,0 +1,47 @@
+page {
+  padding: 28rpx 25rpx calc(50px + env(safe-area-inset-bottom));
+  background-color: #ffffff;
+}
+
+.details-wrap {
+  font-size: 30rpx;
+  position: relative;
+  color: #5A5A5A;
+  padding: 30rpx;
+  text-align: left;
+}
+.details-wrap .bg {
+  width: 121rpx;
+  height: 113rpx;
+  position: absolute;
+  top: 40rpx;
+  left: 0;
+}
+.details-wrap .icon {
+  width: 78rpx;
+  height: 78rpx;
+  display: block;
+  margin: 50rpx auto 30rpx;
+}
+.details-wrap .name {
+  font-weight: bold;
+  font-size: 40rpx;
+  color: #1A1A1A;
+  text-align: center;
+  border-bottom: 1px solid #ECECEC;
+  padding-bottom: 50rpx;
+}
+.details-wrap .content {
+  margin: 60rpx 0 80rpx;
+  line-height: 44rpx;
+}  
+
+.details-wrap .bottom {
+  line-height: 44rpx;
+}
+.details-wrap .bottom .title {
+  margin-bottom: 30rpx;
+}
+.details-wrap .bottom .text {
+  margin-bottom: 30rpx;
+}

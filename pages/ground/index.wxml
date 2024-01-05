@@ -1,0 +1,41 @@
+<navigation-bar default-data="{{ defaultData }}"></navigation-bar>
+
+<view class="page">
+  <image
+    class="bg"
+    src="{{ isSet ? bg2 : bg1 }}"
+    alt=""
+    mode="widthFix"
+  />
+  <view wx:if="{{!isSet}}">
+    <image
+      class="img-text"
+      src="https://image.jkcspace.com/wxmini_static/images/ground-text.png"
+      alt=""
+    />
+    <view class="tips">您当前所选择门店暂时没有新人礼包 可通过购买“会员卡”来完成约课</view>
+  </view>
+  
+  <view class='libao-item'>
+    <libao-item
+      default-data="{{ physicalStore }}"
+      default-libao="{{ libaoData }}"
+      bind:ok="onChange"
+      bind:cancel="onCancel"
+    />
+    <view
+      wx:if="{{!isSet}}"
+      class="buy-btn btn1"
+      bind:tap="onBuy2"
+    />
+    <view
+      wx:else
+      class="buy-btn btn2"
+      bind:tap="onBuy"
+    >
+      新人专享{{libaoData.price}}元
+    </view>
+    
+  </view>
+</view>
+

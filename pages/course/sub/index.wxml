@@ -1,0 +1,49 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="info">
+  <image
+    class="banner"
+    src="{{ uploadUrlHost }}/{{ dataSource.img_url }}"
+    alt=""
+  />
+  <view class="bottom">
+    <view class="title">
+      <view class="text">{{ dataSource.name }}</view>
+      <view class="tag">视频</view>
+    </view>
+    <view class="tag-wrap">
+      <view class="tag blue">适龄{{ dataSource.suit_age_min }}-{{ dataSource.suit_age_max }}岁</view>
+      <view class="tag orange">{{ dataSource.total_section }}节课</view>
+    </view>
+  </view>
+</view>
+
+<view class="page-title">视频目录</view>
+<empty wx:if="{{ !dataSource.child_course.length }}" />
+<view class="list-wrap">
+  <navigator
+    url="/pages/play/index?id={{ item.id }}"
+    wx:for="{{ dataSource.child_course }}"
+    wx:key="id"
+  >
+    <view class="item">
+      <video class="cover" src="{{ uploadUrlHost }}/{{ item.video_url }}"></video>
+      <image
+        class="play"
+        src="https://image.jkcspace.com/wxmini_static/images/catalogue-play.png"
+        alt=""
+      />
+      <view class="ctn">
+        <view class="title">{{ item.name }}</view>
+        <view class="desc" style="background-image:url('https://image.jkcspace.com/wxmini_static/images/catalogue-time.png')">{{ item.duration }}</view>
+      </view>
+    </view>
+  </navigator>
+</view>
+
+<view class="footer">
+  <view class="btn orange" bind:tap="onAdd">
+    添加全部课程
+  </view>
+</view>
+

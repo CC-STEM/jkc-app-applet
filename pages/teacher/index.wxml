@@ -1,0 +1,148 @@
+<navigation-bar default-data="{{ defaultData }}" bind:change="onChangeTab"></navigation-bar>
+
+<view class="page-title">
+  <view>最近上课统计</view>
+  <view class="change-btn" bind:tap="onChange">切换身份
+  </view>
+</view>
+
+<empty wx:if="{{ !totalData.length }}" />
+
+<view wx:else class="table-wrap">
+  <view class="tr">
+    <view class="td label bg1">上课 (次)</view>
+    <view
+      class="td"
+      wx:key="index"
+      wx:for="{{ totalData[0] }}"
+    >{{ item }}
+    </view>
+  </view>
+  <view class="tr">
+    <view class="td label white bg2">人数(人)</view>
+    <view
+      class="td"
+      wx:key="index"
+      wx:for="{{ totalData[1] }}"
+    >{{ item }}
+    </view>
+  </view>
+  <view class="tr">
+    <view class="td label">日期</view>
+    <view
+      class="td"
+      wx:key="index"
+      wx:for="{{ totalData[2] }}"
+    >{{ item }}
+    </view>
+  </view>
+</view>
+
+<empty wx:if="{{ !dataSource.length }}" />
+
+<view class="list-wrap" wx:else>
+  <navigator
+    wx:for="{{ dataSource }}"
+    wx:key="id"
+    url="/pages/teacher/details/index?id={{ item.id }}"
+  >
+    <view class="item">
+      <!-- <video
+        class="cover"
+        src="{{ uploadUrlHost }}/{{ item.video_url }}"
+        alt=""
+      >
+      </video> -->
+      <!-- <image
+        class="play"
+        src="https://image.jkcspace.com/wxmini_static/images/catalogue-play.png"
+        alt=""
+      /> -->
+      <view class="ctn">
+        <view class="title">{{ item.name }}</view>
+        <view class="text">上课时间：{{ item.class_time }}</view>
+        <view class="text">上课教室：{{ item.classroom_name }}</view>
+        <view class="text">学习人数：{{ item.sign_up_num }}人</view>
+      </view>
+    </view>
+  </navigator>
+</view>
+
+<view class="ctn-wrap {{ isUp ? 'up' : '' }}" bind:touchstart="touchStart" bind:touchmove="touchMove" bind:touchend="touchEnd">
+  <view class="more" bind:tap="onShowMore">{{ isUp ? '收起' : '查看更多' }}</view>
+  <view class="total-top">
+    <view class="item item1">
+      <view class="left">
+        <text>本月当前业绩</text>
+        <image
+          class="eye"
+          src="https://image.jkcspace.com/wxmini_static/images/{{ showTotal ? 'eye' : 'eye-close' }}.png"
+          alt=""
+          bind:tap="onShowTotal"
+        />
+      </view>
+      <view class="coin" wx:if="{{ showTotal }}">
+        <view class="strong">{{ salaryTotal.salary }}</view>
+      </view>
+      <view class="coin" wx:else>
+        <view class="strong">******</view>
+      </view>
+    </view>
+    <view class="item item2">
+      <navigator url="/pages/invite/index" class="ma">
+        <image
+          class="icon"
+          src="https://image.jkcspace.com/wxmini_static/images/teacher-icon1.png"
+          alt=""
+        />
+        <view class="text">个人码</view>
+      </navigator>
+      <navigator url="/pages/tool/index?showQrcodeBtn=1" class="ma">
+        <image
+          class="icon"
+          src="https://image.jkcspace.com/wxmini_static/images/teacher-icon2.png"
+          alt=""
+        />
+        <view class="text">商品码</view>
+      </navigator>
+    </view>
+    <navigator url="/pages/yeji/index" class="item item3">
+      业绩明细 >
+    </navigator>
+  </view>
+  <view class="total-bottom">
+    <view class="title">业绩统计</view>
+    <view class="total-wrap total1">
+      <view
+        class="item"
+        wx:for="{{ typeMap }}"
+        wx:key="index"
+        data-index="{{index}}"
+        bind:tap="onChangeType"
+      >
+        <view class="value">{{ showTotal ? item.value : '***' }}</view>
+        <view class="label">{{ item.name }}</view>
+      </view>
+    </view>
+
+    <view class="title border">上课人数说明</view>
+    <view class="total-wrap total2">
+      <view
+        class="item"
+        wx:for="{{ typeMap2 }}"
+        wx:key="index"
+        data-index="{{index}}"
+        bind:tap="onChangeType"
+      >
+        <view class="value">{{ item.value2 }}/{{item.value1}}</view>
+        <view class="label">{{ item.name }}</view>
+        <image wx:if="{{ item.type == type }}" class="img" src="https://image.jkcspace.com/wxmini_static/images/{{suitAge ? 'arrow' : 'arrow-down' }}.png" />
+      </view>
+      <view class="num">
+        <text>出勤率</text>
+        <view class="strong">{{ salaryTotal.attendance_ratio }}</view>
+      </view>
+    </view>
+  </view>
+</view>
+

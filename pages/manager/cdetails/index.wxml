@@ -1,0 +1,61 @@
+<!--pages/courseDetail/index.wxml-->
+<navigation-bar default-data="{{ defaultData }}" isManager="{{true}}"></navigation-bar>
+
+<view class="top" />
+<view class="page-course_detail">
+    <view class="backdrop">
+        <view class="course_content">
+            <view class="course_det"> 
+                <view class="course_main">
+                    <image src="{{ uploadUrlHost }}/{{ dataSource.img_url }}" class="course_img"></image>
+                    <view class="mgl20 course_right">
+                        <view class="_title">{{dataSource.course_name}}</view>
+                        <view>
+                            <text class="flg_cell flg_blue">{{dataSource.physical_store_name}}</text>
+                            <text class="flg_cell flg_yellow">{{dataSource.suit_age_min}}岁</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="course_class">
+                    <view class="dp_c_b">
+                        <text class="text-999">上课时间</text>
+                        <text class="text-1D">{{dataSource.class_start_time}}-{{dataSource.class_end_time}}</text>
+                    </view>
+                    <view class="dp_c_b mgt38">
+                        <text class="text-999">上课老师</text>
+                        <text class="text-1D">{{dataSource.teacher_name}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="dp-center-b raduis_cell student_main">
+                <text class="text-30 text-2A">学生情况</text>
+                <view class="text-AD text-20">实到 <text class="fw-b text-32  text-06">{{dataSource.course_class_attendance_num}}</text> /报名 <text
+                class="fw-b text-32 text-06">{{dataSource.sign_up_num}}</text></view>
+            </view>
+
+            <view class="raduis_cell student_cell" wx:for="{{dataSource.students}}">
+                <image src="{{item.avatar || defaultAvatar}}" class="_avatar"></image>
+                <view class="student_cell_content">
+                    <view class="dp-center-b">
+                        <view class="dp_c">
+                            <text class="text-30 text-1A fw-b">{{item.member_name}}</text>
+                            <image wx:if="{{item.member_gender == 2 }}" src="" class="_sex_icon" style="background: blue;"></image>
+                            <image wx:if="{{item.member_gender == 1}}" src="" class="_sex_icon" style="background: pink;"></image>
+                        </view>
+                        <view class="dp_c">
+                            <image src="https://image.jkcspace.com/wxmini_static/images/manage-dot{{item.order_status}}.png" class="_status_icon"></image>
+                            <text
+                                class="_status text-24 fw-b {{item.order_status == 1 ? 'blue_s' :item.order_status == 2?'green_s':item.order_status == 3?'red_s':'cancle_s'}}">{{item.order_status
+                                == 1?'已约课':item.order_status == 2?'已上课':item.order_status == 3?'旷课':item.order_status ==
+                                4?'已取消':''}}</text>
+                        </view>
+                    </view>
+                    <view class="dp-center-b mgt10">
+                        <text class="text-26 text-75">{{item.member_mobile}}</text>
+                        <text class="text-26 text-1F" wx:if="{{item.order_status == 2 || item.order_status == 3}}">￥{{item.course_unit_price}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

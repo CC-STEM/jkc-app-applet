@@ -1,0 +1,70 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<view class="top">
+  <image
+    class="icon1"
+    src="https://image.jkcspace.com/wxmini_static/images/help-icon1.png"
+    alt=""
+  />
+  <image
+    class="banner"
+    src="https://image.jkcspace.com/wxmini_static/images/help-banner.png"
+    alt=""
+  />
+</view>
+
+<empty wx:if="{{ !dataSource.length }}" />
+
+<view class="list-wrap">
+  <view
+    class="item"
+    wx:for="{{ dataSource }}"
+    wx:key="id"
+  >
+    <navigator url="/pages/help/order_problem/index?id={{ item.id }}&name={{ item.name }}&img={{ uploadUrlHost }}/{{ item.img }}">
+      <view class="left">
+        <image
+          class="icon"
+          src="{{ uploadUrlHost }}/{{ item.img }}"
+          alt=""
+        />
+        <view class="name">
+          {{ item.name }}
+          <image
+            class="arrow"
+            src="https://image.jkcspace.com/wxmini_static/images/arrow-right.png"
+            alt=""
+          />
+        </view>
+      </view>
+    </navigator>
+
+    <view class="right">
+      <navigator
+        url="/pages/help/details/index?id={{ item.id }}&img=https://image.jkcspace.com/wxmini_static/images/help-icon{{index+2}}.png"
+        wx:for="{{ item.article }}"
+        wx:key="id"
+      >
+        <view class="text">{{ item.title }}</view>
+      </navigator>
+    </view>
+  </view>
+</view>
+
+<view class="footer">
+  <button open-type="contact" bindcontact="handleContact">
+    <image
+      class="img"
+      src="https://image.jkcspace.com/wxmini_static/images/help-kefu.png"
+      alt=""
+    />
+  </button>
+
+  <image
+    bind:tap="onCall"
+    class="img"
+    src="https://image.jkcspace.com/wxmini_static/images/help-phone.png"
+    alt=""
+  />
+</view>
+

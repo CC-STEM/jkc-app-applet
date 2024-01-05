@@ -1,0 +1,88 @@
+page {
+  padding: 28rpx 23rpx;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  padding: 15rpx 38rpx;
+}
+.top .icon1 {
+  width: 170rpx;
+  height: 153rpx;
+}
+.top .banner {
+  width: 478rpx;
+  height: 124rpx;
+}
+
+.list-wrap {
+  font-size: 30rpx;
+}
+.list-wrap .item {
+  width: 100%;
+  border-radius: 20rpx;
+  margin-bottom: 18rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}  
+.list-wrap .item .left {
+  text-align: center;
+  background-color: #ffffff;
+  width: 189rpx;
+  height: 234rpx;
+  margin-right: 14rpx;
+  border-radius: 20rpx;
+  padding: 38rpx 0;
+  font-size: 26rpx;
+  font-weight: 800;
+  color: #1A1A1A;
+}
+.list-wrap .item .icon {
+  width: 110rpx;
+  height: 110rpx;
+}
+.list-wrap .item .arrow {
+  width: 20rpx;
+  height: 20rpx;
+  display: inline-block;
+}
+.list-wrap .item .name {
+  padding-left: 14rpx;
+}
+.list-wrap .item .right {
+  font-size: 28rpx;
+  height: 234rpx;
+  background-color: #ffffff;
+  flex: 1;
+  border-radius: 20rpx;
+  padding: 0 28rpx;
+}
+.list-wrap .item .right .text {
+  padding: 19rpx 0;
+  border-bottom: 1px solid #EBEBEB;
+  color: #333;
+}
+.list-wrap .item .right .noBorder {
+  border-bottom: 0;
+}
+
+.footer {
+  display: flex;
+  margin-top: 26rpx;
+}
+.footer button {
+  padding: 0 !important;
+  border: 0;
+  border-radius: 0 !important;
+  margin: 0;
+  background-color: initial !important;
+}
+.footer button::after {
+  border: 0;
+}
+.footer .img {
+  width: 356rpx;
+  height: 133rpx;
+}
